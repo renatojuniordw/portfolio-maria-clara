@@ -27,8 +27,9 @@ const Header = () => {
                 </div>
                 <ul className={styles.menu}>
                     <li><a href="#inicio">Início</a></li>
+                    <li><a href="#sobre">Sobre a doutora</a></li>
                     <li><a href="#servicos">Área de atuação</a></li>
-                    <li><a href="#faq">Principais Dúvidas</a></li>
+                    <li><a href="#faq">Principais dúvidas</a></li>
                 </ul>
             </nav>
         </header>

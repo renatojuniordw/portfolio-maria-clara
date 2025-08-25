@@ -8,7 +8,7 @@
     background-repeat: no-repeat;
     color: white;
     margin: 0;
-
+    border-radius: 30px;
 
     .container {
         display: flex;
@@ -22,7 +22,7 @@
     }
 
     .text {
-        max-width: 600px;
+        max-width: 400px;
     }
 
     .title {
@@ -45,8 +45,10 @@
 
 @media (max-width: 768px) {
     .hero {
-        background: linear-gradient(to bottom, #4A4A4A 30%, rgba(0, 0, 0, 0.2) 100%), url('/assets/images/Maria_Clara-adv-03.png') no-repeat center bottom;
-        background-size: cover;
+        background:
+            linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+        background-size: auto 70%;
         background-position: center bottom;
+        border-radius: 0 0px 30px 30px;
     }
 }
