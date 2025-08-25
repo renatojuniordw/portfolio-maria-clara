@@ -5,13 +5,12 @@ import logo from '@/assets/images/logo-footer.png';
 import logoScroll from '@/assets/images/Maria_Clara-adv-03.png';
 import { useEffect, useState } from 'react';
 
-import { Menubar } from 'primereact/menubar';
-
 import styles from '@/assets/styles/Header.module.scss';
 
 const Header = () => {
     const [scrolled, setScrolled] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -47,13 +46,30 @@ const Header = () => {
                             <Image
                                 src={logoToShow}
                                 alt="Logo"
-                                width={scrolled || isMobile ? 55 : 450}
+                                width={scrolled || isMobile ? 55 : 350}
                                 height={scrolled || isMobile ? 45 : 73}
                             />
                         );
                     })()}
                 </div>
-                <Menubar model={items} className={styles.menu} />
+                <div className={styles.navRight}>
+                    <button
+                        className={styles.hamburger}
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    >
+                        <span className="pi pi-bars" />
+                    </button>
+                    <ul
+                        className={`${styles.menuItems} ${isMobileMenuOpen ? styles.menuOpen : ''}`}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                        {items.map((item) => (
+                            <li key={item.label}>
+                                <a href={item.url}>{item.label}</a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </nav>
         </header>
     );

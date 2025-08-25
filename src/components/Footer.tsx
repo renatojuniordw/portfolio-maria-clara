@@ -10,7 +10,7 @@ const Footer = () => {
         <footer className={styles.footer}>
             <div className={styles.container}>
                 <div className={styles.column}>
-                    <Image src={logo} alt="Logo Maria Clara" width={370} height={60} />
+                    <Image src={logo} alt="Logo Maria Clara" width={350} height={60} />
                 </div>
                 <div className={styles.column}>
                     <div className={styles.contact}>
