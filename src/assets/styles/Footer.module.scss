@@ -1,0 +1,72 @@
+@import './variables';
+
+.footer {
+  height: 150px;
+  background-color: #f7f7f7;
+  color: $black;
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+    height: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .column {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    .contact {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      text-align: center;
+    }
+  }
+
+  .contactLine {
+    font-size: 1.5rem;
+    color: $black;
+    margin: 0;
+  }
+
+  .socials {
+    display: flex;
+    gap: 1rem;
+
+    a {
+      color: $copper;
+      transition: color 0.3s;
+
+      &:hover {
+        color: lighten($copper, 10%);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    height: 350px;
+    // background-color: red;
+
+    .container {
+      padding: 5rem 1.5rem;
+      // gap: 2rem;
+      // flex-direction: column;
+      // align-items: center;
+      // text-align: center;
+    }
+
+  }
+}

@@ -1,0 +1,59 @@
+@import './variables';
+
+.services {
+    padding: 4rem 2rem;
+    background-color: $light-gray;
+    text-align: center;
+
+    .grid {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        text-align: left;
+        padding: 2rem 0;
+
+        .text {
+            grid-column: 1 / 2;
+            font-size: 1rem;
+            color: $graphite;
+            line-height: 1.6;
+        }
+
+        .list {
+            grid-column: 2 / 3;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+
+            .item {
+                position: relative;
+                padding: 0.5rem 0;
+                font-size: 1.1rem;
+                font-weight: 500;
+                color: $black;
+                border-bottom: 2px solid transparent;
+                transition: all 0.3s ease;
+                color: $copper;
+                border-bottom: 2px solid $copper;
+
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .services {
+        .grid {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto;
+            gap: 2rem;
+
+            .text,
+            .list {
+                grid-column: 1 / -1;
+                margin: 1.5rem 0;
+            }
+        }
+    }
+}

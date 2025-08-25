@@ -1,0 +1,52 @@
+@import './variables';
+
+.hero {
+    padding: 6rem 2rem 2rem 2rem;
+    background: linear-gradient(to right, #4A4A4A 30%, rgba(0, 0, 0, 0.2) 100%), url('/assets/images/profile.png') no-repeat right center;
+    background-size: auto 100%;
+    background-position: right center;
+    background-repeat: no-repeat;
+    color: white;
+    margin: 0;
+
+
+    .container {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: left;
+        min-height: 400px;
+    }
+
+    .text {
+        max-width: 600px;
+    }
+
+    .title {
+        font-size: 3rem;
+        font-weight: bold;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+
+    .slogan {
+        font-size: 1.25rem;
+        margin-top: 1rem;
+    }
+
+    .imageWrapper {
+        flex-shrink: 0;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .hero {
+        background: linear-gradient(to bottom, #4A4A4A 30%, rgba(0, 0, 0, 0.2) 100%), url('/assets/images/Maria_Clara-adv-03.png') no-repeat center bottom;
+        background-size: cover;
+        background-position: center bottom;
+    }
+}

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_1" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 595.28 106.03">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #b87331;
+        font-family: IvyJournal-Thin, IvyJournal;
+        font-size: 71.8px;
+        font-weight: 200;
+      }
+
+      .cls-2 {
+        letter-spacing: .19em;
+      }
+
+      .cls-3 {
+        letter-spacing: .2em;
+      }
+
+      .cls-4 {
+        letter-spacing: .18em;
+      }
+
+      .cls-5 {
+        letter-spacing: .18em;
+      }
+
+      .cls-6 {
+        letter-spacing: 0em;
+      }
+
+      .cls-7 {
+        font-family: MontserratAlternates-Light, 'Montserrat Alternates';
+        font-size: 40.48px;
+      }
+
+      .cls-7, .cls-8 {
+        fill: #1d1d1b;
+        font-weight: 300;
+      }
+
+      .cls-8 {
+        font-family: Montserrat-Light, Montserrat;
+        font-size: 24.81px;
+      }
+
+      .cls-9 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-10 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-11 {
+        letter-spacing: 0em;
+      }
+
+      .cls-12 {
+        letter-spacing: 0em;
+      }
+    </style>
+  </defs>
+  <g>
+    <text class="cls-1" transform="translate(34.19 63.09)"><tspan x="0" y="0">M</tspan></text>
+    <text class="cls-1" transform="translate(99.89 63.95)"><tspan x="0" y="0">S</tspan></text>
+    <text class="cls-1" transform="translate(70.69 88.6)"><tspan x="0" y="0">C</tspan></text>
+  </g>
+  <g>
+    <text class="cls-7" transform="translate(160.89 46.1)"><tspan x="0" y="0">Ma</tspan><tspan class="cls-11" x="76.91" y="0">r</tspan><tspan class="cls-6" x="92.49" y="0">ia C</tspan><tspan class="cls-12" x="169.76" y="0">l</tspan><tspan class="cls-6" x="181.42" y="0">a</tspan><tspan class="cls-10" x="208.74" y="0">r</tspan><tspan x="224.12" y="0">a San</tspan><tspan class="cls-9" x="341.06" y="0">t</tspan><tspan x="355.75" y="0">os</tspan></text>
+    <text class="cls-8" transform="translate(266.27 87.9)"><tspan class="cls-3" x="0" y="0">A</tspan><tspan class="cls-4" x="22.46" y="0">DV</tspan><tspan class="cls-3" x="68.88" y="0">O</tspan><tspan class="cls-5" x="94.64" y="0">C</tspan><tspan class="cls-2" x="116.9" y="0">A</tspan><tspan class="cls-3" x="139.11" y="0">CIA</tspan></text>
+  </g>
+</svg>

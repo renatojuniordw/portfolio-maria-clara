@@ -1,0 +1,32 @@
+@import './variables';
+
+.faq {
+    padding: 4rem 2rem;
+    background-color: #fff;
+    text-align: center;
+
+    .title {
+        font-size: 2rem;
+        color: $black;
+        margin-bottom: 2rem;
+    }
+
+    :global(.p-accordion .p-accordion-header .p-accordion-header-link) {
+        border: 0;
+        color: $copper;
+        padding: 1.3rem;
+        border-bottom: 2px solid $copper;
+        text-align: left;
+
+        &:hover {
+            background-color: darken($light-gray, 5%);
+        }
+    }
+
+    :global(.p-accordion .p-accordion-content) {
+        text-align: left;
+        color: $graphite;
+        line-height: 1.6;
+
+    }
+}
