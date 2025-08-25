@@ -23,6 +23,37 @@
     position: relative;
 }
 
+.whatsappButton {
+    color: #fff;
+    background-color: $copper;
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: darken($copper, 10%);
+    }
+}
+
+.desktopOnly {
+    display: none;
+
+    @media (min-width: 769px) {
+        display: inline-block;
+    }
+}
+
+.mobileOnly {
+    display: block;
+
+    @media (min-width: 769px) {
+        display: none;
+        color: #fff;
+    }
+}
+
 .hamburger {
     font-size: 2rem;
     background: none;
@@ -56,8 +87,8 @@
         display: none;
         position: absolute;
         top: 100%;
-        left: -19rem;
-        width: 100vw;
+        left: -16rem;
+        width: 300px;
         background: $light-gray;
         flex-direction: column;
         padding: 1rem;
@@ -86,6 +117,12 @@
 
         li:last-child {
             border-bottom: none;
+        }
+
+        .whatsappButton {
+            color: #fff;
+            margin-top: 1rem;
+            text-align: center;
         }
     }
 }

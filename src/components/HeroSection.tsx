@@ -32,13 +32,15 @@ const HeroSection = () => {
     }, [charIndex, textIndex]);
 
     return (
-        <section className={styles.hero} id='inicio'>
+        <section className={styles.hero} id='inicio' role="region" aria-labelledby="hero-title">
             <div className={styles.container}>
                 <div className={styles.text}>
-                    <h1 className={styles.title}>{displayedText}</h1>
-                    <p className={styles.slogan}>
-                        Experiência, eficiência e credibilidade.
-                    </p>
+                    <header>
+                        <h1 id="hero-title" className={styles.title}>{displayedText}</h1>
+                        <p className={styles.slogan}>
+                            Experiência, eficiência e credibilidade.
+                        </p>
+                    </header>
                 </div>
             </div>
         </section>

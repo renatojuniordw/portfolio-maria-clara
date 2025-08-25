@@ -9,10 +9,13 @@ const AboutSection = () => {
         <section className={styles.about} id="sobre">
             <div className={styles.container}>
 
-                <div className={styles.textWrapper}>
-                    <h2 className="section-title">Sobre
-                        <br /> a Doutora</h2>
-                    <Divider />
+                <article className={styles.textWrapper} aria-labelledby="about-heading">
+                    <header>
+                        <h1 id="about-heading" className="section-title">
+                            Sobre <span aria-hidden="true"><br /></span>a Doutora
+                        </h1>
+                        <Divider />
+                    </header>
                     <p className={styles.description}>
                         Sou bacharela em Direito pela UNICAP (2021.1), com MBA em Mediação e Arbitragem pela mesma instituição (2023), e atualmente curso pós-graduação em Direito da Seguridade Social – Direito e Prática Previdenciária – pela Faculdade Legale (2025/2026).
 
@@ -22,8 +25,7 @@ const AboutSection = () => {
                         <br /><br />
                         Meu compromisso é oferecer um atendimento humanizado, transparente e eficiente, com foco na segurança jurídica e na tranquilidade de cada cliente.
                     </p>
-
-                </div>
+                </article>
             </div>
         </section>
     );

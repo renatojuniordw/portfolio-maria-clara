@@ -1,33 +1,25 @@
 'use client';
 
 import Image from 'next/image';
-import logo from '@/assets/images/logo-footer.png';
-import logoScroll from '@/assets/images/Maria_Clara-adv-03.png';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
+import logoScroll from '@/assets/images/Maria_Clara-adv-03.png';
 import styles from '@/assets/styles/Header.module.scss';
+import { CONSTANTS } from '@/constants/constants';
+
+const WhatsAppButton = ({ className = '' }: { className?: string }) => (
+    <a
+        href={CONSTANTS.whatsapp}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`${styles.whatsappButton} ${className}`}
+    >
+        Me ajuda, Dra.
+    </a>
+);
 
 const Header = () => {
-    const [scrolled, setScrolled] = useState(false);
-    const [isMobile, setIsMobile] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-        };
-        const checkIsMobile = () => {
-            setIsMobile(window.innerWidth <= 768);
-        };
-
-        checkIsMobile();
-        window.addEventListener('resize', checkIsMobile);
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            window.removeEventListener('resize', checkIsMobile);
-        };
-    }, []);
 
     const items = [
         { label: 'Início', url: '#inicio' },
@@ -37,17 +29,16 @@ const Header = () => {
     ];
 
     return (
-        <header className={styles.header}>
-            <nav className={styles.nav}>
+        <header className={styles.header} role="banner">
+            <nav className={styles.nav} aria-label="Menu principal">
                 <div className={styles.logo}>
                     {(() => {
-                        const logoToShow = isMobile ? logoScroll : (scrolled ? logoScroll : logo);
                         return (
                             <Image
-                                src={logoToShow}
-                                alt="Logo"
-                                width={scrolled || isMobile ? 55 : 350}
-                                height={scrolled || isMobile ? 45 : 73}
+                                src={logoScroll}
+                                alt="Logo da advogada Maria Clara"
+                                width={55}
+                                height={50}
                             />
                         );
                     })()}
@@ -56,6 +47,7 @@ const Header = () => {
                     <button
                         className={styles.hamburger}
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        aria-label="Abrir menu"
                     >
                         <span className="pi pi-bars" />
                     </button>
@@ -65,10 +57,20 @@ const Header = () => {
                     >
                         {items.map((item) => (
                             <li key={item.label}>
-                                <a href={item.url}>{item.label}</a>
+                                <a
+                                    href={item.url}
+                                    aria-current={typeof window !== 'undefined' && window.location.hash === item.url ? 'page' : undefined}
+                                >
+                                    {item.label}
+                                </a>
                             </li>
                         ))}
+                        <li className={styles.mobileOnly}>
+                            <WhatsAppButton />
+                        </li>
                     </ul>
+
+                    <WhatsAppButton className={styles.desktopOnly} />
                 </div>
             </nav>
         </header>

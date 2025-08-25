@@ -17,27 +17,54 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Maria Clara - Advocacia Previdenciária',
+  title: 'Maria Clara Santos | Advocacia Previdenciária',
   description: 'Especialista em aposentadorias, pensões, auxílios e BPC/LOAS. Planejamento e revisão de benefícios com acolhimento e segurança jurídica.',
   keywords: [
     'advocacia previdenciária',
+    'direito previdenciário',
     'aposentadoria',
     'BPC',
     'LOAS',
     'planejamento previdenciário',
     'revisão de aposentadoria',
     'Maria Clara Santos',
-    'advogada'
+    'Maria Clara',
+    'aposentadoria',
+    'advogada',
+    'Advocacia Recife',
+    'Advogada em Recife',
+    'advogada recife',
+    'previdenciário recife',
+    'aposentadoria',
+    'planejamento previdenciário',
+    'aposentadoria recife',
+    'como ter direito ao LOAS'
   ],
   robots: 'index, follow',
+  authors: [{ name: 'Maria Clara Santos' }],
   openGraph: {
-    title: 'Maria Clara - Advocacia Previdenciária',
+    title: 'Maria Clara Santos | Advocacia Previdenciária',
     description: 'Especialista em aposentadorias, pensões, auxílios e BPC/LOAS. Atendimento humanizado com foco na segurança jurídica.',
     url: 'https://www.mariaclarasantos.adv.br',
-    siteName: 'Maria Clara Advocacia',
+    siteName: 'Maria Clara Santos | Advocacia Previdenciária',
     type: 'website',
     locale: 'pt_BR',
+    images: [
+      {
+        url: 'https://www.mariaclarasantos.adv.br/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Maria Clara Santos - Advocacia Previdenciária',
+      },
+    ],
   },
+  // twitter: {
+  //   card: 'summary_large_image',
+  //   title: 'Maria Clara Santos | Advocacia Previdenciária',
+  //   description: 'Atendimento humanizado e especializado em Direito Previdenciário, com foco em aposentadorias, BPC/LOAS e revisão de benefícios.',
+  //   images: ['https://www.mariaclarasantos.adv.br/og-image.jpg'],
+  //   creator: '@mariaclara.adv', // Ajuste se necessário
+  // },
 };
 
 export default function RootLayout({
@@ -46,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
       </body>

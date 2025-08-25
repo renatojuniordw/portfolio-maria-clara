@@ -31,9 +31,13 @@ const faqItems = [
 
 const FAQCollapse = () => {
     return (
-        <section className={styles.faq} id="faq">
-            <h2 className="section-title">Principais <br /> Dúvidas</h2>
-            <Divider />
+        <section className={styles.faq} id="faq" aria-labelledby="faq-heading">
+            <header>
+                <h2 id="faq-heading" className="section-title">
+                    Principais <span aria-hidden="true"><br /></span>Dúvidas
+                </h2>
+                <Divider />
+            </header>
             <Accordion multiple>
                 {faqItems.map((item, index) => (
                     <AccordionTab key={index} header={item.header}>

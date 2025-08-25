@@ -20,20 +20,29 @@ const ServicesSection = () => {
     ];
 
     return (
-        <section className={styles.services} id="servicos">
-            <h2 className="section-title">Área <br /> de atuação</h2>
-            <Divider />
+        <section
+            className={styles.services}
+            id="servicos"
+            aria-labelledby="services-heading"
+            role="region"
+        >
+            <header>
+                <h2 id="services-heading" className="section-title">
+                    Área <span aria-hidden="true"><br /></span>de atuação
+                </h2>
+                <Divider />
+            </header>
             <div className={styles.grid}>
                 <div className={styles.text}>
                     Sou especializada em Direito Previdenciário, oferecendo um atendimento humanizado e estratégico para garantir seus direitos. Atendo com empatia e conhecimento técnico para buscar o melhor benefício possível junto ao INSS.
                 </div>
-                <div className={styles.list}>
+                <ul className={styles.list}>
                     {services.map((service, index) => (
-                        <div key={index} className={styles.item}>
+                        <li key={index} className={styles.item}>
                             {service.title}
-                        </div>
+                        </li>
                     ))}
-                </div>
+                </ul>
             </div>
         </section>
     );
