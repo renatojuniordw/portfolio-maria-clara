@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.mariaclarasantos.adv.br
+
+# Sitemaps
+Sitemap: https://www.mariaclarasantos.adv.br/sitemap.xml
