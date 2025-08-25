@@ -24,7 +24,7 @@ const Home: NextPage = () => {
         />
         <meta
           name="keywords"
-          content="advogada previdenciária, direito previdenciário, aposentadoria, BPC, LOAS, revisão de benefícios, INSS, planejamento previdenciário, Maria Clara Santos, Maria Clara, Advocacia Recife, Advogada em Recife, advogada recife, previdenciário recife, aposentadoria, planejamento previdenciário, aposentadoria recife, como ter direito ao LOAS, advogada recife, advogada em recife, direito previdenciário recife, previdenciário recife, revisão aposentadoria recife, advocacia previdenciária recife, melhor advogada previdenciária recife, bpc loas recife,"
+          content="advogada previdenciária, direito previdenciário, aposentadoria, BPC, LOAS, revisão de benefícios, INSS, planejamento previdenciário, Maria Clara Santos, Maria Clara, Advocacia Recife, Advogada em Recife, advogada recife, previdenciário recife, aposentadoria, planejamento previdenciário, aposentadoria recife, como ter direito ao LOAS, advogada recife, advogada em recife, direito previdenciário recife, previdenciário recife, revisão aposentadoria recife, advocacia previdenciária recife, melhor advogada previdenciária recife, bpc loas recife,  Maria Clara Santos advogada previdenciária, Maria Clara advogada previdenciária, Maria Clara advogada previdenciária em Recife, OAB 60655, OAB/PE 60655, advogada OAB Pernambuco, Maria Clara Santos"
         />
         <meta name="author" content="Maria Clara Santos" />
         <meta name="robots" content="index, follow" />

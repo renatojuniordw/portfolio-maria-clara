@@ -36,7 +36,9 @@ const Footer = () => {
                     <Image src={logo} alt="Logo Maria Clara" width={350} height={60} />
                 </div>
             </div>
-            <p className={styles.copyright}>© {new Date().getFullYear()} Maria Clara Santos. Todos os direitos reservados.</p>
+            <p className={styles.copyright}>© {new Date().getFullYear()} Maria Clara Santos. Todos os direitos reservados. <br />
+                OAB/PE 60.655 – Maria Clara Santos, Advogada Previdenciária.</p>
+
         </footer>
     );
 };

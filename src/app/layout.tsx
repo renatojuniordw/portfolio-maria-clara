@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'Maria Clara Santos | Advocacia Previdenciária',
-  description: 'Especialista em aposentadorias, pensões, auxílios e BPC/LOAS. Planejamento e revisão de benefícios com acolhimento e segurança jurídica.',
+  description: 'Maria Clara Santos, advogada inscrita na OAB/PE 60.655. Especialista em aposentadorias, pensões, auxílios e BPC/LOAS. Planejamento e revisão de benefícios com acolhimento e segurança jurídica.',
   keywords: [
     'advocacia previdenciária',
     'direito previdenciário',
@@ -47,6 +47,13 @@ export const metadata: Metadata = {
     'advocacia previdenciária recife',
     'melhor advogada previdenciária recife',
     'bpc loas recife',
+    'Maria Clara Santos advogada previdenciária',
+    'Maria Clara advogada previdenciária',
+    'Maria Clara advogada previdenciária em Recife',
+    'OAB 60655',
+    'OAB/PE 60655',
+    'advogada OAB Pernambuco',
+    'Maria Clara Santos'
   ],
   robots: 'index, follow',
   authors: [{ name: 'Maria Clara Santos' }],
@@ -59,7 +66,7 @@ export const metadata: Metadata = {
     locale: 'pt_BR',
     images: [
       {
-        url: 'https://www.mariaclarasantos.adv.br/og-image.jpg',
+        url: 'https://www.mariaclarasantos.adv.br/Maria_Clara-adv-03.png',
         width: 1200,
         height: 630,
         alt: 'Maria Clara Santos - Advocacia Previdenciária',
@@ -70,7 +77,7 @@ export const metadata: Metadata = {
   //   card: 'summary_large_image',
   //   title: 'Maria Clara Santos | Advocacia Previdenciária',
   //   description: 'Atendimento humanizado e especializado em Direito Previdenciário, com foco em aposentadorias, BPC/LOAS e revisão de benefícios.',
-  //   images: ['https://www.mariaclarasantos.adv.br/og-image.jpg'],
+  //   images: ['https://www.mariaclarasantos.adv.br/Maria_Clara-adv-03.png'],
   //   creator: '@mariaclara.adv', // Ajuste se necessário
   // },
 };
