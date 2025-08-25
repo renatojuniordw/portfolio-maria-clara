@@ -20,11 +20,11 @@ const Home: NextPage = () => {
 
         <meta
           name="description"
-          content="Maria Clara Santos é advogada especializada em Direito Previdenciário. Planejamento de aposentadoria, revisão de benefícios e BPC/LOAS com atendimento acolhedor e foco na segurança jurídica."
+          content="Maria Clara Santos é advogada especializada em Direito Previdenciário, atuando em Recife - PE. Planejamento de aposentadoria, revisão de benefícios e BPC/LOAS com acolhimento e segurança jurídica."
         />
         <meta
           name="keywords"
-          content="advogada previdenciária, direito previdenciário, aposentadoria, BPC, LOAS, revisão de benefícios, INSS, planejamento previdenciário, Maria Clara Santos, Maria Clara, Advocacia Recife, Advogada em Recife, advogada recife, previdenciário recife, aposentadoria, planejamento previdenciário, aposentadoria recife, como ter direito ao LOAS"
+          content="advogada previdenciária, direito previdenciário, aposentadoria, BPC, LOAS, revisão de benefícios, INSS, planejamento previdenciário, Maria Clara Santos, Maria Clara, Advocacia Recife, Advogada em Recife, advogada recife, previdenciário recife, aposentadoria, planejamento previdenciário, aposentadoria recife, como ter direito ao LOAS, advogada recife, advogada em recife, direito previdenciário recife, previdenciário recife, revisão aposentadoria recife, advocacia previdenciária recife, melhor advogada previdenciária recife, bpc loas recife,"
         />
         <meta name="author" content="Maria Clara Santos" />
         <meta name="robots" content="index, follow" />
