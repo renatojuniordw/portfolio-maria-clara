@@ -14,7 +14,7 @@ const WhatsAppButton = ({ className = '' }: { className?: string }) => (
         rel="noopener noreferrer"
         className={`${styles.whatsappButton} ${className}`}
     >
-        Me ajuda, Dra.
+        Agendar consulta
     </a>
 );
 
@@ -23,7 +23,7 @@ const Header = () => {
 
     const items = [
         { label: 'Início', url: '#inicio' },
-        { label: 'Sobre a doutora', url: '#sobre' },
+        { label: 'Sobre mim', url: '#sobre' },
         { label: 'Área de atuação', url: '#servicos' },
         { label: 'Principais dúvidas', url: '#faq' },
     ];
