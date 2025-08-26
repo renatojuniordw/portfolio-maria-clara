@@ -12,11 +12,11 @@
         grid-template-columns: 1fr 1fr;
         gap: 5rem;
         text-align: left;
-        padding: 2rem 0;
+        // padding: 2rem 0;
 
         .text {
             grid-column: 1 / 2;
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: $graphite;
             line-height: 1.6;
         }
