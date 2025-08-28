@@ -352,35 +352,27 @@ function generateProcDocFromTemplate(templateFile, cpfFolder, cpf, answersMap) {
 function buildTagMap(answersMap) {
     const map = {};
 
-    // Mapeamento EXATO de título -> TAG canônica
     const titleToTag = {
         "Nome completo": "NOME_COMPLETO",
         "CPF": "CPF",
+        "RG": "RG",
         "Data de nascimento": "DATA_NASCIMENTO",
         "Telefone/Whatsapp": "TELEFONE_WHATSAPP",
         "E-mail": "EMAIL",
         "Estado Civil": "ESTADO_CIVIL",
         "Qual a sua nacionalidade?": "NACIONALIDADE",
         "Aviso de Responsabilidade": "ACEITE_RESPONSABILIDADE",
-
-        // Endereço
         "CEP": "CEP",
         "Rua / Logradouro": "ENDERECO_RUA",
         "Número": "ENDERECO_NUMERO",
         "Bairro": "ENDERECO_BAIRRO",
         "Cidade": "ENDERECO_CIDADE",
         "UF": "ENDERECO_UF",
-
-        // Documentos pessoais
         "RG Digitalizado": "RG_DIGITALIZADO",
         "CPF Digitalizado": "CPF_DIGITALIZADO",
         "Comprovante de Residência": "COMPROVANTE_RESIDENCIA",
         "Certidão de Nascimento ou Casamento": "CERTIDAO_NASCIMENTO_OU_CASAMENTO",
-
-        // Escolha de benefício
         "Qual benefício você está solicitando?": "TIPO_BENEFICIO",
-
-        // Aposentadoria
         "CNIS": "CNIS",
         "Carteiras de Trabalho (CTPS)": "CARTEIRAS_TRABALHO",
         "Comprovantes de Contribuição Individual (se houver)": "COMPROVANTES_CONTRIBUICAO_INDIVIDUAL",
@@ -388,25 +380,19 @@ function buildTagMap(answersMap) {
         "Decisões de Benefícios Anteriores (se houver)": "DECISOES_BENEFICIOS_ANTERIORES",
         "Você já entrou com pedido de aposentadoria anteriormente?": "PEDIDO_ANTERIOR",
         "Envio da Decisão/Indeferimento": "DECISAO_OU_INDEFERIMENTO",
-
-        // Campo livre
         "Campo de Observações (opcional)": "OBSERVACOES",
-
-        // BPC/LOAS
         "Laudos Médicos (se for BPC por deficiência)": "LAUDOS_MEDICOS_BPC",
         "Comprovantes de Renda da Família": "COMPROVANTES_RENDA_FAMILIA",
         "Quantidade de Pessoas na Residência": "QTD_PESSOAS_RESIDENCIA",
         "Renda Mensal Aproximada da Família": "RENDA_MENSAL_APROXIMADA_FAMILIA",
-        "Declaração de Não Recebimento de Benefício (se houver modelo pronto)": "DECLARACAO_NAO_RECEBIMENTO_BENEFICIO",
-        "Carimbo de data/hora": "DATA_ENVIO"
+        "Declaração de Não Recebimento de Benefício (se houver modelo pronto)": "DECLARACAO_NAO_RECEBIMENTO_BENEFICIO"
     };
 
-    // Aliases opcionais (espelham valores em chaves alternativas)
     const aliases = {
         "NOME_COMPLETO": "NOME",
         "EMAIL": "E_MAIL",
-        "ENDERECO_RUA": "ENDERECO", // às vezes o modelo usa {{ENDERECO}} para a rua
-        "ENDERECO_UF": "UF",        // por compatibilidade com modelos antigos
+        "ENDERECO_RUA": "ENDERECO",
+        "ENDERECO_UF": "UF",
         "TELEFONE_WHATSAPP": "TELEFONE_CONTATO",
         "NACIONALIDADE": "NACIONALIDADE_REQUERENTE",
         "OBSERVACOES": "OBSERVACOES_CLIENTE",
@@ -414,25 +400,30 @@ function buildTagMap(answersMap) {
         "RENDA_MENSAL_APROXIMADA_FAMILIA": "RENDA_MENSAL_FAMILIA"
     };
 
-    // Preenche TAGs canônicas (ou normaliza se não achar título exato)
     Object.keys(answersMap).forEach(question => {
         const value = answersMap[question] ?? "";
         const canonical = titleToTag[question] || normalizeToTagKey(question);
         map[canonical] = value;
 
-        // Preenche alias (se existir)
         if (aliases[canonical]) {
             map[aliases[canonical]] = value;
         }
     });
 
-    // Gera CPF_NUMEROS (apenas dígitos), útil para documentos que exigem CPF sem pontuação
     if (map["CPF"]) {
         map["CPF_NUMEROS"] = String(map["CPF"]).replace(/\D/g, "");
     }
 
+    // 🔑 Força a data atual
+    const hoje = new Date();
+    const dia = String(hoje.getDate()).padStart(2, '0');
+    const mes = String(hoje.getMonth() + 1).padStart(2, '0');
+    const ano = hoje.getFullYear();
+    map["DATA_ENVIO"] = `${dia}/${mes}/${ano}`;
+
     return map;
 }
+
 /**
  * Normaliza um texto para CHAVE DE TAG (sem acentos, maiúsculas e underscore).
  */
