@@ -11,6 +11,7 @@ import FAQSlider from '@/components/FAQSlider';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import ServicesSection from '@/components/ServicesSection';
+import PhoneVerifier from '@/components/PhoneVerifier';
 
 const Home: NextPage = () => {
   return (
@@ -56,6 +57,7 @@ const Home: NextPage = () => {
           <AboutSection />
           <ServicesSection />
           <FAQSlider />
+          <PhoneVerifier />
         </div>
       </main>
       <Footer />

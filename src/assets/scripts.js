@@ -52,7 +52,7 @@ function onFormSubmit(e) {
         }
 
         // 4) Cria / obtém a pasta do CPF dentro da pasta raiz
-        const cpfFolder = ensureCpfFolder(rootUploadsFolder, cpf);
+        const cpfFolder = ensureCpfFolder(rootUploadsFolder, cpf, answersMap);
 
         // 5) Cria documento-resumo (perguntas & respostas) — sem mover arquivos
         const resumoDoc = createSummaryDoc(cpfFolder, formTitle, answersMap, cpf);
@@ -262,10 +262,14 @@ function getFileIdFromValue(val) {
 }
 
 /**
- * Garante a existência da pasta do CPF dentro da pasta raiz dos uploads.
+ * Garante a existência da pasta do cliente dentro da pasta raiz dos uploads.
+ * Nome da pasta: "<NOME_COMPLETO> - <CPF>"
  */
-function ensureCpfFolder(rootFolder, cpf) {
-    const targetName = cpf;
+function ensureCpfFolder(rootFolder, cpf, answersMap) {
+    const nome = (answersMap["Nome completo"] || "").trim();
+    const safeNome = sanitizeFilename(nome) || "SEM_NOME";
+    const targetName = `${safeNome} - ${cpf}`;
+
     const subFolders = rootFolder.getFoldersByName(targetName);
     if (subFolders.hasNext()) {
         return subFolders.next();
