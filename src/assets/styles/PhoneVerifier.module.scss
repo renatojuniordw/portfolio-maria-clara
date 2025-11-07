@@ -5,6 +5,7 @@
     background-color: $light-gray;
     border-radius: 30px;
     text-align: center;
+    margin-bottom: 50px;
 
     header {
         text-align: center;
@@ -19,14 +20,17 @@
         align-items: start;
     }
 
-    .text {
+    .primaryColumn {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
         font-size: 1.1rem;
         color: $graphite;
         line-height: 1.6;
     }
 
     .subtitle {
-        margin-bottom: 2rem;
+        margin: 0;
     }
 
     .alertBox {
@@ -53,6 +57,12 @@
         li {
             color: $graphite;
         }
+
+        align-self: stretch;
+    }
+
+    .primaryColumn .panel {
+        margin-top: 0;
     }
 
     .panel {
@@ -176,6 +186,10 @@
     .verifierSection {
         .buttonGroup {
             flex-direction: column;
+        }
+
+        .alertBox {
+            order: 2;
         }
     }
 }

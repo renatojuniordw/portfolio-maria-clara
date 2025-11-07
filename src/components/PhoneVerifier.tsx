@@ -70,70 +70,81 @@ const PhoneVerifier = () => {
         >
             <header>
                 <h2 id="phone-verifier-heading" className="section-title">
-                    Valide se o <span aria-hidden="true"><br /></span>número é oficial
+                    Verificar
+                    <span aria-hidden="true"><br /></span>
+                    contato oficial
+                    {/* Valide se o <span aria-hidden="true"><br /></span>número é oficial */}
                 </h2>
                 <Divider />
             </header>
 
             <div className={styles.grid}>
-                <div className={styles.text}>
+                <div className={styles.primaryColumn}>
                     <p className={styles.subtitle}>
                         Digite o telefone que está entrando em contato com você. Conferimos se ele pertence aos nossos
                         canais oficiais para garantir sua segurança.
                     </p>
 
-                    <div className={styles.alertBox}>
-                        <h3>Alerta de golpes</h3>
-                        <ul>
-                            <li>Converse apenas pelos nossos canais oficiais.</li>
-                            <li>Nunca solicitamos pagamentos por números desconhecidos.</li>
-                            <li>Desconfie de urgência ou descontos fora do comum.</li>
-                            <li>Confirme o número aqui antes de transferir qualquer valor.</li>
-                        </ul>
+                    <div className={styles.panel}>
+                        <form onSubmit={handleCheck} className={styles.form}>
+                            <label htmlFor="phoneNumber" className={styles.visuallyHidden}>
+                                Número de telefone para validação
+                            </label>
+                            <input
+                                id="phoneNumber"
+                                type="tel"
+                                inputMode="tel"
+                                placeholder="Ex: (81) 98765-4321"
+                                value={raw}
+                                onChange={(e) => setRaw(e.target.value)}
+                                className={styles.input}
+                                aria-invalid={checked && !isOfficial}
+                                aria-describedby={checked ? resultId : undefined}
+                            />
+
+                            <div className={styles.buttonGroup}>
+                                <button type="submit" className={styles.primaryButton}>
+                                    Validar
+                                </button>
+                                <button type="button" onClick={handleClear} className={styles.secondaryButton}>
+                                    Limpar
+                                </button>
+                            </div>
+                        </form>
+
+                        {checked && (
+                            <div
+                                id={resultId}
+                                className={`${styles.resultBox} ${isOfficial ? styles.success : styles.error}`}
+                                role="status"
+                                aria-live="polite"
+                            >
+                                <p><strong>{isOfficial ? 'Número OFICIAL' : 'Número NÃO é oficial'}</strong></p>
+                                <p>
+                                    Número consultado: <code>{formatBRPhone(normalized)}</code>
+                                </p>
+                            </div>
+                        )}
                     </div>
                 </div>
 
-                <div className={styles.panel}>
-                    <form onSubmit={handleCheck} className={styles.form}>
-                        <label htmlFor="phoneNumber" className={styles.visuallyHidden}>
-                            Número de telefone para validação
-                        </label>
-                        <input
-                            id="phoneNumber"
-                            type="tel"
-                            inputMode="tel"
-                            placeholder="Ex: (81) 98765-4321"
-                            value={raw}
-                            onChange={(e) => setRaw(e.target.value)}
-                            className={styles.input}
-                            aria-invalid={checked && !isOfficial}
-                            aria-describedby={checked ? resultId : undefined}
-                        />
-
-                        <div className={styles.buttonGroup}>
-                            <button type="submit" className={styles.primaryButton}>
-                                Validar
-                            </button>
-                            <button type="button" onClick={handleClear} className={styles.secondaryButton}>
-                                Limpar
-                            </button>
-                        </div>
-                    </form>
-
-                    {checked && (
-                        <div
-                            id={resultId}
-                            className={`${styles.resultBox} ${isOfficial ? styles.success : styles.error}`}
-                            role="status"
-                            aria-live="polite"
-                        >
-                            <p><strong>{isOfficial ? 'Número OFICIAL' : 'Número NÃO é oficial'}</strong></p>
-                            <p>
-                                Número consultado: <code>{formatBRPhone(normalized)}</code>
-                            </p>
-                        </div>
-                    )}
+                <div className={styles.alertBox}>
+                    <h3>Alerta de Golpes</h3>
+                    <ul>
+                        <li>Converse apenas pelos nossos canais oficiais listados no site ou redes verificadas.</li>
+                        <li>Nunca solicitamos pagamentos por números desconhecidos ou via mensagens instantâneas.</li>
+                        <li>Desconfie de contatos que afirmam urgência ou prometem liberação imediata de valores.</li>
+                        <li>Confirme o número aqui antes de transferir qualquer quantia ou enviar documentos.</li>
+                        <li>Em caso de dúvida, entre em contato diretamente conosco antes de tomar qualquer decisão.</li>
+                        <li>Processos judiciais verdadeiros podem ser consultados nos portais oficiais dos tribunais.</li>
+                        <li>Guarde prints e registros se suspeitar de golpe e procure as autoridades competentes.</li>
+                    </ul>
+                    <p className={styles.alertNote}>
+                        🔒 A segurança das suas informações é prioridade no nosso escritório.
+                        <strong> Maria Clara Santos Advocacia</strong> atua com ética, transparência e atendimento humanizado.
+                    </p>
                 </div>
+
             </div>
         </section>
     );
