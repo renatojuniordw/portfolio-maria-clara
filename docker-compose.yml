@@ -4,7 +4,7 @@ services:
   web:
     build: .
     ports:
-      - "2202:3050"
+      - "20000:20000"
     environment:
       - NODE_ENV=production
     restart: unless-stopped

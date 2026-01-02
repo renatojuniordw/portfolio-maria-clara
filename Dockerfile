@@ -1,5 +1,5 @@
 # Etapa 1: build
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS builder
 
 WORKDIR /app
 
@@ -11,7 +11,7 @@ COPY . .
 RUN npm run build
 
 # Etapa 2: produção
-FROM node:18-alpine AS runner
+FROM node:20-alpine AS runner
 
 WORKDIR /app
 
@@ -22,6 +22,6 @@ COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 
-EXPOSE 3050
+EXPOSE 20000
 
-CMD ["npm", "run", "start", "--", "-p", "3050"]
+CMD ["npm", "run", "start", "--", "-p", "20000"]
