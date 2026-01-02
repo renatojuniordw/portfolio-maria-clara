@@ -22,6 +22,6 @@ COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 
-EXPOSE 20000
+EXPOSE 21000
 
-CMD ["npm", "run", "start", "--", "-p", "20000"]
+CMD ["npm", "run", "start", "--", "-p", "21000"]
