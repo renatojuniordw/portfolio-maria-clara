@@ -1,3 +1,5 @@
+"use client";
+
 import { Accordion, AccordionTab } from "primereact/accordion";
 import styles from "@/assets/styles/FAQSlider.module.scss";
 import { Divider } from "primereact/divider";
@@ -40,7 +42,8 @@ const FAQCollapse = () => {
     >
       <header>
         <h2 id="faq-heading" className="section-title">
-          Principais <span className={styles.lineBreak}>Dúvidas</span>
+          Dúvidas Frequentes{" "}
+          <span className={styles.lineBreak}>BPC/LOAS e INSS</span>
         </h2>
         <Divider />
       </header>

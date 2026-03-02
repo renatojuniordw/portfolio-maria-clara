@@ -1,4 +1,5 @@
-@import "./variables";
+@use "sass:color";
+@use "./variables" as *;
 
 .footer {
   color: $black;
@@ -69,7 +70,7 @@
       transition: color 0.3s;
 
       &:hover {
-        color: lighten($copper, 10%);
+        color: color.adjust($copper, $lightness: 10%);
       }
     }
   }
@@ -86,7 +87,7 @@
 
   .unificandoCredits {
     font-size: 0.75rem;
-    color: lighten($graphite, 20%);
+    color: color.adjust($graphite, $lightness: 20%);
     transition: color 0.3s;
 
     a {

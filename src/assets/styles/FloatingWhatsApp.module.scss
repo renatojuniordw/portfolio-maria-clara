@@ -1,4 +1,5 @@
-@import "./variables";
+@use "sass:color";
+@use "./variables" as *;
 
 .floatingButton {
   position: fixed;
@@ -21,7 +22,7 @@
 
   &:hover {
     transform: scale(1.1);
-    background-color: darken($copper, 10%);
+    background-color: color.adjust($copper, $lightness: -10%);
     color: white;
 
     .tooltip {

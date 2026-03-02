@@ -1,4 +1,4 @@
-@import "./variables";
+@use "./variables" as *;
 
 .services {
   padding: 4rem 2rem;

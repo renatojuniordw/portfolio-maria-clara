@@ -1,4 +1,5 @@
-@import "./variables";
+@use "sass:color";
+@use "./variables" as *;
 
 .stats {
   padding: 4rem 2rem;
@@ -57,7 +58,7 @@
 
     .description {
       font-size: 1rem;
-      color: lighten($graphite, 10%);
+      color: color.adjust($graphite, $lightness: 10%);
       line-height: 1.5;
       margin: 0;
     }

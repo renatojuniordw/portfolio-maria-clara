@@ -46,6 +46,8 @@ const ServicesSection = () => {
       <div className={styles.grid}>
         <div className={styles.text}>
           <p>
+            <strong>Advogada Previdenciária em Recife</strong>
+            <br />
             Sou especializada em Direito Previdenciário, oferecendo um
             atendimento humanizado e estratégico para garantir seus direitos
             junto ao INSS.

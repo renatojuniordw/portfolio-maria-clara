@@ -1,4 +1,5 @@
-@import "./variables";
+@use "sass:color";
+@use "./variables" as *;
 
 .hero {
   padding: 6rem 2rem 2rem 2rem;
@@ -62,7 +63,7 @@
 
     &:hover {
       transform: scale(1.05);
-      background-color: darken($copper, 10%);
+      background-color: color.adjust($copper, $lightness: -10%);
       color: white;
     }
   }

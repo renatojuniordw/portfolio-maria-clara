@@ -17,6 +17,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.mariaclarasantos.adv.br"),
   title:
     "Dra. Maria Clara Santos | Advogada Previdenciária em Recife - Especialista em INSS",
   description:
@@ -55,6 +56,66 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Attorney",
+  name: "Dra. Maria Clara Santos - Advocacia Previdenciária",
+  image: "https://www.mariaclarasantos.adv.br/Maria_Clara-adv-03.png",
+  "@id": "https://www.mariaclarasantos.adv.br",
+  url: "https://www.mariaclarasantos.adv.br",
+  telephone: "+5581985240415",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Atendimento em Recife e Região Metropolitana",
+    addressLocality: "Recife",
+    addressRegion: "PE",
+    postalCode: "50000-000",
+    addressCountry: "BR",
+  },
+  areaServed: [
+    { "@type": "City", name: "Recife" },
+    { "@type": "City", name: "Olinda" },
+    { "@type": "City", name: "Jaboatão dos Guararapes" },
+    { "@type": "City", name: "Paulista" },
+    { "@type": "City", name: "Camaragibe" },
+  ],
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: -8.047562,
+    longitude: -34.876964,
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "09:00",
+    closes: "18:00",
+  },
+  sameAs: ["https://www.instagram.com/mariaclarasantos.adv"],
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Nunca contribuí para o INSS, posso receber algum benefício?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "SIM. O BPC/LOAS garante um salário mínimo mensal para idosos acima de 65 anos ou pessoas com deficiência em situação de vulnerabilidade, mesmo que nunca tenham pago o INSS.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Tive meu benefício negado pelo INSS. O que devo fazer agora?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Não desista. Negativas são frequentes, mas muitas vezes injustas. Com auxílio jurídico especializado, podemos entrar com recursos ou ações judiciais para reverter a decisão.",
+      },
+    },
+  ],
+};
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
@@ -67,6 +128,14 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${inter.variable} ${playfair.variable} antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
         <a href="#main-content" className="skip-link">
           Pular para o conteúdo principal
         </a>

@@ -28,7 +28,7 @@ const AboutSection = () => {
           <div className={styles.imageWrapper}>
             <Image
               src={profileImg}
-              alt="Dra. Maria Clara Santos"
+              alt="Dra. Maria Clara Santos - Advogada Previdenciária Especialista em INSS em Recife"
               width={400}
               height={400}
               className={styles.image}
@@ -63,6 +63,16 @@ const AboutSection = () => {
               empatia, responsabilidade e conhecimento profundo das regras
               previdenciárias, conte comigo para te orientar em cada etapa do
               processo.
+              <br />
+              <br />
+              <strong>
+                Atendimento especializado em toda a Região Metropolitana:
+              </strong>{" "}
+              Com foco em agilidade e segurança jurídica, realizo atendimentos e
+              consultorias personalizadas para clientes em{" "}
+              <strong>Recife, Olinda, Jaboatão dos Guararapes, Paulista</strong>{" "}
+              e demais cidades da região, garantindo que você tenha acesso ao
+              seu direito de onde estiver.
             </p>
           </div>
         </div>
