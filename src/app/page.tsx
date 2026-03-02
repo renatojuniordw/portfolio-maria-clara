@@ -1,31 +1,36 @@
-'use client';
+"use client";
 
-import { NextPage } from 'next';
-import Head from 'next/head';
+import { NextPage } from "next";
+import Head from "next/head";
 
-import style from '@/app/page.module.css';
+import style from "@/app/page.module.css";
 
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import FAQSlider from '@/components/FAQSlider';
-import HeroSection from '@/components/HeroSection';
-import AboutSection from '@/components/AboutSection';
-import ServicesSection from '@/components/ServicesSection';
-import PhoneVerifier from '@/components/PhoneVerifier';
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import FAQSlider from "@/components/FAQSlider";
+import HeroSection from "@/components/HeroSection";
+import AboutSection from "@/components/AboutSection";
+import ServicesSection from "@/components/ServicesSection";
+import StatsSection from "@/components/StatsSection";
+import PhoneVerifier from "@/components/PhoneVerifier";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Maria Clara Santos | Advocacia Previdenciária</title>
+        <title>
+          Dra. Maria Clara Santos | Advogada Previdenciária em Recife -
+          Especialista em INSS
+        </title>
 
         <meta
           name="description"
-          content="Maria Clara Santos é advogada especializada em Direito Previdenciário, atuando em Recife - PE. Planejamento de aposentadoria, revisão de benefícios e BPC/LOAS com acolhimento e segurança jurídica."
+          content="Procurando Advogada Previdenciária em Recife? Dra. Maria Clara Santos é especialista em BPC/LOAS, Aposentadorias e Auxílios do INSS. Recupere seu benefício negado com atendimento humanizado."
         />
         <meta
           name="keywords"
-          content="advogada previdenciária, direito previdenciário, aposentadoria, BPC, LOAS, revisão de benefícios, INSS, planejamento previdenciário, Maria Clara Santos, Maria Clara, Advocacia Recife, Advogada em Recife, advogada recife, previdenciário recife, aposentadoria, planejamento previdenciário, aposentadoria recife, como ter direito ao LOAS, advogada recife, advogada em recife, direito previdenciário recife, previdenciário recife, revisão aposentadoria recife, advocacia previdenciária recife, melhor advogada previdenciária recife, bpc loas recife,  Maria Clara Santos advogada previdenciária, Maria Clara advogada previdenciária, Maria Clara advogada previdenciária em Recife, OAB 60655, OAB/PE 60655, advogada OAB Pernambuco, Maria Clara Santos"
+          content="advogada previdenciária recife, especialista em inss recife, bpc loas recife, aposentadoria recife, maria clara santos"
         />
         <meta name="author" content="Maria Clara Santos" />
         <meta name="robots" content="index, follow" />
@@ -33,36 +38,50 @@ const Home: NextPage = () => {
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Maria Clara Santos | Advocacia Previdenciária" />
+        <meta
+          property="og:title"
+          content="Dra. Maria Clara Santos | Advocacia Previdenciária em Recife"
+        />
         <meta
           property="og:description"
-          content="Advogada especializada em Direito Previdenciário, oferecendo planejamento e revisão de benefícios com segurança jurídica e atendimento humanizado."
+          content="Especialista em BPC/LOAS, Aposentadorias e Revisional de Benefícios. Atendimento humanizado com foco em garantir o seu direito junto ao INSS."
         />
         <meta property="og:url" content="https://mariaclarasantos.adv.br" />
-        <meta property="og:image" content="https://mariaclarasantos.adv.br/og-image.jpg" />
+        <meta
+          property="og:image"
+          content="https://mariaclarasantos.adv.br/Maria_Clara-adv-03.png"
+        />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Maria Clara Santos | Advocacia Previdenciária" />
+        <meta
+          name="twitter:title"
+          content="Dra. Maria Clara Santos | Advocacia Previdenciária"
+        />
         <meta
           name="twitter:description"
-          content="Planejamento previdenciário, BPC/LOAS e revisão de benefícios com atendimento acolhedor e técnico."
+          content="Recupere seu benefício negado com atendimento humanizado e segurança jurídica."
         />
-        <meta name="twitter:image" content="https://mariaclarasantos.adv.br/og-image.jpg" />
+        <meta
+          name="twitter:image"
+          content="https://mariaclarasantos.adv.br/Maria_Clara-adv-03.png"
+        />
       </Head>
       <main>
         <Header />
         <div className={style.wrapper}>
           <HeroSection />
-          <AboutSection />
           <ServicesSection />
+          <StatsSection />
+          <AboutSection />
           <FAQSlider />
           <PhoneVerifier />
         </div>
+        <FloatingWhatsApp />
       </main>
       <Footer />
     </>
   );
-}
+};
 
 export default Home;

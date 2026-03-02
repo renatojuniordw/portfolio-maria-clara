@@ -1,0 +1,78 @@
+@import "./variables";
+
+.stats {
+  padding: 4rem 2rem;
+  background-color: #fff;
+
+  .outerContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding-top: 2rem;
+  }
+
+  .statCard {
+    background: #fff;
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      border-color: rgba($copper, 0.2);
+    }
+
+    .iconWrapper {
+      margin-bottom: 1.5rem;
+    }
+
+    .value {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: $copper;
+      display: block;
+      margin-bottom: 0.5rem;
+      letter-spacing: -1px;
+    }
+
+    .label {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: $graphite;
+      margin-bottom: 1rem;
+    }
+
+    .description {
+      font-size: 1rem;
+      color: lighten($graphite, 10%);
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .stats {
+    .container {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .statCard {
+      padding: 2rem 1.5rem;
+    }
+  }
+}

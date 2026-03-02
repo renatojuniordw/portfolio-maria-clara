@@ -1,4 +1,4 @@
-@import './variables';
+@import "./variables";
 
 .footer {
   color: $black;
@@ -60,11 +60,43 @@
     }
   }
 
+  .copyrightContainer {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .unificandoCredits {
+    font-size: 0.75rem;
+    color: lighten($graphite, 20%);
+    transition: color 0.3s;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.3s ease;
+
+      strong {
+        font-weight: 700;
+        color: inherit;
+      }
+
+      &:hover {
+        color: $copper;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+
   .copyright {
     font-size: 0.7rem;
     color: $black;
     text-align: center;
-    margin-top: 2rem;
+    margin: 0;
   }
 }
 

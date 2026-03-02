@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
-import 'primereact/resources/themes/lara-light-blue/theme.css';
-import 'primereact/resources/primereact.min.css';
-import 'primeicons/primeicons.css';
-import './globals.css';
+import "primereact/resources/themes/lara-light-blue/theme.css";
+import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,69 +17,42 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Maria Clara Santos | Advocacia Previdenciária',
-  description: 'Maria Clara Santos, advogada inscrita na OAB/PE 60.655. Especialista em aposentadorias, pensões, auxílios e BPC/LOAS. Planejamento e revisão de benefícios com acolhimento e segurança jurídica.',
+  title:
+    "Dra. Maria Clara Santos | Advogada Previdenciária em Recife - Especialista em INSS",
+  description:
+    "Procurando Advogada Previdenciária em Recife? Dra. Maria Clara Santos é especialista em BPC/LOAS, Aposentadorias e Auxílios do INSS. Recupere seu benefício negado com atendimento humanizado.",
   keywords: [
-    'advocacia previdenciária',
-    'direito previdenciário',
-    'aposentadoria',
-    'BPC',
-    'LOAS',
-    'planejamento previdenciário',
-    'revisão de aposentadoria',
-    'Maria Clara Santos',
-    'Maria Clara',
-    'aposentadoria',
-    'advogada',
-    'Advocacia Recife',
-    'Advogada em Recife',
-    'advogada recife',
-    'previdenciário recife',
-    'aposentadoria',
-    'planejamento previdenciário',
-    'aposentadoria recife',
-    'como ter direito ao LOAS',
-    'advogada recife',
-    'advogada em recife',
-    'direito previdenciário recife',
-    'previdenciário recife',
-    'revisão aposentadoria recife',
-    'advocacia previdenciária recife',
-    'melhor advogada previdenciária recife',
-    'bpc loas recife',
-    'Maria Clara Santos advogada previdenciária',
-    'Maria Clara advogada previdenciária',
-    'Maria Clara advogada previdenciária em Recife',
-    'OAB 60655',
-    'OAB/PE 60655',
-    'advogada OAB Pernambuco',
-    'Maria Clara Santos'
+    "advogada previdenciária recife",
+    "advogada especialista em inss recife",
+    "como conseguir bpc loas em recife",
+    "advogado para aposentadoria recife",
+    "auxílio doença negado recife",
+    "planejamento previdenciário recife",
+    "revisão de benefício inss recife",
+    "Dra Maria Clara Santos advocacia",
+    "escritório de advocacia previdenciária recife",
+    "melhor advogada previdenciária recife",
+    "OAB/PE 60655",
   ],
-  robots: 'index, follow',
-  authors: [{ name: 'Maria Clara Santos' }],
+  robots: "index, follow",
+  authors: [{ name: "Maria Clara Santos" }],
   openGraph: {
-    title: 'Maria Clara Santos | Advocacia Previdenciária',
-    description: 'Especialista em aposentadorias, pensões, auxílios e BPC/LOAS. Atendimento humanizado com foco na segurança jurídica.',
-    url: 'https://www.mariaclarasantos.adv.br',
-    siteName: 'Maria Clara Santos | Advocacia Previdenciária',
-    type: 'website',
-    locale: 'pt_BR',
+    title: "Dra. Maria Clara Santos | Advocacia Previdenciária em Recife",
+    description:
+      "Especialista em BPC/LOAS, Aposentadorias e Revisional de Benefícios. Atendimento humanizado com foco em garantir o seu direito junto ao INSS.",
+    url: "https://www.mariaclarasantos.adv.br",
+    siteName: "Dra. Maria Clara Santos | Advocacia Previdenciária",
+    type: "website",
+    locale: "pt_BR",
     images: [
       {
-        url: 'https://www.mariaclarasantos.adv.br/Maria_Clara-adv-03.png',
+        url: "https://www.mariaclarasantos.adv.br/Maria_Clara-adv-03.png",
         width: 1200,
         height: 630,
-        alt: 'Maria Clara Santos - Advocacia Previdenciária',
+        alt: "Dra. Maria Clara Santos - Advocacia Previdenciária em Recife",
       },
     ],
   },
-  // twitter: {
-  //   card: 'summary_large_image',
-  //   title: 'Maria Clara Santos | Advocacia Previdenciária',
-  //   description: 'Atendimento humanizado e especializado em Direito Previdenciário, com foco em aposentadorias, BPC/LOAS e revisão de benefícios.',
-  //   images: ['https://www.mariaclarasantos.adv.br/Maria_Clara-adv-03.png'],
-  //   creator: '@mariaclara.adv', // Ajuste se necessário
-  // },
 };
 
 export default function RootLayout({
