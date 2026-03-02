@@ -1,15 +1,41 @@
-@import './../assets/styles/_variables.scss';
+html {
+    scroll-behavior: smooth;
+}
 
 .section-title {
     text-align: left;
-    color: #B87333;
-    /* font-family: 'Dancing Script', cursive; */
+    color: #8b5a2b; /* Darker copper for better contrast */
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
 body {
     margin: 0;
-    /* background-color: #4A4A4A; */
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.revealVisible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #8b5a2b;
+    color: white;
+    padding: 8px;
+    z-index: 2000;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
 }
 

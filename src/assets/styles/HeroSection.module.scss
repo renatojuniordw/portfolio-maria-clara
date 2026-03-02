@@ -45,7 +45,7 @@
     background-color: $copper;
     color: white;
     padding: 1rem 2rem;
-    border-radius: 50px;
+    border-radius: $radius-button;
     text-decoration: none;
     font-weight: bold;
     font-size: 1.1rem;
@@ -65,13 +65,23 @@
 
 @media (max-width: 768px) {
   .hero {
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
-    );
-    background-size: auto 70%;
-    background-position: center bottom;
+    background: $graphite; /* Solid graphite background on mobile */
     border-radius: 0 0px 30px 30px;
+    padding: 6rem 1.5rem 4rem 1.5rem;
+    text-align: center;
+
+    .container {
+      flex-direction: column;
+      align-items: center;
+      min-height: auto;
+    }
+
+    .text {
+      max-width: 100%;
+    }
+
+    .title {
+      font-size: 2.2rem;
+    }
   }
 }

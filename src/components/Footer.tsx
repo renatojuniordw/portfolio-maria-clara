@@ -1,10 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import { FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaLinkedinIn,
+  FaEnvelope,
+  FaPhoneAlt,
+} from "react-icons/fa";
 
 import styles from "@/assets/styles/Footer.module.scss";
-import logo from "@/assets/images/logo-footer.png";
+// import logo from "@/assets/images/logo-footer.png";
+const logo = "/assets/svg/logotipo.svg";
 import { CONSTANTS } from "@/constants/constants";
 
 const Footer = () => {
@@ -12,6 +18,24 @@ const Footer = () => {
     <footer className={styles.footer} role="contentinfo">
       <div className={styles.container}>
         <div className={styles.column}>
+          <div className={styles.contact}>
+            <a
+              href={CONSTANTS.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.contactLink}
+            >
+              <FaPhoneAlt size={16} />
+              <span>{CONSTANTS.telephone}</span>
+            </a>
+            <a
+              href={`mailto:${CONSTANTS.email}`}
+              className={styles.contactLink}
+            >
+              <FaEnvelope size={16} />
+              <span>{CONSTANTS.email}</span>
+            </a>
+          </div>
           <div className={styles.socials}>
             <a
               href={CONSTANTS.linkedin}
@@ -22,14 +46,6 @@ const Footer = () => {
               <FaLinkedinIn size={22} />
             </a>
             <a
-              href={CONSTANTS.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Whatsapp"
-            >
-              <FaWhatsapp size={22} />
-            </a>
-            <a
               href={CONSTANTS.instagram}
               target="_blank"
               rel="noopener noreferrer"
@@ -37,10 +53,6 @@ const Footer = () => {
             >
               <FaInstagram size={22} />
             </a>
-          </div>
-          <div className={styles.contact}>
-            <p className={styles.contactLine}>{CONSTANTS.telephone}</p>
-            <p className={styles.contactLine}>{CONSTANTS.email}</p>
           </div>
         </div>
         <div className={`${styles.column}`}>

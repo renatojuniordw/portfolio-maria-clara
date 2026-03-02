@@ -2,37 +2,44 @@
 
 import { Divider } from "primereact/divider";
 import styles from "@/assets/styles/ServicesSection.module.scss";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const ServicesSection = () => {
+  const { elementRef, isVisible } = useScrollAnimation(0.2);
   const services = [
     {
-      title: "BPC / LOAS (Idosos e Deficientes)",
+      title: "BPC / LOAS",
+      subtitle: "(Idosos e Deficientes)",
+      icon: "pi-users",
     },
     {
-      title: "Aposentadorias (Idade, Tempo e Especial)",
+      title: "Aposentadorias",
+      subtitle: "(Idade, Tempo e Especial)",
+      icon: "pi-calendar",
     },
     {
-      title: "Auxílio-Doença e Pensão por Morte",
+      title: "INSS",
+      subtitle: "Auxílio-Doença e Pensão por Morte",
+      icon: "pi-shield",
     },
     {
-      title: "Planejamento Previdenciário Estratégico",
+      title: "Planejamento",
+      subtitle: "Estratégico Previdenciário",
+      icon: "pi-chart-line",
     },
   ];
 
   return (
     <section
-      className={styles.services}
+      className={`${styles.services} ${isVisible ? "revealVisible" : "reveal"}`}
       id="servicos"
       aria-labelledby="services-heading"
       role="region"
+      ref={elementRef as any}
     >
       <header>
         <h2 id="services-heading" className="section-title">
-          Soluções para{" "}
-          <span aria-hidden="true">
-            <br />
-          </span>
-          seu benefício
+          Soluções para <span className={styles.lineBreak}>seu benefício</span>
         </h2>
         <Divider />
       </header>
@@ -49,13 +56,19 @@ const ServicesSection = () => {
             que é seu por direito.
           </p>
         </div>
-        <ul className={styles.list}>
+        <div className={styles.list}>
           {services.map((service, index) => (
-            <li key={index} className={styles.item}>
-              {service.title}
-            </li>
+            <div key={index} className={styles.card}>
+              <div className={styles.iconWrapper}>
+                <i className={`pi ${service.icon}`} />
+              </div>
+              <div className={styles.cardContent}>
+                <h3 className={styles.cardTitle}>{service.title}</h3>
+                <p className={styles.cardSubtitle}>{service.subtitle}</p>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );

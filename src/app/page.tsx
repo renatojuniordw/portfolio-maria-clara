@@ -67,19 +67,14 @@ const Home: NextPage = () => {
           content="https://mariaclarasantos.adv.br/Maria_Clara-adv-03.png"
         />
       </Head>
-      <main>
-        <Header />
-        <div className={style.wrapper}>
-          <HeroSection />
-          <ServicesSection />
-          <StatsSection />
-          <AboutSection />
-          <FAQSlider />
-          <PhoneVerifier />
-        </div>
-        <FloatingWhatsApp />
-      </main>
-      <Footer />
+      <div className={style.wrapper}>
+        <HeroSection />
+        <ServicesSection />
+        <StatsSection />
+        <AboutSection />
+        <FAQSlider />
+        <PhoneVerifier />
+      </div>
     </>
   );
 };

@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google";
 
 import "primereact/resources/themes/lara-light-blue/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
 });
 
@@ -55,6 +55,10 @@ export const metadata: Metadata = {
   },
 };
 
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -62,8 +66,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+      <body className={`${inter.variable} ${playfair.variable} antialiased`}>
+        <a href="#main-content" className="skip-link">
+          Pular para o conteúdo principal
+        </a>
+        <Header />
+        <main id="main-content">{children}</main>
+        <FloatingWhatsApp />
+        <Footer />
       </body>
     </html>
   );

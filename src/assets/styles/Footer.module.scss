@@ -28,22 +28,36 @@
     .contact {
       display: flex;
       flex-direction: column;
-      gap: 0.25rem;
-      text-align: center;
+      gap: 0.75rem;
+      text-align: left;
+      margin-bottom: 0.5rem;
     }
 
-    Image {
-      @media (min-width: 769px) {
-        display: none;
+    .contactLink {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.15rem;
+      color: $black;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+
+      span {
+        border-bottom: 1px solid transparent;
+      }
+
+      &:hover {
+        color: $copper;
+        span {
+          border-bottom: 1px solid $copper;
+        }
       }
     }
   }
 
   .contactLine {
-    font-size: 1.5rem;
-    color: $black;
-    font-weight: 500;
-    margin: 0;
+    display: none; // Retired
   }
 
   .socials {
@@ -107,7 +121,13 @@
     .container {
       max-width: 100%;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .contact {
+      align-items: center;
+      text-align: center;
     }
   }
 }

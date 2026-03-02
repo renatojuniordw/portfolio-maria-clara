@@ -1,9 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-import logoScroll from "@/assets/images/Maria_Clara-adv-03.png";
 import styles from "@/assets/styles/Header.module.scss";
 import { CONSTANTS } from "@/constants/constants";
 
@@ -20,6 +19,15 @@ const WhatsAppButton = ({ className = "" }: { className?: string }) => (
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [currentHash, setCurrentHash] = useState("");
+
+  useEffect(() => {
+    // Definir hash inicial e adicionar listener
+    setCurrentHash(window.location.hash);
+    const handleHashChange = () => setCurrentHash(window.location.hash);
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
 
   const items = [
     { label: "Início", url: "#inicio" },
@@ -33,22 +41,20 @@ const Header = () => {
     <header className={styles.header} role="banner">
       <nav className={styles.nav} aria-label="Menu principal">
         <div className={styles.logo}>
-          {(() => {
-            return (
-              <Image
-                src={logoScroll}
-                alt="Logo da advogada Maria Clara"
-                width={55}
-                height={50}
-              />
-            );
-          })()}
+          <Image
+            src="/assets/svg/logotipo.svg"
+            alt="Logo Dra. Maria Clara Santos"
+            width={180}
+            height={45}
+            priority
+          />
         </div>
         <div className={styles.navRight}>
           <button
             className={styles.hamburger}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Abrir menu"
+            aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={isMobileMenuOpen}
           >
             <span className="pi pi-bars" />
           </button>
@@ -60,12 +66,7 @@ const Header = () => {
               <li key={item.label}>
                 <a
                   href={item.url}
-                  aria-current={
-                    typeof window !== "undefined" &&
-                    window.location.hash === item.url
-                      ? "page"
-                      : undefined
-                  }
+                  aria-current={currentHash === item.url ? "page" : undefined}
                 >
                   {item.label}
                 </a>

@@ -1,6 +1,7 @@
 import { Accordion, AccordionTab } from "primereact/accordion";
 import styles from "@/assets/styles/FAQSlider.module.scss";
 import { Divider } from "primereact/divider";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const faqItems = [
   {
@@ -28,15 +29,18 @@ const faqItems = [
 ];
 
 const FAQCollapse = () => {
+  const { elementRef, isVisible } = useScrollAnimation(0.2);
+
   return (
-    <section className={styles.faq} id="faq" aria-labelledby="faq-heading">
+    <section
+      className={`${styles.faq} ${isVisible ? "revealVisible" : "reveal"}`}
+      id="faq"
+      aria-labelledby="faq-heading"
+      ref={elementRef as any}
+    >
       <header>
         <h2 id="faq-heading" className="section-title">
-          Principais{" "}
-          <span aria-hidden="true">
-            <br />
-          </span>
-          Dúvidas
+          Principais <span className={styles.lineBreak}>Dúvidas</span>
         </h2>
         <Divider />
       </header>
