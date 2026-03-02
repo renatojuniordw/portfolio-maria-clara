@@ -34,6 +34,27 @@
 
   .subtitle {
     margin: 0;
+    text-align: justify;
+    hyphens: auto;
+
+    @media (max-width: 768px) {
+      text-align: center;
+      hyphens: none;
+    }
+  }
+
+  .alertNote {
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+    color: $graphite;
+    line-height: 1.6;
+    text-align: justify;
+    hyphens: auto;
+
+    @media (max-width: 768px) {
+      text-align: center;
+      hyphens: none;
+    }
   }
 
   .alertBox {
@@ -59,6 +80,7 @@
 
     li {
       color: $graphite;
+      text-align: left; // Mantido à esquerda para bullets
     }
 
     align-self: stretch;

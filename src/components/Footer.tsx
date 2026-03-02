@@ -9,8 +9,7 @@ import {
 } from "react-icons/fa";
 
 import styles from "@/assets/styles/Footer.module.scss";
-// import logo from "@/assets/images/logo-footer.png";
-const logo = "/assets/svg/logotipo.svg";
+import logo from "@/assets/images/logo-footer.png";
 import { CONSTANTS } from "@/constants/constants";
 
 const Footer = () => {
@@ -56,7 +55,13 @@ const Footer = () => {
           </div>
         </div>
         <div className={`${styles.column}`}>
-          <Image src={logo} alt="Logo Maria Clara" width={350} height={60} />
+          <Image
+            src={logo}
+            alt="Logo Maria Clara"
+            width={300}
+            height={80}
+            style={{ objectFit: "contain" }}
+          />
         </div>
       </div>
       <div className={styles.copyrightContainer}>

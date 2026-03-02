@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 import styles from "@/assets/styles/Header.module.scss";
+import logo from "@/assets/images/Maria_Clara-adv-03.png";
 import { CONSTANTS } from "@/constants/constants";
 
 const WhatsAppButton = ({ className = "" }: { className?: string }) => (
@@ -42,11 +43,12 @@ const Header = () => {
       <nav className={styles.nav} aria-label="Menu principal">
         <div className={styles.logo}>
           <Image
-            src="/assets/svg/logotipo.svg"
+            src={logo}
             alt="Logo Dra. Maria Clara Santos"
-            width={180}
-            height={45}
+            width={200}
+            height={60}
             priority
+            style={{ objectFit: "contain" }}
           />
         </div>
         <div className={styles.navRight}>

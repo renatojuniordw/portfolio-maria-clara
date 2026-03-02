@@ -42,7 +42,8 @@ const AboutSection = () => {
               em Direito pela UNICAP (2021.1), com MBA em Mediação e Arbitragem
               pela mesma instituição (2023), atualmente curso pós-graduação em
               Direito da Seguridade Social – Direito e Prática Previdenciária
-              pela Faculdade Legale (2025/2026).
+              pela Faculdade Legale (2025/2026) e em Direito Previdenciário pela
+              ESA/PE (2025/2027).
               <br />
               <br />
               Atuo com foco exclusivo em benefícios do INSS, como

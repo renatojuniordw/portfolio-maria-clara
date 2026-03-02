@@ -28,8 +28,14 @@
   }
 
   :global(.p-accordion .p-accordion-content) {
-    text-align: left;
+    text-align: justify;
     color: $graphite;
     line-height: 1.6;
+    hyphens: auto;
+
+    @media (max-width: 768px) {
+      text-align: left;
+      hyphens: none;
+    }
   }
 }

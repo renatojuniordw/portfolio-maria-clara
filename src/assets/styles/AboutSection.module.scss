@@ -58,10 +58,12 @@
     font-size: 1.1rem;
     color: $graphite;
     line-height: 1.6;
-    text-align: left;
+    text-align: justify;
+    hyphens: auto; // Ajuda a evitar espaços grandes ao justificar
 
     @media (max-width: 768px) {
       text-align: center;
+      hyphens: none;
     }
   }
 

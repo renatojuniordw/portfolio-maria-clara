@@ -21,6 +21,8 @@
       font-size: 1.1rem;
       color: $graphite;
       line-height: 1.6;
+      text-align: justify;
+      hyphens: auto;
 
       p {
         margin-bottom: 2rem;
@@ -32,6 +34,11 @@
         border-left: 4px solid $copper;
         border-radius: 0 12px 12px 0;
         color: $copper-dark;
+      }
+
+      @media (max-width: 768px) {
+        text-align: center;
+        hyphens: none;
       }
     }
 
