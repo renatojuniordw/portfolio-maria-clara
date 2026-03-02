@@ -1,0 +1,240 @@
+@use "sass:color";
+@use "./variables" as *;
+
+.servicePage {
+  min-height: 100vh;
+  padding-top: 2rem;
+  background-color: #fafafa;
+}
+
+.hero {
+  padding: 5rem 2rem 5rem 2rem;
+  // Usando o mesmo gradiente e estilo da Home
+  background: linear-gradient(to right, #4a4a4a 30%, rgba(0, 0, 0, 0.6) 100%);
+  color: white;
+  margin-bottom: 3rem;
+  border-radius: 30px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: left;
+
+    @media (max-width: 768px) {
+      text-align: center;
+    }
+  }
+
+  .backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: $copper;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    &:hover {
+      transform: translateX(-5px);
+      color: lighten($copper, 10%);
+    }
+  }
+
+  .title {
+    font-size: 3.5rem;
+    font-family: var(--font-playfair);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    color: white;
+
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+    }
+  }
+
+  .subtitle {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 800px;
+    line-height: 1.6;
+    font-weight: 400;
+
+    strong {
+      color: $copper;
+      font-weight: 700;
+    }
+  }
+}
+
+.contentWrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem 8rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 1.7fr 1fr;
+  }
+}
+
+.mainContent {
+  section {
+    margin-bottom: 3.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-family: var(--font-playfair);
+    color: $black;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid $copper;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1.15rem;
+    color: #4a4a4a;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+
+    li {
+      font-size: 1.1rem;
+      color: #333;
+      padding: 0.8rem 0;
+      position: relative;
+      padding-left: 2rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &::before {
+        content: "\e93e"; // pi-check
+        font-family: "primeicons";
+        position: absolute;
+        left: 0;
+        top: 0.9rem;
+        color: $copper;
+        font-weight: bold;
+      }
+
+      strong {
+        color: #000;
+      }
+    }
+  }
+}
+
+.sidebar {
+  .stickyContainer {
+    position: sticky;
+    top: 120px;
+  }
+
+  .contactCard {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    text-align: center;
+
+    .iconBox {
+      width: 60px;
+      height: 60px;
+      background: $light-gray;
+      color: $copper;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin: 0 auto 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      font-family: var(--font-playfair);
+      margin-bottom: 1rem;
+      color: #1a1a1a;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+  }
+
+  .ctaButton {
+    background: $copper;
+    color: #fff;
+    padding: 1.2rem 2rem;
+    border-radius: $radius-button;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: color.adjust($copper, $lightness: -10%);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(184, 115, 51, 0.2);
+    }
+  }
+
+  .safeBadge {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: #999;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    margin: 0;
+    border-radius: 0 0 30px 30px;
+    padding: 6rem 1.5rem 4rem;
+  }
+
+  .contentWrapper {
+    padding: 0 1.5rem 6rem;
+  }
+
+  .grid {
+    gap: 3rem;
+  }
+}

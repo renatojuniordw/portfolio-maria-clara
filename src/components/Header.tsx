@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import styles from "@/assets/styles/Header.module.scss";
 import logo from "@/assets/images/Maria_Clara-adv-03.png";
@@ -21,6 +23,7 @@ const WhatsAppButton = ({ className = "" }: { className?: string }) => (
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentHash, setCurrentHash] = useState("");
+  const pathname = usePathname();
 
   useEffect(() => {
     // Definir hash inicial e adicionar listener
@@ -41,7 +44,7 @@ const Header = () => {
   return (
     <header className={styles.header} role="banner">
       <nav className={styles.nav} aria-label="Menu principal">
-        <div className={styles.logo}>
+        <Link href="/" className={styles.logo}>
           <Image
             src={logo}
             alt="Logo Dra. Maria Clara Santos"
@@ -50,7 +53,7 @@ const Header = () => {
             priority
             style={{ objectFit: "contain" }}
           />
-        </div>
+        </Link>
         <div className={styles.navRight}>
           <button
             className={styles.hamburger}
@@ -66,12 +69,12 @@ const Header = () => {
           >
             {items.map((item) => (
               <li key={item.label}>
-                <a
-                  href={item.url}
+                <Link
+                  href={pathname === "/" ? item.url : `/${item.url}`}
                   aria-current={currentHash === item.url ? "page" : undefined}
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
             <li className={styles.mobileOnly}>

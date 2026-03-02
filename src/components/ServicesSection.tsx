@@ -1,6 +1,7 @@
 "use client";
 
 import { Divider } from "primereact/divider";
+import Link from "next/link";
 import styles from "@/assets/styles/ServicesSection.module.scss";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
@@ -11,21 +12,25 @@ const ServicesSection = () => {
       title: "BPC / LOAS",
       subtitle: "(Idosos e Deficientes)",
       icon: "pi-users",
+      slug: "bpc-loas",
     },
     {
       title: "Aposentadorias",
       subtitle: "(Idade, Tempo e Especial)",
       icon: "pi-calendar",
+      slug: "aposentadorias",
     },
     {
       title: "INSS",
       subtitle: "Auxílio-Doença e Pensão por Morte",
       icon: "pi-shield",
+      slug: "auxilio-doenca-pensao",
     },
     {
       title: "Planejamento",
       subtitle: "Estratégico Previdenciário",
       icon: "pi-chart-line",
+      slug: "planejamento-previdenciario",
     },
   ];
 
@@ -60,15 +65,23 @@ const ServicesSection = () => {
         </div>
         <div className={styles.list}>
           {services.map((service, index) => (
-            <div key={index} className={styles.card}>
+            <Link
+              key={index}
+              href={`/servicos/${service.slug}`}
+              className={styles.card}
+              title={`Ver mais sobre ${service.title}`}
+            >
               <div className={styles.iconWrapper}>
                 <i className={`pi ${service.icon}`} />
               </div>
               <div className={styles.cardContent}>
                 <h3 className={styles.cardTitle}>{service.title}</h3>
                 <p className={styles.cardSubtitle}>{service.subtitle}</p>
+                <div className={styles.verMais}>
+                  Ver detalhes <i className="pi pi-arrow-right" />
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

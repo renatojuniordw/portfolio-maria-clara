@@ -48,45 +48,82 @@
       gap: 1.25rem;
 
       .card {
-        background: $white;
-        padding: 1.25rem;
-        border-radius: 16px;
         display: flex;
         align-items: center;
-        gap: 1.25rem;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        gap: 1.5rem;
+        background: #fff;
+        padding: 1.5rem;
+        border-radius: 20px;
+        transition: all 0.3s ease;
         border: 1px solid rgba(0, 0, 0, 0.05);
-        transition: transform 0.3s ease;
+        text-decoration: none; // Link fix
 
         &:hover {
-          transform: translateX(8px);
+          transform: translateX(10px);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
           border-color: rgba($copper, 0.3);
+
+          .iconWrapper {
+            background-color: $copper;
+            color: white;
+          }
+
+          .verMais {
+            color: $copper;
+            opacity: 1;
+            transform: translateX(0);
+          }
         }
 
         .iconWrapper {
-          width: 50px;
-          height: 50px;
-          background-color: rgba($copper, 0.1);
-          border-radius: 50%;
+          width: 60px;
+          height: 60px;
+          background-color: $light-gray;
+          color: $copper;
+          border-radius: 15px;
           display: flex;
           align-items: center;
           justify-content: center;
-          color: $copper;
-          font-size: 1.25rem;
+          font-size: 1.5rem;
+          transition: all 0.3s ease;
           flex-shrink: 0;
         }
 
+        .cardContent {
+          text-align: left;
+          flex-grow: 1;
+        }
+
         .cardTitle {
-          font-size: 1.15rem;
+          font-size: 1.25rem;
           font-weight: 700;
           color: $black;
-          margin: 0;
+          margin-bottom: 0.25rem;
         }
 
         .cardSubtitle {
           font-size: 0.9rem;
           color: $graphite;
-          margin: 0.25rem 0 0 0;
+          margin: 0;
+        }
+
+        .verMais {
+          font-size: 0.8rem;
+          font-weight: 700;
+          color: $graphite;
+          margin-top: 0.5rem;
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+          opacity: 0.7;
+          transition: all 0.3s ease;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          transform: translateX(-5px);
+
+          i {
+            font-size: 0.7rem;
+          }
         }
       }
     }
