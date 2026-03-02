@@ -20,17 +20,17 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>
-          Dra. Maria Clara Santos | Advogada Previdenciária em Recife -
-          Especialista em INSS
+          Dra. Maria Clara Santos | Reversão de Benefício Negado e BPC/LOAS em
+          Recife
         </title>
 
         <meta
           name="description"
-          content="Procurando Advogada Previdenciária em Recife? Dra. Maria Clara Santos é especialista em BPC/LOAS, Aposentadorias e Auxílios do INSS. Recupere seu benefício negado com atendimento humanizado."
+          content="Teve seu benefício do INSS negado ou travado? Dra. Maria Clara é especialista em reverter negativas de BPC/LOAS e Aposentadorias em Recife. Garanta sua dignidade e receba seus atrasados."
         />
         <meta
           name="keywords"
-          content="advogada previdenciária recife, especialista em inss recife, bpc loas recife, aposentadoria recife, maria clara santos"
+          content="reversão de benefício negado recife, advogada especialista em inss recife, bpc loas recife, auxilio doença negado recife, maria clara santos advocacia"
         />
         <meta name="author" content="Maria Clara Santos" />
         <meta name="robots" content="index, follow" />
@@ -40,11 +40,11 @@ const Home: NextPage = () => {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Dra. Maria Clara Santos | Advocacia Previdenciária em Recife"
+          content="Dra. Maria Clara Santos | Especialista em Reversão de Negativa INSS"
         />
         <meta
           property="og:description"
-          content="Especialista em BPC/LOAS, Aposentadorias e Revisional de Benefícios. Atendimento humanizado com foco em garantir o seu direito junto ao INSS."
+          content="Não aceite um 'não' automático do INSS. Recuperamos seu benefício negado e garantimos sua dignidade financeira. Atendimento em Recife."
         />
         <meta property="og:url" content="https://mariaclarasantos.adv.br" />
         <meta
@@ -56,11 +56,11 @@ const Home: NextPage = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Dra. Maria Clara Santos | Advocacia Previdenciária"
+          content="Benefício Negado ou Travado no INSS?"
         />
         <meta
           name="twitter:description"
-          content="Recupere seu benefício negado com atendimento humanizado e segurança jurídica."
+          content="Reverta a injustiça do sistema. Especialista em BPC/LOAS e Aposentadorias em Recife."
         />
         <meta
           name="twitter:image"

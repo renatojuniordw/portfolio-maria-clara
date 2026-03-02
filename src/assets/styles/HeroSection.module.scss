@@ -32,6 +32,11 @@
     font-weight: bold;
     line-height: 1.2;
     margin-bottom: 1rem;
+
+    .highlight {
+      color: $copper;
+      text-decoration: underline;
+    }
   }
 
   .slogan {

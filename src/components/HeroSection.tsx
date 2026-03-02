@@ -15,11 +15,13 @@ const HeroSection = () => {
         <div className={styles.text}>
           <header>
             <h1 id="hero-title" className={styles.title}>
-              Garanta sua Aposentadoria ou BPC/LOAS em Recife
+              Benefício <span className={styles.highlight}>Negado</span> ou
+              Travado no INSS?
             </h1>
             <p className={styles.slogan}>
-              Especialista em Direito Previdenciário com atendimento humanizado
-              e segurança jurídica para o seu benefício.
+              Eu reverto a injustiça e garanto sua dignidade. Especialista em
+              BPC/LOAS e Aposentadorias em Recife.{" "}
+              <strong>Não aceite um "não" automático do sistema.</strong>
             </p>
             <a
               href={CONSTANTS.whatsapp}
