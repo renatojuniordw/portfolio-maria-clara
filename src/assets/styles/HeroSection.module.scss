@@ -1,93 +1,220 @@
-@use "sass:color";
 @use "./variables" as *;
 
 .hero {
-  padding: 6rem 2rem 2rem 2rem;
-  background:
-    linear-gradient(to right, #4a4a4a 30%, rgba(0, 0, 0, 0.2) 100%),
-    url("/assets/images/profile.png") no-repeat right center;
-  background-size: auto 100%;
-  background-position: right center;
-  background-repeat: no-repeat;
-  color: white;
+  position: relative;
+  overflow: hidden;
+  padding: 5.5rem 2rem 4rem;
+  // margin-top: 1rem;
+  background: linear-gradient(
+    130deg,
+    rgba(20, 20, 20, 0.98) 0%,
+    rgba(20, 20, 20, 0.92) 60%,
+    rgba(200, 77, 47, 0.9) 100%
+  );
+  color: $paper;
+  border: 1px solid rgba(255, 253, 248, 0.08);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 auto;
+    width: 42%;
+    height: 18px;
+    background: $paper;
+    opacity: 0.08;
+  }
+}
+
+.kicker {
+  margin: 0 0 1.25rem;
+  color: rgba(255, 253, 248, 0.74);
+  font-size: 0.85rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  align-items: end;
+  gap: 2rem;
+  min-height: 480px;
+}
+
+.textBlock {
+  max-width: 760px;
+}
+
+.title {
   margin: 0;
-  border-radius: 30px;
+  max-width: 15ch;
+  font-family: var(--font-playfair), serif;
+  font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+  line-height: 0.88;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+}
 
+.slogan {
+  max-width: 35rem;
+  margin: 1.5rem 0 0;
+  color: rgba(255, 253, 248, 0.84);
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: 1.65;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    padding: 0.3rem 0.75rem;
+    border: 1px solid rgba(255, 253, 248, 0.28);
+    color: rgba(255, 253, 248, 0.72);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.ctaButton,
+.secondaryLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0.95rem 1.4rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.ctaButton {
+  background: $paper;
+  color: $ink;
+  font-weight: 800;
+
+  &:hover,
+  &:focus-visible {
+    transform: translate3d(0, -2px, 0);
+    background: $signal;
+    color: $paper;
+  }
+}
+
+.secondaryLink {
+  border: 1px solid rgba(255, 253, 248, 0.42);
+  color: $paper;
+
+  &:hover,
+  &:focus-visible {
+    transform: translate3d(0, -2px, 0);
+    background: rgba(255, 253, 248, 0.1);
+  }
+}
+
+.sidePanel {
+  justify-self: end;
+  width: min(100%, 320px);
+  padding: 1.4rem;
+  margin-bottom: -2.5rem;
+  background: rgba(255, 253, 248, 0.95);
+  color: $ink;
+  border-left: 8px solid $signal;
+  box-shadow: 24px 24px 0 rgba(20, 20, 20, 0.2);
+}
+
+.panelLabel {
+  margin: 0 0 1rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $signal-dark;
+}
+
+.points {
+  display: grid;
+  gap: 0.85rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid rgba(20, 20, 20, 0.12);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+}
+
+.panelNote {
+  margin: 1rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: $graphite;
+}
+
+@media (max-width: 900px) {
   .container {
-    display: flex;
-    align-items: stretch;
-    justify-content: space-between;
-    gap: 2rem;
-    max-width: 1400px;
-    margin: 0 auto;
-    text-align: left;
-    min-height: 400px;
+    grid-template-columns: 1fr;
+    min-height: auto;
   }
 
-  .text {
-    max-width: 400px;
-  }
-
-  .title {
-    font-size: 3rem;
-    font-weight: bold;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-
-    .highlight {
-      color: $copper;
-      text-decoration: underline;
-    }
-  }
-
-  .slogan {
-    font-size: 1.25rem;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-  }
-
-  .ctaButton {
-    background-color: $copper;
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: $radius-button;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
-    display: inline-block;
-    transition:
-      transform 0.2s ease,
-      background-color 0.2s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-
-    &:hover {
-      transform: scale(1.05);
-      background-color: color.adjust($copper, $lightness: -10%);
-      color: white;
-    }
+  .sidePanel {
+    justify-self: start;
+    margin-bottom: 0;
   }
 }
 
 @media (max-width: 768px) {
   .hero {
-    background: $graphite; /* Solid graphite background on mobile */
-    border-radius: 0 0px 30px 30px;
-    padding: 6rem 1.5rem 4rem 1.5rem;
-    text-align: center;
+    padding: 6rem 1.25rem 3rem;
+    background: linear-gradient(
+      180deg,
+      rgba(20, 20, 20, 0.98) 0%,
+      rgba(20, 20, 20, 0.92) 70%,
+      rgba(200, 77, 47, 0.88) 100%
+    );
+  }
 
-    .container {
-      flex-direction: column;
-      align-items: center;
-      min-height: auto;
-    }
+  .title {
+    max-width: 10ch;
+  }
 
-    .text {
-      max-width: 100%;
-    }
+  .slogan {
+    max-width: none;
+  }
 
-    .title {
-      font-size: 2.2rem;
-    }
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ctaButton {
+    background: $signal;
+    color: $paper;
+  }
+
+  .sidePanel {
+    width: auto;
+    box-shadow: 14px 14px 0 rgba(20, 20, 20, 0.16);
   }
 }

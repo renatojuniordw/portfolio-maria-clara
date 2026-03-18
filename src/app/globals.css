@@ -1,41 +1,92 @@
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
-.section-title {
-    text-align: left;
-    color: #8b5a2b; /* Darker copper for better contrast */
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+* {
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
+  margin: 0;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(200, 77, 47, 0.08), transparent 28%),
+    linear-gradient(180deg, #f4efe7 0%, #fffdf8 24%, #efe4d6 100%);
+  color: #141414;
+  font-family: var(--font-manrope), sans-serif;
+}
+
+a,
+button,
+input {
+  font: inherit;
+}
+
+.section-title {
+  margin: 0;
+  max-width: 12ch;
+  color: #141414;
+  font-family: var(--font-playfair), serif;
+  font-size: clamp(2rem, 4.5vw, 3.8rem);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+.section-divider {
+  display: inline-flex;
+  width: min(220px, 100%);
+  height: 14px;
+  margin-top: 1.5rem;
+  background:
+    linear-gradient(90deg, #c84d2f 0 22%, transparent 22% 28%, #141414 28% 100%);
 }
 
 .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  opacity: 0;
+  transform: translate3d(0, 36px, 0);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
+  will-change: opacity, transform;
 }
 
 .revealVisible {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
 .skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: #8b5a2b;
-    color: white;
-    padding: 8px;
-    z-index: 2000;
-    transition: top 0.3s;
+  position: absolute;
+  top: -48px;
+  left: 1rem;
+  background: #141414;
+  color: #fffdf8;
+  padding: 0.75rem 1rem;
+  z-index: 2000;
+  transition: top 0.3s ease;
 }
 
 .skip-link:focus {
-    top: 0;
+  top: 1rem;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .revealVisible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    max-width: none;
+  }
+}

@@ -11,6 +11,7 @@ import { CONSTANTS } from "@/constants/constants";
 
 const WhatsAppButton = ({ className = "" }: { className?: string }) => (
   <a
+    id="link_consultar-direito"
     href={CONSTANTS.whatsapp}
     target="_blank"
     rel="noopener noreferrer"
@@ -24,13 +25,22 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentHash, setCurrentHash] = useState("");
   const pathname = usePathname();
+  const menuId = "primary-navigation";
 
   useEffect(() => {
-    // Definir hash inicial e adicionar listener
     setCurrentHash(window.location.hash);
     const handleHashChange = () => setCurrentHash(window.location.hash);
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMobileMenuOpen(false);
+      }
+    };
     window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
+    window.addEventListener("keydown", handleEscape);
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+      window.removeEventListener("keydown", handleEscape);
+    };
   }, []);
 
   const items = [
@@ -60,10 +70,12 @@ const Header = () => {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
             aria-expanded={isMobileMenuOpen}
+            aria-controls={menuId}
           >
             <span className="pi pi-bars" />
           </button>
           <ul
+            id={menuId}
             className={`${styles.menuItems} ${isMobileMenuOpen ? styles.menuOpen : ""}`}
             onClick={() => setIsMobileMenuOpen(false)}
           >

@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Playfair_Display, Manrope } from "next/font/google";
 import Script from "next/script";
 
-import "primereact/resources/themes/lara-light-blue/theme.css";
-import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
 });
 
@@ -128,7 +126,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${inter.variable} ${playfair.variable} antialiased`}>
+      <body className={`${manrope.variable} ${playfair.variable} antialiased`}>
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=G-QLX5SP3DR7`}
           strategy="afterInteractive"

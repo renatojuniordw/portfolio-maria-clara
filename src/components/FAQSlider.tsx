@@ -1,8 +1,7 @@
 "use client";
 
-import { Accordion, AccordionTab } from "primereact/accordion";
+import { useState } from "react";
 import styles from "@/assets/styles/FAQSlider.module.scss";
-import { Divider } from "primereact/divider";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const faqItems = [
@@ -31,29 +30,55 @@ const faqItems = [
 ];
 
 const FAQCollapse = () => {
-  const { elementRef, isVisible } = useScrollAnimation(0.2);
+  const { elementRef, isVisible } = useScrollAnimation<HTMLElement>(0.2);
+  const [openItems, setOpenItems] = useState<number[]>([0]);
+
+  function toggleItem(index: number) {
+    setOpenItems((current) =>
+      current.includes(index)
+        ? current.filter((item) => item !== index)
+        : [...current, index],
+    );
+  }
 
   return (
     <section
       className={`${styles.faq} ${isVisible ? "revealVisible" : "reveal"}`}
       id="faq"
       aria-labelledby="faq-heading"
-      ref={elementRef as any}
+      ref={elementRef}
     >
-      <header>
+      <header className={styles.header}>
+        <p className={styles.eyebrow}>Sem juridiques de fachada</p>
         <h2 id="faq-heading" className="section-title">
-          Dúvidas Frequentes{" "}
-          <span className={styles.lineBreak}>BPC/LOAS e INSS</span>
+          Perguntas que chegam quando a renda trava e a urgencia aperta.
         </h2>
-        <Divider />
+        <span className="section-divider" aria-hidden="true" />
       </header>
-      <Accordion multiple>
+      <div className={styles.items}>
         {faqItems.map((item, index) => (
-          <AccordionTab key={index} header={item.header}>
-            <p style={{ whiteSpace: "pre-line" }}>{item.content}</p>
-          </AccordionTab>
+          <article key={item.header} className={styles.item}>
+            <button
+              type="button"
+              className={styles.question}
+              aria-expanded={openItems.includes(index)}
+              aria-controls={`faq-panel-${index}`}
+              onClick={() => toggleItem(index)}
+            >
+              <span>{item.header}</span>
+              <span className={styles.symbol} aria-hidden="true">
+                {openItems.includes(index) ? "-" : "+"}
+              </span>
+            </button>
+            <div
+              id={`faq-panel-${index}`}
+              className={`${styles.answer} ${openItems.includes(index) ? styles.answerOpen : ""}`}
+            >
+              <p>{item.content}</p>
+            </div>
+          </article>
         ))}
-      </Accordion>
+      </div>
     </section>
   );
 };

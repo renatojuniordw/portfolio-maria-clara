@@ -1,79 +1,72 @@
-@use "sass:color";
 @use "./variables" as *;
 
 .aboutAuthor {
-  padding: 4rem 2rem;
-  background-color: #fff;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 4rem 2rem 5rem;
+  border-top: 1px solid rgba(20, 20, 20, 0.08);
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.imageWrapper {
+  width: 148px;
+  height: 148px;
+  overflow: hidden;
+  border-bottom: 10px solid $signal;
+}
+
+.info {
+  h3 {
+    margin: 0 0 0.4rem;
+    font-family: var(--font-playfair), serif;
+    font-size: 2.1rem;
+    text-transform: uppercase;
+    line-height: 0.95;
+  }
+
+  p {
+    margin: 0 0 1.2rem;
+    color: $graphite;
+    line-height: 1.7;
+  }
+}
+
+.specialty {
+  display: block;
+  margin-bottom: 0.85rem;
+  color: $signal-dark;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.link {
+  color: $ink;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .aboutAuthor {
+    padding: 3rem 1.25rem 4rem;
+  }
 
   .container {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-
-    @media (max-width: 768px) {
-      flex-direction: column;
-      text-align: center;
-      gap: 2rem;
-    }
+    grid-template-columns: 1fr;
   }
 
   .imageWrapper {
-    flex-shrink: 0;
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid rgba($copper, 0.2);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-
-  .info {
-    h3 {
-      font-size: 1.8rem;
-      font-family: var(--font-playfair);
-      color: $black;
-      margin-bottom: 0.5rem;
-    }
-
-    .specialty {
-      font-size: 0.9rem;
-      color: $copper;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      display: block;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      font-size: 1.05rem;
-      color: #555;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-
-    .link {
-      color: $black;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.9rem;
-      border-bottom: 2px solid $copper;
-      padding-bottom: 2px;
-      transition: all 0.2s ease;
-
-      &:hover {
-        color: $copper;
-        border-color: transparent;
-      }
-    }
+    width: 120px;
+    height: 120px;
   }
 }

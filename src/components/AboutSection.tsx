@@ -3,25 +3,27 @@
 import Image from "next/image";
 import profileImg from "@/assets/images/profile.png";
 import styles from "@/assets/styles/AboutSection.module.scss";
-import { Divider } from "primereact/divider";
 
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const AboutSection = () => {
-  const { elementRef, isVisible } = useScrollAnimation(0.2);
+  const { elementRef, isVisible } = useScrollAnimation<HTMLElement>(0.2);
 
   return (
     <section
       className={`${styles.about} ${isVisible ? "revealVisible" : "reveal"}`}
       id="sobre"
-      ref={elementRef as any}
+      aria-labelledby="about-heading"
+      ref={elementRef}
     >
       <div className={styles.container}>
         <header className={styles.titleWrapper}>
+          <p className={styles.eyebrow}>Quem conduz seu caso</p>
           <h2 id="about-heading" className="section-title">
-            Sobre mim
+            Presenca tecnica. Linguagem humana. Atuacao focada em
+            previdenciario.
           </h2>
-          <Divider />
+          <span className="section-divider" aria-hidden="true" />
         </header>
 
         <div className={styles.content}>
@@ -37,43 +39,27 @@ const AboutSection = () => {
 
           <div className={styles.textWrapper}>
             <p className={styles.description}>
-              Sou Maria Clara Santos, advogada previdenciarista com atuação
-              especializada em Direito Previdenciário em Recife (PE). Bacharela
-              em Direito pela UNICAP (2021.1), com MBA em Mediação e Arbitragem
-              pela mesma instituição (2023), atualmente curso pós-graduação em
-              Direito da Seguridade Social – Direito e Prática Previdenciária
-              pela Faculdade Legale (2025/2026) e em Direito Previdenciário pela
-              ESA/PE (2025/2027).
-              <br />
-              <br />
-              Atuo com foco exclusivo em benefícios do INSS, como
-              aposentadorias, pensões, auxílios e BPC/LOAS, sempre com
-              estratégias personalizadas para garantir o melhor resultado para
-              cada cliente. Meu trabalho é baseado em seriedade, técnica e
-              comprometimento.
-              <br />
-              <br />
-              Sou advogada regularmente inscrita na OAB/PE nº 60.655 e tenho
-              como missão oferecer um atendimento humanizado e transparente, com
-              foco na segurança jurídica e na tranquilidade de quem busca os
-              seus direitos junto à Previdência Social.
-              <br />
-              <br />
-              Se você procura uma advogada especialista em INSS, que atua com
-              empatia, responsabilidade e conhecimento profundo das regras
-              previdenciárias, conte comigo para te orientar em cada etapa do
-              processo.
-              <br />
-              <br />
-              <strong>
-                Atendimento especializado em toda a Região Metropolitana:
-              </strong>{" "}
-              Com foco em agilidade e segurança jurídica, realizo atendimentos e
-              consultorias personalizadas para clientes em{" "}
-              <strong>Recife, Olinda, Jaboatão dos Guararapes, Paulista</strong>{" "}
-              e demais cidades da região, garantindo que você tenha acesso ao
-              seu direito de onde estiver.
+              Sou Maria Clara Santos, advogada previdenciarista com atuacao
+              especializada em Direito Previdenciario em Recife. Minha rotina de
+              trabalho envolve aposentadorias, pensoes, auxilios e BPC/LOAS,
+              sempre com leitura individual do caso e estrategia sob medida.
             </p>
+            <p className={styles.description}>
+              Sou bacharela em Direito pela UNICAP, com MBA em Mediacao e
+              Arbitragem, e sigo em especializacao continuada em seguridade
+              social e direito previdenciario. A base do meu trabalho e unir
+              tecnica, clareza e responsabilidade.
+            </p>
+            <p className={styles.description}>
+              Inscrita na OAB/PE 60.655, atuo com atendimento humanizado e
+              transparente para clientes de Recife, Olinda, Jaboatao dos
+              Guararapes, Paulista e Regiao Metropolitana.
+            </p>
+            <div className={styles.credentials}>
+              <span>OAB/PE 60.655</span>
+              <span>Foco exclusivo em INSS</span>
+              <span>Atendimento em Recife e Regiao Metropolitana</span>
+            </div>
           </div>
         </div>
       </div>

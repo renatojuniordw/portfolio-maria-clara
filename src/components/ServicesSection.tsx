@@ -1,12 +1,11 @@
 "use client";
 
-import { Divider } from "primereact/divider";
 import Link from "next/link";
 import styles from "@/assets/styles/ServicesSection.module.scss";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const ServicesSection = () => {
-  const { elementRef, isVisible } = useScrollAnimation(0.2);
+  const { elementRef, isVisible } = useScrollAnimation<HTMLElement>(0.2);
   const services = [
     {
       title: "BPC / LOAS",
@@ -40,39 +39,44 @@ const ServicesSection = () => {
       id="servicos"
       aria-labelledby="services-heading"
       role="region"
-      ref={elementRef as any}
+      ref={elementRef}
     >
-      <header>
+      <header className={styles.header}>
+        <p className={styles.eyebrow}>Onde a atuacao aperta o sistema</p>
         <h2 id="services-heading" className="section-title">
-          Soluções para <span className={styles.lineBreak}>seu benefício</span>
+          Frentes de ataque para destravar seu direito.
         </h2>
-        <Divider />
+        <p className={styles.intro}>
+          Cada caso exige leitura de documento, estrategia de prova e escolha
+          do melhor caminho administrativo ou judicial.
+        </p>
+        <span className="section-divider" aria-hidden="true" />
       </header>
       <div className={styles.grid}>
         <div className={styles.text}>
-          <p>
-            <strong>Advogada Previdenciária em Recife</strong>
-            <br />
-            Sou especializada em Direito Previdenciário, oferecendo um
-            atendimento humanizado e estratégico para garantir seus direitos
-            junto ao INSS.
+          <p className={styles.manifesto}>
+            Nao trabalho com promessa vazia. Trabalho com leitura de processo,
+            revisao de CNIS, provas certas e conducao firme.
           </p>
-          <p className={styles.highlight}>
-            <strong>Teve seu benefício negado?</strong> Não desista. Analisamos
-            seu caso detalhadamente para reverter decisões injustas e garantir o
-            que é seu por direito.
-          </p>
+          <div className={styles.highlight}>
+            <strong>Se o INSS travou sua renda, o site precisa dizer isso sem medo.</strong>
+            <p>
+              A abordagem aqui nao e institucional neutra: ela comunica defesa,
+              presenca e especializacao de nicho.
+            </p>
+          </div>
         </div>
         <div className={styles.list}>
-          {services.map((service, index) => (
+          {services.map((service) => (
             <Link
-              key={index}
+              key={service.slug}
               href={`/servicos/${service.slug}`}
               className={styles.card}
               title={`Ver mais sobre ${service.title}`}
             >
+              <span className={styles.cardIndex}>{service.slug.slice(0, 3)}</span>
               <div className={styles.iconWrapper}>
-                <i className={`pi ${service.icon}`} />
+                <i className={`pi ${service.icon}`} aria-hidden="true" />
               </div>
               <div className={styles.cardContent}>
                 <h3 className={styles.cardTitle}>{service.title}</h3>

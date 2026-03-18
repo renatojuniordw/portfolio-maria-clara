@@ -45,7 +45,8 @@ export default function INSSPage() {
               <p>
                 O auxílio-doença é um benefício para quem está temporariamente
                 incapacitado para o trabalho. O grande problema desses casos é a
-                perícia médica do INSS, que muitas vezes dá o "alta médica"
+                perícia médica do INSS, que muitas vezes dá o &quot;alta
+                médica&quot;
                 precocemente, antes que o segurado esteja apto a retornar à sua
                 atividade.
               </p>

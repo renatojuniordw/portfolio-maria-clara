@@ -1,240 +1,241 @@
-@use "sass:color";
 @use "./variables" as *;
 
 .servicePage {
   min-height: 100vh;
-  padding-top: 2rem;
-  background-color: #fafafa;
+  padding-top: 1.25rem;
 }
 
 .hero {
-  padding: 5rem 2rem 5rem 2rem;
-  // Usando o mesmo gradiente e estilo da Home
-  background: linear-gradient(to right, #4a4a4a 30%, rgba(0, 0, 0, 0.6) 100%);
-  color: white;
-  margin-bottom: 3rem;
-  border-radius: 30px;
   max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 2rem;
+  padding: 4.5rem 2rem 4rem;
+  background:
+    linear-gradient(135deg, rgba(20, 20, 20, 0.97) 0%, rgba(20, 20, 20, 0.9) 62%, rgba(200, 77, 47, 0.86) 100%);
+  color: $paper;
+  border-left: 12px solid $signal;
+}
 
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    text-align: left;
+.container {
+  max-width: 1120px;
+}
 
-    @media (max-width: 768px) {
-      text-align: center;
-    }
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 253, 248, 0.72);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  &:hover,
+  &:focus-visible {
+    color: $paper;
   }
+}
 
-  .backLink {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: $copper;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.title {
+  margin: 0;
+  max-width: 9ch;
+  font-family: var(--font-playfair), serif;
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  line-height: 0.92;
+  text-transform: uppercase;
+}
 
-    &:hover {
-      transform: translateX(-5px);
-      color: lighten($copper, 10%);
-    }
-  }
+.subtitle {
+  max-width: 42rem;
+  margin: 1rem 0 0;
+  color: rgba(255, 253, 248, 0.82);
+  font-size: 1.12rem;
+  line-height: 1.75;
 
-  .title {
-    font-size: 3.5rem;
-    font-family: var(--font-playfair);
-    font-weight: 700;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-    color: white;
-
-    @media (max-width: 768px) {
-      font-size: 2.5rem;
-    }
-  }
-
-  .subtitle {
-    font-size: 1.3rem;
-    color: rgba(255, 255, 255, 0.9);
-    max-width: 800px;
-    line-height: 1.6;
-    font-weight: 400;
-
-    strong {
-      color: $copper;
-      font-weight: 700;
-    }
+  strong {
+    color: #ffb092;
   }
 }
 
 .contentWrapper {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 1.5rem 8rem;
+  padding: 0 1.5rem 6rem;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 4rem;
-  max-width: 1100px;
-  margin: 0 auto;
-
-  @media (min-width: 1024px) {
-    grid-template-columns: 1.7fr 1fr;
-  }
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 1rem;
+  align-items: start;
 }
 
 .mainContent {
+  display: grid;
+  gap: 1.25rem;
+
   section {
-    margin-bottom: 3.5rem;
+    padding: 2rem;
+    background: rgba(255, 253, 248, 0.92);
+    border-left: 8px solid rgba(20, 20, 20, 0.14);
   }
 
   h2 {
+    margin: 0 0 1.25rem;
+    color: $ink;
+    font-family: var(--font-playfair), serif;
     font-size: 2rem;
-    font-family: var(--font-playfair);
-    color: $black;
-    margin-bottom: 1.5rem;
-    border-bottom: 2px solid $copper;
-    display: inline-block;
-    padding-bottom: 0.5rem;
+    line-height: 0.98;
+    text-transform: uppercase;
   }
 
   p {
-    font-size: 1.15rem;
-    color: #4a4a4a;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    text-align: justify;
+    margin: 0 0 1rem;
+    color: $graphite;
+    font-size: 1.05rem;
+    line-height: 1.85;
   }
 
   ul {
-    list-style: none;
+    display: grid;
+    gap: 0.75rem;
+    margin: 1.4rem 0 0;
     padding: 0;
-    margin: 2rem 0;
+    list-style: none;
+  }
 
-    li {
-      font-size: 1.1rem;
-      color: #333;
-      padding: 0.8rem 0;
-      position: relative;
-      padding-left: 2rem;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  li {
+    position: relative;
+    padding-left: 1.6rem;
+    color: $graphite;
+    line-height: 1.7;
 
-      &:last-child {
-        border-bottom: none;
-      }
-
-      &::before {
-        content: "\e93e"; // pi-check
-        font-family: "primeicons";
-        position: absolute;
-        left: 0;
-        top: 0.9rem;
-        color: $copper;
-        font-weight: bold;
-      }
-
-      strong {
-        color: #000;
-      }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0.7rem;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      background: $signal;
     }
+  }
+
+  strong {
+    color: $ink;
   }
 }
 
 .sidebar {
-  .stickyContainer {
-    position: sticky;
-    top: 120px;
+  position: sticky;
+  top: 110px;
+}
+
+.stickyContainer {
+  display: block;
+}
+
+.contactCard {
+  padding: 2rem;
+  background: $ink;
+  color: $paper;
+  box-shadow: 18px 18px 0 rgba(20, 20, 20, 0.1);
+
+  h3 {
+    margin: 1.1rem 0 0.8rem;
+    font-family: var(--font-playfair), serif;
+    font-size: 2rem;
+    line-height: 0.95;
+    text-transform: uppercase;
   }
 
-  .contactCard {
-    background: #ffffff;
-    padding: 2.5rem;
-    border-radius: 24px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    text-align: center;
+  p {
+    margin: 0 0 1.5rem;
+    color: rgba(255, 253, 248, 0.78);
+    line-height: 1.7;
+  }
+}
 
-    .iconBox {
-      width: 60px;
-      height: 60px;
-      background: $light-gray;
-      color: $copper;
-      border-radius: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      margin: 0 auto 1.5rem;
-    }
+.iconBox {
+  width: 58px;
+  height: 58px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: $signal;
+  color: $paper;
+  font-size: 1.35rem;
+}
 
-    h3 {
-      font-size: 1.5rem;
-      font-family: var(--font-playfair);
-      margin-bottom: 1rem;
-      color: #1a1a1a;
-    }
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 52px;
+  padding: 0.9rem 1rem;
+  background: $paper;
+  color: $ink;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 800;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
 
-    p {
-      font-size: 1rem;
-      color: #666;
-      margin-bottom: 2rem;
-      line-height: 1.5;
-    }
+  &:hover,
+  &:focus-visible {
+    transform: translate3d(0, -2px, 0);
+    background: #ffb092;
+  }
+}
+
+.safeBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  color: rgba(255, 253, 248, 0.62);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
   }
 
-  .ctaButton {
-    background: $copper;
-    color: #fff;
-    padding: 1.2rem 2rem;
-    border-radius: $radius-button;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    transition: all 0.3s ease;
-
-    &:hover {
-      background-color: color.adjust($copper, $lightness: -10%);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(184, 115, 51, 0.2);
-    }
-  }
-
-  .safeBadge {
-    margin-top: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    font-size: 0.8rem;
-    color: #999;
+  .sidebar {
+    position: static;
   }
 }
 
 @media (max-width: 768px) {
   .hero {
-    margin: 0;
-    border-radius: 0 0 30px 30px;
-    padding: 6rem 1.5rem 4rem;
+    padding: 4rem 1.25rem 3rem;
   }
 
   .contentWrapper {
-    padding: 0 1.5rem 6rem;
+    padding: 0 1.25rem 4rem;
   }
 
-  .grid {
-    gap: 3rem;
+  .mainContent section,
+  .contactCard {
+    padding: 1.5rem;
+  }
+
+  .mainContent h2 {
+    font-size: 1.5rem;
+  }
+
+  .contactCard h3 {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
   }
 }

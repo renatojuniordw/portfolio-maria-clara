@@ -1,42 +1,97 @@
-@use "sass:color";
 @use "./variables" as *;
 
 .faq {
-  padding: 4rem 2rem;
-  background-color: $white;
-  text-align: center;
+  padding: 6rem 2rem;
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0.04) 0%, rgba(255, 253, 248, 0) 100%);
+}
 
-  .lineBreak {
-    display: block;
+.header {
+  max-width: 980px;
+}
+
+.eyebrow {
+  margin: 0 0 0.8rem;
+  color: $signal-dark;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.items {
+  display: grid;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.item {
+  background: rgba(255, 253, 248, 0.95);
+  border-left: 8px solid transparent;
+  transition: border-color 0.22s ease;
+
+  &:has(.question[aria-expanded="true"]) {
+    border-left-color: $signal;
   }
+}
 
-  .title {
-    font-size: 2rem;
-    color: $black;
-    margin-bottom: 2rem;
-  }
+.question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 0;
+  background: transparent;
+  color: $ink;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1.45;
+  cursor: pointer;
+}
 
-  :global(.p-accordion .p-accordion-header .p-accordion-header-link) {
-    border: 0;
-    color: $copper;
-    padding: 1.3rem;
-    border-bottom: 2px solid $copper;
-    text-align: left;
+.symbol {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: $ink;
+  color: $paper;
+  font-size: 1.4rem;
+}
 
-    &:hover {
-      background-color: color.adjust($light-gray, $lightness: -5%);
-    }
-  }
+.answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.24s ease;
 
-  :global(.p-accordion .p-accordion-content) {
-    text-align: justify;
+  p {
+    overflow: hidden;
+    margin: 0;
+    padding: 0 1.5rem;
     color: $graphite;
-    line-height: 1.6;
-    hyphens: auto;
+    line-height: 1.8;
+  }
+}
 
-    @media (max-width: 768px) {
-      text-align: left;
-      hyphens: none;
-    }
+.answerOpen {
+  grid-template-rows: 1fr;
+
+  p {
+    padding-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .faq {
+    padding: 4rem 1.25rem;
+  }
+
+  .question {
+    font-size: 1rem;
+    padding: 1.2rem;
   }
 }

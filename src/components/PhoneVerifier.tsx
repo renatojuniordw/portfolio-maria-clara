@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import styles from "@/assets/styles/PhoneVerifier.module.scss";
-import { Divider } from "primereact/divider";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const OFFICIAL_NUMBERS = ["81985240415", "985240415"];
@@ -35,22 +34,18 @@ function stripDDD(digits: string): string {
 }
 
 const PhoneVerifier = () => {
-  const { elementRef, isVisible } = useScrollAnimation(0.2);
+  const { elementRef, isVisible } = useScrollAnimation<HTMLElement>(0.2);
   const [raw, setRaw] = useState("");
   const [checked, setChecked] = useState(false);
 
-  const normalized = useMemo(() => normalizeBRPhone(raw), [raw]);
-  const normalizedNoDDD = useMemo(() => stripDDD(normalized), [normalized]);
-  const lookupSets = useMemo(() => {
-    const withDDD = new Set(OFFICIAL_NUMBERS.map(normalizeBRPhone));
-    const withoutDDD = new Set(Array.from(withDDD).map(stripDDD));
-    return { withDDD, withoutDDD };
-  }, []);
+  const normalized = normalizeBRPhone(raw);
+  const normalizedNoDDD = stripDDD(normalized);
+  const withDDD = new Set(OFFICIAL_NUMBERS.map(normalizeBRPhone));
+  const withoutDDD = new Set(Array.from(withDDD).map(stripDDD));
   const isValidLength = normalized.length >= 8 && normalized.length <= 11;
   const isOfficial =
     isValidLength &&
-    (lookupSets.withDDD.has(normalized) ||
-      lookupSets.withoutDDD.has(normalizedNoDDD));
+    (withDDD.has(normalized) || withoutDDD.has(normalizedNoDDD));
   const resultId = "phone-verifier-result";
 
   function handleCheck(e: React.FormEvent) {
@@ -69,13 +64,18 @@ const PhoneVerifier = () => {
       id="verificador"
       aria-labelledby="phone-verifier-heading"
       role="region"
-      ref={elementRef as any}
+      ref={elementRef}
     >
-      <header>
+      <header className={styles.header}>
+        <p className={styles.eyebrow}>Camada de confianca</p>
         <h2 id="phone-verifier-heading" className="section-title">
-          Verificar <span className={styles.lineBreak}>contato oficial</span>
+          Antes de enviar documento ou dinheiro, confira o numero.
         </h2>
-        <Divider />
+        <p className={styles.sectionLead}>
+          A seguranca aqui nao fica escondida no rodape. Ela entra como servico
+          visivel e util no meio da navegacao.
+        </p>
+        <span className="section-divider" aria-hidden="true" />
       </header>
 
       <div className={styles.grid}>
@@ -170,8 +170,7 @@ const PhoneVerifier = () => {
             </li>
           </ul>
           <p className={styles.alertNote}>
-            🔒 A segurança das suas informações é prioridade no nosso
-            escritório.
+            A seguranca das suas informacoes e prioridade no nosso escritorio.
             <strong> Maria Clara Santos Advocacia</strong> atua com ética,
             transparência e atendimento humanizado.
           </p>

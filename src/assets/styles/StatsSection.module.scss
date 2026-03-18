@@ -1,79 +1,124 @@
-@use "sass:color";
 @use "./variables" as *;
 
 .stats {
-  padding: 4rem 2rem;
-  background-color: #fff;
+  padding: 6rem 2rem;
+}
 
-  .outerContainer {
-    max-width: 1200px;
-    margin: 0 auto;
+.outerContainer {
+  position: relative;
+}
+
+.header {
+  display: grid;
+  justify-items: end;
+  text-align: right;
+}
+
+.eyebrow {
+  margin: 0 0 0.8rem;
+  color: $signal-dark;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.lead {
+  max-width: 28rem;
+  margin: 1.25rem 0 0;
+  color: $graphite;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.statCard {
+  display: grid;
+  align-content: start;
+  min-height: 320px;
+  padding: 1.8rem;
+  background: rgba(255, 253, 248, 0.92);
+  border-top: 10px solid $ink;
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease;
+
+  &:nth-child(2) {
+    transform: translateY(42px);
+    border-top-color: $signal;
   }
 
-  .container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    padding-top: 2rem;
+  &:nth-child(3) {
+    transform: translateY(12px);
   }
 
-  .statCard {
-    background: #fff;
-    padding: 2.5rem 2rem;
-    border-radius: 20px;
-    text-align: center;
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    &:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-      border-color: rgba($copper, 0.2);
-    }
-
-    .iconWrapper {
-      margin-bottom: 1.5rem;
-    }
-
-    .value {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: $copper;
-      display: block;
-      margin-bottom: 0.5rem;
-      letter-spacing: -1px;
-    }
-
-    .label {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: $graphite;
-      margin-bottom: 1rem;
-    }
-
-    .description {
-      font-size: 1rem;
-      color: color.adjust($graphite, $lightness: 10%);
-      line-height: 1.5;
-      margin: 0;
-    }
+  &:hover {
+    transform: translateY(-6px);
   }
 }
 
-@media (max-width: 992px) {
-  .stats {
-    .container {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
+.cardTop {
+  margin: 0 0 2.5rem;
+  color: rgba(20, 20, 20, 0.38);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
 
-    .statCard {
-      padding: 2rem 1.5rem;
-    }
+.iconWrapper {
+  margin-bottom: 1rem;
+}
+
+.value {
+  display: block;
+  color: $signal;
+  font-family: var(--font-playfair), serif;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  line-height: 0.95;
+}
+
+.label {
+  margin: 0;
+  color: $ink;
+  font-size: 1.15rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.description {
+  margin: 1rem 0 0;
+  color: $graphite;
+  line-height: 1.7;
+}
+
+@media (max-width: 992px) {
+  .header {
+    justify-items: start;
+    text-align: left;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .statCard,
+  .statCard:nth-child(2),
+  .statCard:nth-child(3) {
+    transform: none;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats {
+    padding: 4rem 1.25rem;
   }
 }

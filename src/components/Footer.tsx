@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import {
   FaInstagram,
@@ -15,6 +13,7 @@ import { CONSTANTS } from "@/constants/constants";
 const Footer = () => {
   return (
     <footer className={styles.footer} role="contentinfo">
+      <p className={styles.kicker}>Atuacao previdenciaria com presenca local</p>
       <div className={styles.container}>
         <div className={styles.column}>
           <div className={styles.contact}>
@@ -24,14 +23,14 @@ const Footer = () => {
               rel="noopener noreferrer"
               className={styles.contactLink}
             >
-              <FaPhoneAlt size={16} />
+              <FaPhoneAlt size={16} aria-hidden="true" />
               <span>{CONSTANTS.telephone}</span>
             </a>
             <a
               href={`mailto:${CONSTANTS.email}`}
               className={styles.contactLink}
             >
-              <FaEnvelope size={16} />
+              <FaEnvelope size={16} aria-hidden="true" />
               <span>{CONSTANTS.email}</span>
             </a>
           </div>

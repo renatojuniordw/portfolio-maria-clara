@@ -1,98 +1,109 @@
 @use "./variables" as *;
 
 .about {
-  padding: 4rem 2rem;
-  background-color: $white;
+  padding: 6rem 2rem;
+}
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 3rem;
+.container {
+  display: grid;
+  gap: 3rem;
+}
+
+.titleWrapper {
+  max-width: 980px;
+}
+
+.eyebrow {
+  margin: 0 0 0.8rem;
+  color: $signal-dark;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.55fr) minmax(0, 1.45fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.imageWrapper {
+  position: relative;
+  padding-top: 4rem;
+
+  &::before {
+    content: "Recife";
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: rgba(20, 20, 20, 0.18);
+    font-family: var(--font-playfair), serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    text-transform: uppercase;
   }
+}
 
-  .titleWrapper {
-    text-align: center;
-    width: 100%;
-  }
+.image {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  object-fit: cover;
+  border-bottom: 14px solid $signal;
+  box-shadow: 26px 26px 0 rgba(20, 20, 20, 0.08);
+}
 
-  .content {
-    display: flex;
-    flex-direction: column;
+.textWrapper {
+  display: grid;
+  gap: 1rem;
+}
+
+.description {
+  margin: 0;
+  max-width: 46rem;
+  color: $graphite;
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+
+.credentials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+
+  span {
+    display: inline-flex;
     align-items: center;
-    gap: 2rem;
+    min-height: 44px;
+    padding: 0.7rem 1rem;
+    background: $ink;
+    color: $paper;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+}
 
-    @media (min-width: 769px) {
-      flex-direction: row;
-      align-items: center;
-      gap: 5rem;
-    }
+@media (max-width: 900px) {
+  .content {
+    grid-template-columns: 1fr;
   }
 
   .imageWrapper {
-    flex: 1;
-    display: flex;
-    justify-content: center;
+    padding-top: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 4rem 1.25rem;
   }
 
   .image {
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-    object-fit: cover;
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-
-    @media (max-width: 768px) {
-      max-width: 280px;
-    }
-  }
-
-  .textWrapper {
-    flex: 1.5;
-    width: 100%;
-  }
-
-  .description {
-    font-size: 1.1rem;
-    color: $graphite;
-    line-height: 1.6;
-    text-align: justify;
-    hyphens: auto; // Ajuda a evitar espaços grandes ao justificar
-
-    @media (max-width: 768px) {
-      text-align: center;
-      hyphens: none;
-    }
-  }
-
-  .contactActions {
-    margin-top: 1rem;
-
-    .whatsappButton {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem 1.2rem;
-      border: 1px solid #25d366;
-      background-color: transparent;
-      color: #25d366;
-      border-radius: $radius-button;
-      font-size: 1rem;
-      font-weight: 500;
-      transition:
-        background-color 0.3s,
-        color 0.3s;
-
-      i {
-        font-size: 1.2rem;
-      }
-
-      &:hover {
-        background-color: #25d366;
-        color: white;
-      }
-    }
+    max-width: 320px;
+    box-shadow: 14px 14px 0 rgba(20, 20, 20, 0.08);
   }
 }

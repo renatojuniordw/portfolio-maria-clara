@@ -1,5 +1,3 @@
-"use client";
-
 import styles from "@/assets/styles/FloatingWhatsApp.module.scss";
 import { CONSTANTS } from "@/constants/constants";
 
