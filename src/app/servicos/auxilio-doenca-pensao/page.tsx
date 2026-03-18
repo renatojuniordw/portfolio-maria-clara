@@ -5,12 +5,14 @@ import { Metadata } from "next";
 import AboutAuthor from "@/components/AboutAuthor";
 
 export const metadata: Metadata = {
-  title:
-    "Auxílio-Doença e Pensão por Morte em Recife - Especialista em INSS | Dra. Maria Clara Santos",
+  title: "Auxílio-Doença e Pensão por Morte Recife | INSS",
   description:
-    "Teve seu auxílio-doença cortado ou pensão por morte negada? Atendimento especializado em casos de doença, incapacidade e amparo familiar em Recife. Garanta o que é seu por direito.",
+    "Auxílio-doença cortado ou pensão por morte negada em Recife? Revertemos negativas do INSS e garantimos seus direitos. Fale agora.",
   keywords:
-    "auxilio doença recife, advogado auxilio doença recife, pensao por morte recife, inss beneficios incapacidade recife, advogado inss recife",
+    "auxilio doença recife, advogado auxilio doença recife, pensao por morte recife, inss benefícios incapacidade recife, advogado inss recife",
+  alternates: {
+    canonical: "https://www.mariaclarasantos.adv.br/servicos/auxilio-doenca-pensao",
+  },
   openGraph: {
     title:
       "INSS - Auxílio-Doença, Pensão por Morte e Amparo Familiar em Recife",
@@ -20,9 +22,29 @@ export const metadata: Metadata = {
   },
 };
 
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Auxílio-Doença e Pensão por Morte pelo INSS",
+  provider: {
+    "@type": "LegalService",
+    name: "Dra. Maria Clara Santos",
+    url: "https://www.mariaclarasantos.adv.br",
+  },
+  areaServed: { "@type": "City", name: "Recife" },
+  description:
+    "Assessoria jurídica para reversão de auxílio-doença negado por perícia e pensão por morte em Recife.",
+  url: "https://www.mariaclarasantos.adv.br/servicos/auxilio-doenca-pensao",
+};
+
 export default function INSSPage() {
   return (
-    <div className={styles.servicePage}>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+      <div className={styles.servicePage}>
       <header className={styles.hero}>
         <div className={styles.container}>
           <Link href="/#servicos" className={styles.backLink}>
@@ -69,6 +91,35 @@ export default function INSSPage() {
             </section>
 
             <section>
+              <h2>Como funciona o processo para reverter uma negativa?</h2>
+              <ol>
+                <li>
+                  <strong>Análise da negativa:</strong> revisamos a carta de
+                  indeferimento e identificamos o motivo técnico da recusa do
+                  INSS.
+                </li>
+                <li>
+                  <strong>Avaliação da documentação médica:</strong> verificamos
+                  se os laudos e exames atendem aos critérios exigidos
+                  legalmente.
+                </li>
+                <li>
+                  <strong>Estratégia de recurso:</strong> definimos o melhor
+                  caminho — recurso administrativo ou ação judicial.
+                </li>
+                <li>
+                  <strong>Protocolo do recurso:</strong> entramos com o pedido
+                  de revisão formalmente e acompanhamos cada etapa do processo.
+                </li>
+                <li>
+                  <strong>Recebimento dos retroativos:</strong> garantimos o
+                  pagamento de todos os valores devidos desde a data do pedido
+                  original.
+                </li>
+              </ol>
+            </section>
+
+            <section>
               <h2>Pensão por Morte (Amparo à Família)</h2>
               <p>
                 Garantir o amparo aos dependentes após o falecimento do segurado
@@ -88,6 +139,28 @@ export default function INSSPage() {
                   <strong>Pensão Negada por Falta de Qualidade:</strong>{" "}
                   Reversão de negativas quando o segurado estava desempregado no
                   momento do óbito.
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h2>Veja também</h2>
+              <ul>
+                <li>
+                  <Link href="/servicos/bpc-loas">
+                    BPC/LOAS — benefício assistencial para idosos e pessoas com
+                    deficiência
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/servicos/aposentadorias">
+                    Aposentadorias — garanta o maior valor de benefício possível
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/servicos/planejamento-previdenciario">
+                    Planejamento Previdenciário — antecipe sua aposentadoria com
+                    segurança jurídica
+                  </Link>
                 </li>
               </ul>
             </section>
@@ -124,5 +197,6 @@ export default function INSSPage() {
       </main>
       <AboutAuthor />
     </div>
+    </>
   );
 }

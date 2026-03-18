@@ -5,12 +5,14 @@ import { Metadata } from "next";
 import AboutAuthor from "@/components/AboutAuthor";
 
 export const metadata: Metadata = {
-  title:
-    "Aposentadorias em Recife - Especialista em INSS | Dra. Maria Clara Santos",
+  title: "Aposentadoria em Recife | Dra. Maria Clara Santos",
   description:
-    "Dúvidas sobre sua Aposentadoria? Especialista em Aposentadoria por Idade, Tempo de Contribuição e Especial. Garanta o melhor valor de benefício e receba seus atrasados em Recife.",
+    "Especialista em Aposentadoria por Idade, Tempo e Especial em Recife. Garanta o maior valor de benefício e receba todos os atrasados.",
   keywords:
     "aposentadoria recife, advogado aposentadoria recife, inss aposentadoria recife, tempo de contribuição inss recife, aposentadoria especial recife",
+  alternates: {
+    canonical: "https://www.mariaclarasantos.adv.br/servicos/aposentadorias",
+  },
   openGraph: {
     title:
       "Aposentadorias - Planeje seu Benefício e Garanta seu Futuro em Recife",
@@ -20,9 +22,29 @@ export const metadata: Metadata = {
   },
 };
 
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Assessoria em Aposentadorias pelo INSS",
+  provider: {
+    "@type": "LegalService",
+    name: "Dra. Maria Clara Santos",
+    url: "https://www.mariaclarasantos.adv.br",
+  },
+  areaServed: { "@type": "City", name: "Recife" },
+  description:
+    "Planejamento e assessoria jurídica para aposentadoria por idade, tempo de contribuição e especial em Recife.",
+  url: "https://www.mariaclarasantos.adv.br/servicos/aposentadorias",
+};
+
 export default function AposentadoriasPage() {
   return (
-    <div className={styles.servicePage}>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+      <div className={styles.servicePage}>
       <header className={styles.hero}>
         <div className={styles.container}>
           <Link href="/#servicos" className={styles.backLink}>
@@ -88,6 +110,36 @@ export default function AposentadoriasPage() {
             </section>
 
             <section>
+              <h2>Como funciona a assessoria para aposentadoria?</h2>
+              <ol>
+                <li>
+                  <strong>Análise do histórico contributivo:</strong> auditamos
+                  todo o CNIS para identificar períodos não reconhecidos pelo
+                  INSS.
+                </li>
+                <li>
+                  <strong>Simulação de cenários:</strong> calculamos todas as
+                  regras de transição vigentes e identificamos a mais vantajosa
+                  para o seu perfil.
+                </li>
+                <li>
+                  <strong>Correção do CNIS:</strong> regularizamos pendências e
+                  períodos divergentes antes de protocolar o requerimento.
+                </li>
+                <li>
+                  <strong>Protocolo do requerimento:</strong> entramos com o
+                  pedido no INSS garantindo que todos os documentos estejam
+                  corretos.
+                </li>
+                <li>
+                  <strong>Acompanhamento até a concessão:</strong> monitoramos
+                  o processo e recorremos em caso de negativa ou cálculo
+                  incorreto.
+                </li>
+              </ol>
+            </section>
+
+            <section>
               <h2>Vantagens da Assessoria Jurídica</h2>
               <ul>
                 <li>
@@ -102,6 +154,29 @@ export default function AposentadoriasPage() {
                   <strong>Segurança Técnica:</strong> Antes de aceitar sua
                   aposentadoria, verificamos se todos os períodos foram
                   considerados corretamente.
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h2>Veja também</h2>
+              <ul>
+                <li>
+                  <Link href="/servicos/bpc-loas">
+                    BPC/LOAS — benefício para idosos e pessoas com deficiência
+                    sem contribuição ao INSS
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/servicos/auxilio-doenca-pensao">
+                    Auxílio-Doença e Pensão por Morte — suporte em casos de
+                    incapacidade e amparo familiar
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/servicos/planejamento-previdenciario">
+                    Planejamento Previdenciário — estratégia para aposentar
+                    com o maior valor
+                  </Link>
                 </li>
               </ul>
             </section>
@@ -137,5 +212,6 @@ export default function AposentadoriasPage() {
       </main>
       <AboutAuthor />
     </div>
+    </>
   );
 }

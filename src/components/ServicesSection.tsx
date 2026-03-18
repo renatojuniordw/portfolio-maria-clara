@@ -42,12 +42,12 @@ const ServicesSection = () => {
       ref={elementRef}
     >
       <header className={styles.header}>
-        <p className={styles.eyebrow}>Onde a atuacao aperta o sistema</p>
+        <p className={styles.eyebrow}>Onde a atuação aperta o sistema</p>
         <h2 id="services-heading" className="section-title">
           Frentes de ataque para destravar seu direito.
         </h2>
         <p className={styles.intro}>
-          Cada caso exige leitura de documento, estrategia de prova e escolha
+          Cada caso exige leitura de documento, estratégia de prova e escolha
           do melhor caminho administrativo ou judicial.
         </p>
         <span className="section-divider" aria-hidden="true" />
@@ -55,14 +55,14 @@ const ServicesSection = () => {
       <div className={styles.grid}>
         <div className={styles.text}>
           <p className={styles.manifesto}>
-            Nao trabalho com promessa vazia. Trabalho com leitura de processo,
-            revisao de CNIS, provas certas e conducao firme.
+            NÃO trabalho com promessa vazia. Trabalho com leitura de processo,
+            revisão de CNIS, provas certas e condução firme.
           </p>
           <div className={styles.highlight}>
             <strong>Se o INSS travou sua renda, o site precisa dizer isso sem medo.</strong>
             <p>
-              A abordagem aqui nao e institucional neutra: ela comunica defesa,
-              presenca e especializacao de nicho.
+              A abordagem aqui não é institucional neutra: ela comunica defesa,
+              presença e especialização de nicho.
             </p>
           </div>
         </div>

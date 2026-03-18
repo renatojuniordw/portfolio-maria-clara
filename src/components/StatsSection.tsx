@@ -30,20 +30,20 @@ const StatsSection = () => {
     >
       <div className={styles.outerContainer}>
         <header className={styles.header}>
-          <p className={styles.eyebrow}>Pressao do sistema</p>
+          <p className={styles.eyebrow}>Pressão do sistema</p>
           <h2 id="stats-heading" className="section-title">
-            Nao e so burocracia. E atraso, erro e perda de renda real.
+            NÃO é só burocracia. É atraso, erro e perda de renda real.
           </h2>
           <p className={styles.lead}>
-            Os numeros existem para contextualizar o problema, mas o diferencial
-            principal e transformar demora e negativa em plano de acao.
+            Os números existem para contextualizar o problema, mas o diferencial
+            principal é transformar demora e negativa em plano de ação.
           </p>
           <span className="section-divider" aria-hidden="true" />
         </header>
         <div className={styles.container}>
           {stats.map((stat) => (
             <article key={stat.label} className={styles.statCard}>
-              <p className={styles.cardTop}>Leitura estrategica</p>
+              <p className={styles.cardTop}>Leitura estratégica</p>
               <div className={styles.iconWrapper}>
                 <span className={styles.value}>{stat.value}</span>
               </div>

@@ -13,7 +13,7 @@ import { CONSTANTS } from "@/constants/constants";
 const Footer = () => {
   return (
     <footer className={styles.footer} role="contentinfo">
-      <p className={styles.kicker}>Atuacao previdenciaria com presenca local</p>
+      <p className={styles.kicker}>Atuação previdenciária com presenca local</p>
       <div className={styles.container}>
         <div className={styles.column}>
           <div className={styles.contact}>

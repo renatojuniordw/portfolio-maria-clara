@@ -9,15 +9,15 @@ const HeroSection = () => {
       role="region"
       aria-labelledby="hero-title"
     >
-      <p className={styles.kicker}>Advocacia previdenciaria em Recife</p>
+      <p className={styles.kicker}>Advocacia previdenciária em Recife</p>
       <div className={styles.container}>
         <div className={styles.textBlock}>
           <header>
             <h1 id="hero-title" className={styles.title}>
-              Negaram seu beneficio. A historia nao termina no guiche.
+              Negaram seu benefício. A história não termina no guichê.
             </h1>
             <p className={styles.slogan}>
-              Estrategia juridica para reverter negativas do INSS, proteger sua
+              Estratégia jurídica para reverter negativas do INSS, proteger sua
               renda e recuperar o que foi travado pelo sistema.
             </p>
             <ul className={styles.tags} aria-label="Área de atuação">
@@ -35,7 +35,7 @@ const HeroSection = () => {
                 Falar com a Dra. Maria Clara
               </a>
               <a href="#servicos" className={styles.secondaryLink}>
-                Ver frentes de atuacao
+                Ver frentes de atuação
               </a>
             </div>
           </header>
@@ -45,11 +45,11 @@ const HeroSection = () => {
           <ul className={styles.points}>
             <li>BPC / LOAS</li>
             <li>Aposentadorias</li>
-            <li>Auxilios e pensoes</li>
-            <li>Planejamento previdenciario</li>
+            <li>Auxílios e pensões</li>
+            <li>Planejamento previdenciário</li>
           </ul>
           <p className={styles.panelNote}>
-            Atendimento humano, linguagem clara e conducao tecnica do inicio ao
+            Atendimento humano, linguagem clara e condução técnica do início ao
             desfecho.
           </p>
         </div>

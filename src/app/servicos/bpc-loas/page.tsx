@@ -5,12 +5,14 @@ import { Metadata } from "next";
 import AboutAuthor from "@/components/AboutAuthor";
 
 export const metadata: Metadata = {
-  title:
-    "BPC / LOAS - Benefício para Idosos e Deficientes em Recife | Dra. Maria Clara Santos",
+  title: "BPC/LOAS em Recife | Dra. Maria Clara Santos",
   description:
-    "Teve o BPC/LOAS negado pelo INSS? Especialista em garantir o benefício para idosos e pessoas com deficiência em situação de vulnerabilidade em Recife. Recupere seus direitos agora.",
+    "BPC/LOAS negado em Recife? Especialista em garantir o benefício para idosos e pessoas com deficiência em vulnerabilidade financeira.",
   keywords:
-    "bpc loas recife, advogado bpc loas recife, beneficio inss idoso recife, beneficio inss deficientes recife, como conseguir bpc loas recife",
+    "bpc loas recife, advogado bpc loas recife, benefício inss idoso recife, benefício inss deficientes recife, como conseguir bpc loas recife",
+  alternates: {
+    canonical: "https://www.mariaclarasantos.adv.br/servicos/bpc-loas",
+  },
   openGraph: {
     title:
       "BPC / LOAS - Garanta seu Benefício do INSS com Especialista em Recife",
@@ -20,9 +22,29 @@ export const metadata: Metadata = {
   },
 };
 
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "BPC/LOAS - Benefício de Prestação Continuada",
+  provider: {
+    "@type": "LegalService",
+    name: "Dra. Maria Clara Santos",
+    url: "https://www.mariaclarasantos.adv.br",
+  },
+  areaServed: { "@type": "City", name: "Recife" },
+  description:
+    "Assessoria jurídica especializada para obtenção e revisão do BPC/LOAS para idosos e pessoas com deficiência em Recife.",
+  url: "https://www.mariaclarasantos.adv.br/servicos/bpc-loas",
+};
+
 export default function BPCPage() {
   return (
-    <div className={styles.servicePage}>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+      <div className={styles.servicePage}>
       <header className={styles.hero}>
         <div className={styles.container}>
           <Link href="/#servicos" className={styles.backLink}>
@@ -82,6 +104,34 @@ export default function BPCPage() {
             </section>
 
             <section>
+              <h2>Como funciona o processo para obter o BPC/LOAS?</h2>
+              <ol>
+                <li>
+                  <strong>Análise do perfil:</strong> verificamos se você
+                  preenche os requisitos de idade, deficiência e renda familiar.
+                </li>
+                <li>
+                  <strong>Reunião de documentos:</strong> listamos exatamente
+                  quais documentos o INSS exige para o seu caso específico.
+                </li>
+                <li>
+                  <strong>Protocolo do pedido:</strong> realizamos o
+                  agendamento e acompanhamos a entrada do requerimento no INSS.
+                </li>
+                <li>
+                  <strong>Acompanhamento da perícia:</strong> orientamos sobre a
+                  avaliação médica ou social do INSS e preparamos a
+                  documentação de apoio.
+                </li>
+                <li>
+                  <strong>Recurso em caso de negativa:</strong> entramos com
+                  recurso administrativo ou ação judicial para reverter a
+                  decisão e garantir os valores retroativos.
+                </li>
+              </ol>
+            </section>
+
+            <section>
               <h2>Por que contratar uma especialista?</h2>
               <p>
                 O processo de solicitação do BPC envolve critérios subjetivos do
@@ -101,6 +151,29 @@ export default function BPCPage() {
                 <li>
                   Acompanhar perícias médicas e sociais com orientação técnica e
                   jurídica.
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h2>Veja também</h2>
+              <ul>
+                <li>
+                  <Link href="/servicos/aposentadorias">
+                    Aposentadorias — planeje seu benefício com o maior valor
+                    possível
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/servicos/auxilio-doenca-pensao">
+                    Auxílio-Doença e Pensão por Morte — reversão de negativas
+                    por incapacidade
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/servicos/planejamento-previdenciario">
+                    Planejamento Previdenciário — estratégia para a melhor
+                    aposentadoria
+                  </Link>
                 </li>
               </ul>
             </section>
@@ -136,5 +209,6 @@ export default function BPCPage() {
       </main>
       <AboutAuthor />
     </div>
+    </>
   );
 }

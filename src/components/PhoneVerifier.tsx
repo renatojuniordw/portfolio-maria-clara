@@ -72,7 +72,7 @@ const PhoneVerifier = () => {
           Antes de enviar documento ou dinheiro, confira o numero.
         </h2>
         <p className={styles.sectionLead}>
-          A seguranca aqui nao fica escondida no rodape. Ela entra como servico
+          A seguranca aqui não fica escondida no rodape. Ela entra como servico
           visivel e util no meio da navegacao.
         </p>
         <span className="section-divider" aria-hidden="true" />

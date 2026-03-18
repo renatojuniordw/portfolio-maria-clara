@@ -17,10 +17,9 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.mariaclarasantos.adv.br"),
-  title:
-    "Dra. Maria Clara Santos | Advogada Previdenciária em Recife - Especialista em INSS",
+  title: "Advogada Previdenciária em Recife | Dra. Maria Clara Santos",
   description:
-    "Procurando Advogada Previdenciária em Recife? Dra. Maria Clara Santos é especialista em BPC/LOAS, Aposentadorias e Auxílios do INSS. Recupere seu benefício negado com atendimento humanizado.",
+    "Advogada previdenciária em Recife especialista em BPC/LOAS, Aposentadorias e Auxílios do INSS. Benefício negado? Recupere seus direitos.",
   keywords: [
     "advogada previdenciária recife",
     "advogada especialista em inss recife",
@@ -34,6 +33,9 @@ export const metadata: Metadata = {
     "melhor advogada previdenciária recife",
     "OAB/PE 60655",
   ],
+  alternates: {
+    canonical: "https://www.mariaclarasantos.adv.br",
+  },
   robots: "index, follow",
   authors: [{ name: "Maria Clara Santos" }],
   openGraph: {
@@ -57,7 +59,7 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Attorney",
+  "@type": ["LegalService", "Attorney"],
   name: "Dra. Maria Clara Santos - Advocacia Previdenciária",
   image: "https://www.mariaclarasantos.adv.br/Maria_Clara-adv-03.png",
   "@id": "https://www.mariaclarasantos.adv.br",
@@ -89,7 +91,10 @@ const jsonLd = {
     opens: "09:00",
     closes: "18:00",
   },
-  sameAs: ["https://www.instagram.com/mariaclarasantos.adv"],
+  sameAs: [
+    "https://www.instagram.com/mariaclarasantos.adv",
+    "https://www.linkedin.com/in/maria-clara-santos-352614265/",
+  ],
 };
 
 const faqJsonLd = {
@@ -110,6 +115,22 @@ const faqJsonLd = {
       acceptedAnswer: {
         "@type": "Answer",
         text: "Não desista. Negativas são frequentes, mas muitas vezes injustas. Com auxílio jurídico especializado, podemos entrar com recursos ou ações judiciais para reverter a decisão.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Como ter certeza de que vou receber o valor máximo na minha aposentadoria?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Erros de cálculo do INSS são extremamente comuns. Com o Planejamento Previdenciário Estratégico, analisamos todo o seu histórico contributivo para garantir que você se aposente com o maior benefício possível, no menor tempo e sem perder dinheiro.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Quanto tempo leva para conseguir um auxílio ou pensão?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "O tempo varia conforme o caso, mas a atuação de um advogado especialista acelera o processo e evita erros na documentação que causam atrasos de meses. Nossa missão é destravar o sistema e garantir que o seu benefício chegue o quanto antes.",
       },
     },
   ],

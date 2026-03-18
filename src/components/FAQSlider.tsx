@@ -51,7 +51,7 @@ const FAQCollapse = () => {
       <header className={styles.header}>
         <p className={styles.eyebrow}>Sem juridiques de fachada</p>
         <h2 id="faq-heading" className="section-title">
-          Perguntas que chegam quando a renda trava e a urgencia aperta.
+          Perguntas que chegam quando a renda trava e a urgência aperta.
         </h2>
         <span className="section-divider" aria-hidden="true" />
       </header>

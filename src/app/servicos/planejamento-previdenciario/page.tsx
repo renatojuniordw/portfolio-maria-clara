@@ -5,12 +5,14 @@ import { Metadata } from "next";
 import AboutAuthor from "@/components/AboutAuthor";
 
 export const metadata: Metadata = {
-  title:
-    "Planejamento Previdenciário em Recife - Garanta o Futuro Mais Vantajoso | Dra. Maria Clara Santos",
+  title: "Planejamento Previdenciário em Recife | Dra. Maria Clara Santos",
   description:
-    "Não deixe para a última hora. Planejamento estratégico de aposentadoria em Recife. Saiba quando se aposentar, quanto contribuir e como receber o valor máximo do INSS.",
+    "Planejamento previdenciário em Recife. Saiba quando se aposentar, quanto contribuir e como receber o valor máximo do INSS.",
   keywords:
     "planejamento previdenciário recife, quanto pagar de inss recife, calculo de aposentadoria recife, quando vou me aposentar recife, consultoria previdenciária recife",
+  alternates: {
+    canonical: "https://www.mariaclarasantos.adv.br/servicos/planejamento-previdenciario",
+  },
   openGraph: {
     title:
       "Planejamento Previdenciário - Invista no seu Amanhã de Força Estratégica",
@@ -20,9 +22,29 @@ export const metadata: Metadata = {
   },
 };
 
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Planejamento Previdenciário Estratégico",
+  provider: {
+    "@type": "LegalService",
+    name: "Dra. Maria Clara Santos",
+    url: "https://www.mariaclarasantos.adv.br",
+  },
+  areaServed: { "@type": "City", name: "Recife" },
+  description:
+    "Consultoria técnica para planejamento de aposentadoria com máxima eficiência contributiva e segurança jurídica em Recife.",
+  url: "https://www.mariaclarasantos.adv.br/servicos/planejamento-previdenciario",
+};
+
 export default function PlanejamentoPage() {
   return (
-    <div className={styles.servicePage}>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+      <div className={styles.servicePage}>
       <header className={styles.hero}>
         <div className={styles.container}>
           <Link href="/#servicos" className={styles.backLink}>
@@ -99,6 +121,36 @@ export default function PlanejamentoPage() {
             </section>
 
             <section>
+              <h2>Como funciona o planejamento previdenciário?</h2>
+              <ol>
+                <li>
+                  <strong>Levantamento do histórico:</strong> coletamos todo o
+                  histórico de trabalho e contribuições, formais e informais.
+                </li>
+                <li>
+                  <strong>Auditoria profunda do CNIS:</strong> identificamos
+                  lacunas, erros e períodos que precisam de regularização
+                  imediata.
+                </li>
+                <li>
+                  <strong>Simulação de cenários:</strong> calculamos todas as
+                  regras de transição da Reforma de 2019 e o impacto de cada
+                  uma no valor do seu benefício.
+                </li>
+                <li>
+                  <strong>Definição da estratégia:</strong> escolhemos o
+                  momento ideal para pedir a aposentadoria e o valor de
+                  contribuição mais eficiente.
+                </li>
+                <li>
+                  <strong>Correção preventiva:</strong> regularizamos tudo
+                  antes do pedido para que a concessão seja automática, sem
+                  exigências do INSS.
+                </li>
+              </ol>
+            </section>
+
+            <section>
               <h2>O Valor de uma Estratégia</h2>
               <p>
                 O planejamento é um investimento em segurança. Um pequeno ajuste
@@ -106,6 +158,29 @@ export default function PlanejamentoPage() {
                 pedir o benefício pode representar uma diferença de centenas de
                 milhares de reais ao longo de toda a sua vida de aposentado.
               </p>
+            </section>
+            <section>
+              <h2>Veja também</h2>
+              <ul>
+                <li>
+                  <Link href="/servicos/bpc-loas">
+                    BPC/LOAS — benefício assistencial para quem nunca contribuiu
+                    ao INSS
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/servicos/aposentadorias">
+                    Aposentadorias — assessoria para garantir o maior valor de
+                    benefício
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/servicos/auxilio-doenca-pensao">
+                    Auxílio-Doença e Pensão por Morte — suporte em negativas por
+                    incapacidade
+                  </Link>
+                </li>
+              </ul>
             </section>
           </article>
 
@@ -140,5 +215,6 @@ export default function PlanejamentoPage() {
       </main>
       <AboutAuthor />
     </div>
+    </>
   );
 }
