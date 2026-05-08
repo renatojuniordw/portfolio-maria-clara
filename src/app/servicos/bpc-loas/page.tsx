@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "BPC/LOAS negado em Recife? Especialista em garantir o benefício para idosos e pessoas com deficiência em vulnerabilidade financeira.",
   keywords:
-    "bpc loas recife, advogado bpc loas recife, benefício inss idoso recife, benefício inss deficientes recife, como conseguir bpc loas recife",
+    "bpc loas recife, advogado bpc loas recife, benefício inss idoso recife, benefício inss deficientes recife, como conseguir bpc loas recife, bpc loas pernambuco, advogado bpc loas camaragibe, bpc loas negado pernambuco",
   alternates: {
     canonical: "https://www.mariaclarasantos.adv.br/servicos/bpc-loas",
   },
@@ -31,10 +31,53 @@ const serviceJsonLd = {
     name: "Dra. Maria Clara Santos",
     url: "https://www.mariaclarasantos.adv.br",
   },
-  areaServed: { "@type": "City", name: "Recife" },
+  areaServed: [
+    { "@type": "State", name: "Pernambuco" },
+    { "@type": "City", name: "Recife" },
+    { "@type": "City", name: "Camaragibe" },
+  ],
   description:
     "Assessoria jurídica especializada para obtenção e revisão do BPC/LOAS para idosos e pessoas com deficiência em Recife.",
   url: "https://www.mariaclarasantos.adv.br/servicos/bpc-loas",
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Qual a renda máxima para ter direito ao BPC/LOAS?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A renda per capita familiar deve ser inferior a 1/4 do salário mínimo (aproximadamente R$353,00 em 2024). Porém, com a ajuda de um advogado especialista, é possível excluir do cálculo gastos com medicamentos, fraldas e tratamentos de saúde, o que frequentemente permite a concessão mesmo para quem inicialmente parece não se enquadrar.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Pessoa com deficiência que trabalha pode receber BPC/LOAS?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sim. O STJ firmou entendimento de que o exercício de atividade remunerada por pessoa com deficiência não impede automaticamente o recebimento do BPC/LOAS, desde que a renda não supere o limite legal. Cada caso deve ser analisado individualmente.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "O BPC/LOAS acumula com outros benefícios do INSS?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Em regra, o BPC/LOAS não pode ser acumulado com outros benefícios da Seguridade Social, como aposentadoria ou auxílio-doença. Porém, existem exceções judiciais dependendo do caso. Um advogado especialista pode avaliar a melhor estratégia para o seu perfil.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Meu BPC/LOAS foi negado pelo INSS. Ainda tenho como receber?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sim. Negativas do INSS são frequentes e muitas vezes injustas. É possível entrar com recurso administrativo ou ação judicial para reverter a decisão e garantir o pagamento retroativo desde a data do pedido original.",
+      },
+    },
+  ],
 };
 
 export default function BPCPage() {
@@ -44,13 +87,17 @@ export default function BPCPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <div className={styles.servicePage}>
       <header className={styles.hero}>
         <div className={styles.container}>
           <Link href="/#servicos" className={styles.backLink}>
             <i className="pi pi-arrow-left"></i> Voltar para serviços
           </Link>
-          <h1 className={styles.title}>BPC / LOAS</h1>
+          <h1 className={styles.title}>BPC/LOAS em Recife e Pernambuco</h1>
           <p className={styles.subtitle}>
             Apoio jurídico especializado para garantir{" "}
             <strong>dignidade e renda</strong> a quem mais precisa. O benefício

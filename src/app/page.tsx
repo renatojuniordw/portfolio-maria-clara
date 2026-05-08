@@ -8,25 +8,25 @@ import FAQSlider from "@/components/FAQSlider";
 import PhoneVerifier from "@/components/PhoneVerifier";
 
 export const metadata: Metadata = {
-  title: "Benefício INSS Negado em Recife? Dra. Maria Clara Santos",
+  title: "Dra. Maria Clara dos Santos | Advogada Previdenciária em Recife",
   description:
-    "Benefício do INSS negado em Recife? Dra. Maria Clara Santos reverte negativas de BPC/LOAS e Aposentadorias. Garanta seus retroativos.",
+    "Dra. Maria Clara dos Santos — advogada previdenciária em Recife. BPC/LOAS negado? Aposentadoria atrasada? Recupere seus direitos e retroativos com quem entende do INSS.",
   keywords:
-    "reversão de benefício negado recife, advogada especialista em inss recife, bpc loas recife, auxilio doença negado recife, maria clara santos advocacia",
+    "maria clara dos santos advogada, maria clara santos advocacia, reversão de benefício negado recife, advogada especialista em inss recife, bpc loas recife, auxilio doença negado recife, advogada previdenciária pernambuco",
   alternates: {
     canonical: "https://www.mariaclarasantos.adv.br",
   },
   openGraph: {
-    title: "Dra. Maria Clara Santos | Especialista em Reversão de Negativa INSS",
+    title: "Dra. Maria Clara dos Santos | Advogada Previdenciária em Recife",
     description:
-      "Não aceite um 'não' automático do INSS. Recuperamos seu benefício negado e garantimos sua dignidade financeira. Atendimento em Recife.",
+      "Não aceite um 'não' automático do INSS. Dra. Maria Clara dos Santos reverte negativas de BPC/LOAS e Aposentadorias. Garanta seus retroativos.",
     url: "https://www.mariaclarasantos.adv.br",
     images: [
       {
         url: "https://www.mariaclarasantos.adv.br/Maria_Clara-adv-03.png",
         width: 1125,
         height: 995,
-        alt: "Dra. Maria Clara Santos - Advogada Previdenciária em Recife",
+        alt: "Dra. Maria Clara dos Santos - Advogada Previdenciária em Recife",
       },
     ],
   },

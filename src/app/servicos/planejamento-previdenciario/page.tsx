@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "Planejamento previdenciário em Recife. Saiba quando se aposentar, quanto contribuir e como receber o valor máximo do INSS.",
   keywords:
-    "planejamento previdenciário recife, quanto pagar de inss recife, calculo de aposentadoria recife, quando vou me aposentar recife, consultoria previdenciária recife",
+    "planejamento previdenciário recife, quanto pagar de inss recife, calculo de aposentadoria recife, quando vou me aposentar recife, consultoria previdenciária recife, planejamento previdenciário pernambuco, consultoria previdenciária camaragibe, advogado servidor público pernambuco",
   alternates: {
     canonical: "https://www.mariaclarasantos.adv.br/servicos/planejamento-previdenciario",
   },
@@ -31,10 +31,53 @@ const serviceJsonLd = {
     name: "Dra. Maria Clara Santos",
     url: "https://www.mariaclarasantos.adv.br",
   },
-  areaServed: { "@type": "City", name: "Recife" },
+  areaServed: [
+    { "@type": "State", name: "Pernambuco" },
+    { "@type": "City", name: "Recife" },
+    { "@type": "City", name: "Camaragibe" },
+  ],
   description:
-    "Consultoria técnica para planejamento de aposentadoria com máxima eficiência contributiva e segurança jurídica em Recife.",
+    "Consultoria técnica para planejamento de aposentadoria com máxima eficiência contributiva e segurança jurídica em Recife e Pernambuco.",
   url: "https://www.mariaclarasantos.adv.br/servicos/planejamento-previdenciario",
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Vale a pena fazer planejamento previdenciário antes de se aposentar?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sim. Um planejamento bem feito pode representar diferença de centenas de milhares de reais ao longo da aposentadoria. Identificar a regra de transição mais vantajosa, corrigir erros no CNIS e definir o momento ideal para pedir o benefício são ações que um advogado especialista realiza para maximizar o valor do seu benefício.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Posso me aposentar mais cedo com planejamento previdenciário?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Em muitos casos, sim. As regras de transição da Reforma de 2019 permitem combinações que possibilitam a aposentadoria antes da idade mínima padrão. Além disso, períodos não reconhecidos (rural, especial, serviço militar) podem antecipar significativamente a data.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "O planejamento previdenciário serve para quem é autônomo ou MEI?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Especialmente para autônomos e MEIs. Quem contribui por conta própria tem liberdade para escolher o valor da contribuição e pode otimizar esse investimento com orientação técnica, evitando pagar mais do que o necessário ou contribuir de forma que prejudique o benefício futuro.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "O que é auditoria do CNIS e por que é importante?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "O CNIS (Cadastro Nacional de Informações Sociais) é o histórico de contribuições que o INSS usa para calcular sua aposentadoria. Erros são comuns: períodos desaparecidos, atividades especiais não registradas, vínculos incorretos. Uma auditoria profunda identifica esses problemas antes do pedido, evitando que você receba menos do que tem direito.",
+      },
+    },
+  ],
 };
 
 export default function PlanejamentoPage() {
@@ -44,13 +87,17 @@ export default function PlanejamentoPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <div className={styles.servicePage}>
       <header className={styles.hero}>
         <div className={styles.container}>
           <Link href="/#servicos" className={styles.backLink}>
             <i className="pi pi-arrow-left"></i> Voltar para serviços
           </Link>
-          <h1 className={styles.title}>Planejamento Estratégico</h1>
+          <h1 className={styles.title}>Planejamento Previdenciário em Recife</h1>
           <p className={styles.subtitle}>
             A inteligência aplicada ao seu benefício. Planejar hoje para
             garantir o <strong>maior valor de recebimento</strong> e o menor

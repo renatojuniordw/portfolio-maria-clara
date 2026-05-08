@@ -65,9 +65,9 @@ const Footer = () => {
       </div>
       <div className={styles.copyrightContainer}>
         <p className={styles.copyright}>
-          © {new Date().getFullYear()} Maria Clara Santos. Todos os direitos
+          © {new Date().getFullYear()} Maria Clara dos Santos. Todos os direitos
           reservados. <br />
-          OAB/PE 60.655 – Maria Clara Santos, Advogada Previdenciária.
+          OAB/PE 60.655 – Maria Clara dos Santos, Advogada Previdenciária.
         </p>
         <div className={styles.unificandoCredits}>
           <a

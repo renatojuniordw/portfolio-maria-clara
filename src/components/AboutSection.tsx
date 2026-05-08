@@ -39,7 +39,7 @@ const AboutSection = () => {
 
           <div className={styles.textWrapper}>
             <p className={styles.description}>
-              Sou Maria Clara Santos, advogada previdenciarista com atuação
+              Sou Maria Clara dos Santos, advogada previdenciarista com atuação
               especializada em Direito Previdenciário em Recife. Minha rotina de
               trabalho envolve aposentadorias, pensões, auxílios e BPC/LOAS,
               sempre com leitura individual do caso e estratégia sob medida.

@@ -17,7 +17,7 @@ const AboutAuthor = () => {
         </div>
         <div className={styles.info}>
           <span className={styles.specialty}>Sua Especialista</span>
-          <h3>Dra. Maria Clara Santos</h3>
+          <h3>Dra. Maria Clara dos Santos</h3>
           <p>
             Advogada dedicada a proteger o direito de quem mais precisa. Com
             atuação especializada em Recife e Região Metropolitana, foco meu

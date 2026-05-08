@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "Especialista em Aposentadoria por Idade, Tempo e Especial em Recife. Garanta o maior valor de benefício e receba todos os atrasados.",
   keywords:
-    "aposentadoria recife, advogado aposentadoria recife, inss aposentadoria recife, tempo de contribuição inss recife, aposentadoria especial recife",
+    "aposentadoria recife, advogado aposentadoria recife, inss aposentadoria recife, tempo de contribuição inss recife, aposentadoria especial recife, advogado aposentadoria pernambuco, advogado aposentadoria camaragibe, aposentadoria especial pernambuco",
   alternates: {
     canonical: "https://www.mariaclarasantos.adv.br/servicos/aposentadorias",
   },
@@ -31,10 +31,53 @@ const serviceJsonLd = {
     name: "Dra. Maria Clara Santos",
     url: "https://www.mariaclarasantos.adv.br",
   },
-  areaServed: { "@type": "City", name: "Recife" },
+  areaServed: [
+    { "@type": "State", name: "Pernambuco" },
+    { "@type": "City", name: "Recife" },
+    { "@type": "City", name: "Camaragibe" },
+  ],
   description:
     "Planejamento e assessoria jurídica para aposentadoria por idade, tempo de contribuição e especial em Recife.",
   url: "https://www.mariaclarasantos.adv.br/servicos/aposentadorias",
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Qual a idade mínima para se aposentar após a Reforma da Previdência?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Após a Reforma de 2019, a aposentadoria por idade exige 65 anos para homens e 62 anos para mulheres, com mínimo de 15 anos de contribuição. Porém, existem diversas regras de transição que podem ser mais vantajosas para quem já contribuía antes da reforma. Uma análise individual é fundamental.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Tempo trabalhado no campo (rural) conta para aposentadoria?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sim. O trabalho rural, mesmo sem carteira assinada, pode ser comprovado e conta para aposentadoria. É necessário reunir provas como notas fiscais agrícolas, declarações de sindicato rural, fotos e testemunhos. Um advogado especialista orienta na melhor forma de comprovar esse período.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "O INSS pode calcular minha aposentadoria de forma errada?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sim, e isso acontece com frequência. O INSS pode não reconhecer períodos de atividade especial, tempo rural, serviço militar ou trabalho no exterior. Esses erros reduzem o valor do benefício. Nossa assessoria audita todo o CNIS para garantir que você receba o valor correto.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "O que é aposentadoria especial e quem tem direito?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A aposentadoria especial é destinada a quem trabalhou exposto a agentes nocivos à saúde (ruído acima de 85dB, calor excessivo, agentes químicos como benzeno, poeira mineral etc.). Permite aposentadoria com menos tempo de contribuição. Exige laudo técnico (LTCAT) e PPP (Perfil Profissiográfico Previdenciário).",
+      },
+    },
+  ],
 };
 
 export default function AposentadoriasPage() {
@@ -44,13 +87,17 @@ export default function AposentadoriasPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <div className={styles.servicePage}>
       <header className={styles.hero}>
         <div className={styles.container}>
           <Link href="/#servicos" className={styles.backLink}>
             <i className="pi pi-arrow-left"></i> Voltar para serviços
           </Link>
-          <h1 className={styles.title}>Aposentadorias</h1>
+          <h1 className={styles.title}>Aposentadoria pelo INSS em Recife</h1>
           <p className={styles.subtitle}>
             A certeza de que sua vida de trabalho será recompensada com o{" "}
             <strong>benefício máximo</strong> que você merece. Analisamos cada

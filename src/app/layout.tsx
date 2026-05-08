@@ -17,10 +17,13 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.mariaclarasantos.adv.br"),
-  title: "Advogada Previdenciária em Recife | Dra. Maria Clara Santos",
+  title: "Dra. Maria Clara dos Santos | Advogada Previdenciária em Recife",
   description:
-    "Advogada previdenciária em Recife especialista em BPC/LOAS, Aposentadorias e Auxílios do INSS. Benefício negado? Recupere seus direitos.",
+    "Dra. Maria Clara dos Santos — advogada previdenciária em Recife especialista em BPC/LOAS, Aposentadorias e Auxílios do INSS. Benefício negado? Recupere seus direitos.",
   keywords: [
+    "maria clara dos santos advogada",
+    "maria clara santos advocacia",
+    "dra maria clara dos santos",
     "advogada previdenciária recife",
     "advogada especialista em inss recife",
     "como conseguir bpc loas em recife",
@@ -28,9 +31,11 @@ export const metadata: Metadata = {
     "auxílio doença negado recife",
     "planejamento previdenciário recife",
     "revisão de benefício inss recife",
-    "Dra Maria Clara Santos advocacia",
+    "advogada previdenciária pernambuco",
+    "advogado previdenciário camaragibe",
+    "advogado previdenciário olinda",
+    "advogado previdenciário jaboatão",
     "escritório de advocacia previdenciária recife",
-    "melhor advogada previdenciária recife",
     "OAB/PE 60655",
   ],
   alternates: {
@@ -39,11 +44,11 @@ export const metadata: Metadata = {
   robots: "index, follow",
   authors: [{ name: "Maria Clara Santos" }],
   openGraph: {
-    title: "Dra. Maria Clara Santos | Advocacia Previdenciária em Recife",
+    title: "Dra. Maria Clara dos Santos | Advocacia Previdenciária em Recife",
     description:
       "Especialista em BPC/LOAS, Aposentadorias e Revisional de Benefícios. Atendimento humanizado com foco em garantir o seu direito junto ao INSS.",
     url: "https://www.mariaclarasantos.adv.br",
-    siteName: "Dra. Maria Clara Santos | Advocacia Previdenciária",
+    siteName: "Dra. Maria Clara dos Santos | Advocacia Previdenciária",
     type: "website",
     locale: "pt_BR",
     images: [
@@ -60,7 +65,13 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": ["LegalService", "Attorney"],
-  name: "Dra. Maria Clara Santos - Advocacia Previdenciária",
+  name: "Dra. Maria Clara dos Santos - Advocacia Previdenciária",
+  alternateName: [
+    "Maria Clara dos Santos",
+    "Maria Clara Santos",
+    "Dra. Maria Clara Santos",
+    "Dra. Maria Clara",
+  ],
   image: "https://www.mariaclarasantos.adv.br/Maria_Clara-adv-03.png",
   "@id": "https://www.mariaclarasantos.adv.br",
   url: "https://www.mariaclarasantos.adv.br",
@@ -74,11 +85,14 @@ const jsonLd = {
     addressCountry: "BR",
   },
   areaServed: [
+    { "@type": "State", name: "Pernambuco" },
     { "@type": "City", name: "Recife" },
     { "@type": "City", name: "Olinda" },
     { "@type": "City", name: "Jaboatão dos Guararapes" },
     { "@type": "City", name: "Paulista" },
     { "@type": "City", name: "Camaragibe" },
+    { "@type": "City", name: "Caruaru" },
+    { "@type": "City", name: "São Lourenço da Mata" },
   ],
   geo: {
     "@type": "GeoCoordinates",

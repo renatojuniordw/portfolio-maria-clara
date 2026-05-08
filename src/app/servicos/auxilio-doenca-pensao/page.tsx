@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "Auxílio-doença cortado ou pensão por morte negada em Recife? Revertemos negativas do INSS e garantimos seus direitos. Fale agora.",
   keywords:
-    "auxilio doença recife, advogado auxilio doença recife, pensao por morte recife, inss benefícios incapacidade recife, advogado inss recife",
+    "auxilio doença recife, advogado auxilio doença recife, pensao por morte recife, inss benefícios incapacidade recife, advogado inss recife, auxilio doença pernambuco, pensão por morte pernambuco, advogado inss camaragibe",
   alternates: {
     canonical: "https://www.mariaclarasantos.adv.br/servicos/auxilio-doenca-pensao",
   },
@@ -31,10 +31,53 @@ const serviceJsonLd = {
     name: "Dra. Maria Clara Santos",
     url: "https://www.mariaclarasantos.adv.br",
   },
-  areaServed: { "@type": "City", name: "Recife" },
+  areaServed: [
+    { "@type": "State", name: "Pernambuco" },
+    { "@type": "City", name: "Recife" },
+    { "@type": "City", name: "Camaragibe" },
+  ],
   description:
     "Assessoria jurídica para reversão de auxílio-doença negado por perícia e pensão por morte em Recife.",
   url: "https://www.mariaclarasantos.adv.br/servicos/auxilio-doenca-pensao",
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "O INSS negou meu auxílio-doença. O que fazer?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Não aceite a negativa como definitiva. É possível entrar com recurso administrativo no prazo de 30 dias ou ajuizar ação judicial para reverter a decisão. Com orientação especializada, a documentação médica é reforçada e a estratégia de recurso maximiza as chances de concessão — com pagamento retroativo.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Quem tem direito à pensão por morte do INSS?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Têm direito à pensão por morte: cônjuge ou companheiro(a) em união estável, filhos menores de 21 anos (ou inválidos de qualquer idade), e pais dependentes economicamente. O falecido deve ter qualidade de segurado no momento do óbito ou cumprir a carência mínima.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "União estável dá direito à pensão por morte do INSS?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sim. A companheira ou companheiro em união estável tem direito à pensão por morte, desde que comprovada a relação. Na ausência de documento formal, a comprovação pode ser feita com contas conjuntas, contratos de aluguel, fotos, testemunhas e outros documentos que demonstrem vida em comum.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "O INSS cortou meu auxílio-doença na perícia. Tenho recurso?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sim. A chamada 'alta programada' ou cessação do benefício por perícia pode ser contestada. Com laudo médico atualizado e orientação jurídica, é possível pedir nova perícia, entrar com recurso administrativo ou obter liminar judicial para restabelecer o benefício enquanto o processo tramita.",
+      },
+    },
+  ],
 };
 
 export default function INSSPage() {
@@ -44,13 +87,17 @@ export default function INSSPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <div className={styles.servicePage}>
       <header className={styles.hero}>
         <div className={styles.container}>
           <Link href="/#servicos" className={styles.backLink}>
             <i className="pi pi-arrow-left"></i> Voltar para serviços
           </Link>
-          <h1 className={styles.title}>INSS - Auxílio & Pensões</h1>
+          <h1 className={styles.title}>Auxílio-Doença e Pensão por Morte em Recife</h1>
           <p className={styles.subtitle}>
             Suporte técnico e acolhimento nos momentos mais difíceis. Atuação em
             benefícios por <strong>incapacidade e amparo familiar</strong> com
