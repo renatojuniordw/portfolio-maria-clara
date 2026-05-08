@@ -1,8 +1,11 @@
 import Link from "next/link";
 import styles from "@/assets/styles/ServicePage.module.scss";
-import { CONSTANTS } from "@/constants/constants";
 import { Metadata } from "next";
 import AboutAuthor from "@/components/AboutAuthor";
+import ServiceSidebar from "@/components/ServiceSidebar";
+import ServiceBackLink from "@/components/ServiceBackLink";
+import JsonLdScript from "@/components/JsonLdScript";
+import { buildServiceJsonLd } from "@/lib/jsonLd";
 
 export const metadata: Metadata = {
   title: "BPC/LOAS em Recife | Dra. Maria Clara Santos",
@@ -22,24 +25,11 @@ export const metadata: Metadata = {
   },
 };
 
-const serviceJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "BPC/LOAS - Benefício de Prestação Continuada",
-  provider: {
-    "@type": "LegalService",
-    name: "Dra. Maria Clara Santos",
-    url: "https://www.mariaclarasantos.adv.br",
-  },
-  areaServed: [
-    { "@type": "State", name: "Pernambuco" },
-    { "@type": "City", name: "Recife" },
-    { "@type": "City", name: "Camaragibe" },
-  ],
-  description:
-    "Assessoria jurídica especializada para obtenção e revisão do BPC/LOAS para idosos e pessoas com deficiência em Recife.",
-  url: "https://www.mariaclarasantos.adv.br/servicos/bpc-loas",
-};
+const serviceJsonLd = buildServiceJsonLd(
+  "BPC/LOAS - Benefício de Prestação Continuada",
+  "Assessoria jurídica especializada para obtenção e revisão do BPC/LOAS para idosos e pessoas com deficiência em Recife.",
+  "https://www.mariaclarasantos.adv.br/servicos/bpc-loas",
+);
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -83,20 +73,12 @@ const faqJsonLd = {
 export default function BPCPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
+      <JsonLdScript data={serviceJsonLd} />
+      <JsonLdScript data={faqJsonLd} />
       <div className={styles.servicePage}>
       <header className={styles.hero}>
         <div className={styles.container}>
-          <Link href="/#servicos" className={styles.backLink}>
-            <i className="pi pi-arrow-left"></i> Voltar para serviços
-          </Link>
+          <ServiceBackLink />
           <h1 className={styles.title}>BPC/LOAS em Recife e Pernambuco</h1>
           <p className={styles.subtitle}>
             Apoio jurídico especializado para garantir{" "}
@@ -226,32 +208,11 @@ export default function BPCPage() {
             </section>
           </article>
 
-          <aside className={styles.sidebar}>
-            <div className={styles.stickyContainer}>
-              <div className={styles.contactCard}>
-                <div className={styles.iconBox}>
-                  <i className="pi pi-whatsapp"></i>
-                </div>
-                <h3>Agendar Consulta</h3>
-                <p>
-                  Analisamos seu caso detalhadamente para garantir sua segurança
-                  financeira. Fale agora com nossa equipe.
-                </p>
-                <a
-                  href={CONSTANTS.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.ctaButton}
-                >
-                  Falar no WhatsApp
-                </a>
-                <div className={styles.safeBadge}>
-                  <i className="pi pi-shield"></i>
-                  <span>Ambiente Seguro e Ético OAB/PE</span>
-                </div>
-              </div>
-            </div>
-          </aside>
+          <ServiceSidebar
+            icon="pi-whatsapp"
+            title="Agendar Consulta"
+            description="Analisamos seu caso detalhadamente para garantir sua segurança financeira. Fale agora com nossa equipe."
+          />
         </div>
       </main>
       <AboutAuthor />

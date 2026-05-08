@@ -1,8 +1,11 @@
 import Link from "next/link";
 import styles from "@/assets/styles/ServicePage.module.scss";
-import { CONSTANTS } from "@/constants/constants";
 import { Metadata } from "next";
 import AboutAuthor from "@/components/AboutAuthor";
+import ServiceSidebar from "@/components/ServiceSidebar";
+import ServiceBackLink from "@/components/ServiceBackLink";
+import JsonLdScript from "@/components/JsonLdScript";
+import { buildServiceJsonLd } from "@/lib/jsonLd";
 
 export const metadata: Metadata = {
   title: "Planejamento Previdenciário em Recife | Dra. Maria Clara Santos",
@@ -22,24 +25,11 @@ export const metadata: Metadata = {
   },
 };
 
-const serviceJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Planejamento Previdenciário Estratégico",
-  provider: {
-    "@type": "LegalService",
-    name: "Dra. Maria Clara Santos",
-    url: "https://www.mariaclarasantos.adv.br",
-  },
-  areaServed: [
-    { "@type": "State", name: "Pernambuco" },
-    { "@type": "City", name: "Recife" },
-    { "@type": "City", name: "Camaragibe" },
-  ],
-  description:
-    "Consultoria técnica para planejamento de aposentadoria com máxima eficiência contributiva e segurança jurídica em Recife e Pernambuco.",
-  url: "https://www.mariaclarasantos.adv.br/servicos/planejamento-previdenciario",
-};
+const serviceJsonLd = buildServiceJsonLd(
+  "Planejamento Previdenciário Estratégico",
+  "Consultoria técnica para planejamento de aposentadoria com máxima eficiência contributiva e segurança jurídica em Recife e Pernambuco.",
+  "https://www.mariaclarasantos.adv.br/servicos/planejamento-previdenciario",
+);
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -83,20 +73,12 @@ const faqJsonLd = {
 export default function PlanejamentoPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
+      <JsonLdScript data={serviceJsonLd} />
+      <JsonLdScript data={faqJsonLd} />
       <div className={styles.servicePage}>
       <header className={styles.hero}>
         <div className={styles.container}>
-          <Link href="/#servicos" className={styles.backLink}>
-            <i className="pi pi-arrow-left"></i> Voltar para serviços
-          </Link>
+          <ServiceBackLink />
           <h1 className={styles.title}>Planejamento Previdenciário em Recife</h1>
           <p className={styles.subtitle}>
             A inteligência aplicada ao seu benefício. Planejar hoje para
@@ -231,33 +213,11 @@ export default function PlanejamentoPage() {
             </section>
           </article>
 
-          <aside className={styles.sidebar}>
-            <div className={styles.stickyContainer}>
-              <div className={styles.contactCard}>
-                <div className={styles.iconBox}>
-                  <i className="pi pi-chart-line"></i>
-                </div>
-                <h3>Solicitar Planejamento</h3>
-                <p>
-                  Deseja saber exatamente quanto falta para se aposentar com o
-                  valor máximo? Deixe nossa equipe estratégica planejar o seu
-                  futuro.
-                </p>
-                <a
-                  href={CONSTANTS.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.ctaButton}
-                >
-                  Falar no WhatsApp
-                </a>
-                <div className={styles.safeBadge}>
-                  <i className="pi pi-shield"></i>
-                  <span>Ambiente Seguro e Ético OAB/PE</span>
-                </div>
-              </div>
-            </div>
-          </aside>
+          <ServiceSidebar
+            icon="pi-chart-line"
+            title="Solicitar Planejamento"
+            description="Deseja saber exatamente quanto falta para se aposentar com o valor máximo? Deixe nossa equipe estratégica planejar o seu futuro."
+          />
         </div>
       </main>
       <AboutAuthor />

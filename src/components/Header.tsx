@@ -21,6 +21,14 @@ const WhatsAppButton = ({ className = "" }: { className?: string }) => (
   </a>
 );
 
+const navItems = [
+  { label: "Início", url: "#inicio" },
+  { label: "Soluções", url: "#servicos" },
+  { label: "Diferenciais", url: "#estatisticas" },
+  { label: "Sobre mim", url: "#sobre" },
+  { label: "Dúvidas", url: "#faq" },
+];
+
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentHash, setCurrentHash] = useState("");
@@ -42,14 +50,6 @@ const Header = () => {
       window.removeEventListener("keydown", handleEscape);
     };
   }, []);
-
-  const items = [
-    { label: "Início", url: "#inicio" },
-    { label: "Soluções", url: "#servicos" },
-    { label: "Diferenciais", url: "#estatisticas" },
-    { label: "Sobre mim", url: "#sobre" },
-    { label: "Dúvidas", url: "#faq" },
-  ];
 
   return (
     <header className={styles.header} role="banner">
@@ -79,7 +79,7 @@ const Header = () => {
             className={`${styles.menuItems} ${isMobileMenuOpen ? styles.menuOpen : ""}`}
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            {items.map((item) => (
+            {navItems.map((item) => (
               <li key={item.label}>
                 <Link
                   href={pathname === "/" ? item.url : `/${item.url}`}

@@ -1,8 +1,11 @@
 import Link from "next/link";
 import styles from "@/assets/styles/ServicePage.module.scss";
-import { CONSTANTS } from "@/constants/constants";
 import { Metadata } from "next";
 import AboutAuthor from "@/components/AboutAuthor";
+import ServiceSidebar from "@/components/ServiceSidebar";
+import ServiceBackLink from "@/components/ServiceBackLink";
+import JsonLdScript from "@/components/JsonLdScript";
+import { buildServiceJsonLd } from "@/lib/jsonLd";
 
 export const metadata: Metadata = {
   title: "Aposentadoria em Recife | Dra. Maria Clara Santos",
@@ -22,24 +25,11 @@ export const metadata: Metadata = {
   },
 };
 
-const serviceJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Assessoria em Aposentadorias pelo INSS",
-  provider: {
-    "@type": "LegalService",
-    name: "Dra. Maria Clara Santos",
-    url: "https://www.mariaclarasantos.adv.br",
-  },
-  areaServed: [
-    { "@type": "State", name: "Pernambuco" },
-    { "@type": "City", name: "Recife" },
-    { "@type": "City", name: "Camaragibe" },
-  ],
-  description:
-    "Planejamento e assessoria jurídica para aposentadoria por idade, tempo de contribuição e especial em Recife.",
-  url: "https://www.mariaclarasantos.adv.br/servicos/aposentadorias",
-};
+const serviceJsonLd = buildServiceJsonLd(
+  "Assessoria em Aposentadorias pelo INSS",
+  "Planejamento e assessoria jurídica para aposentadoria por idade, tempo de contribuição e especial em Recife.",
+  "https://www.mariaclarasantos.adv.br/servicos/aposentadorias",
+);
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -83,20 +73,12 @@ const faqJsonLd = {
 export default function AposentadoriasPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
+      <JsonLdScript data={serviceJsonLd} />
+      <JsonLdScript data={faqJsonLd} />
       <div className={styles.servicePage}>
       <header className={styles.hero}>
         <div className={styles.container}>
-          <Link href="/#servicos" className={styles.backLink}>
-            <i className="pi pi-arrow-left"></i> Voltar para serviços
-          </Link>
+          <ServiceBackLink />
           <h1 className={styles.title}>Aposentadoria pelo INSS em Recife</h1>
           <p className={styles.subtitle}>
             A certeza de que sua vida de trabalho será recompensada com o{" "}
@@ -229,32 +211,11 @@ export default function AposentadoriasPage() {
             </section>
           </article>
 
-          <aside className={styles.sidebar}>
-            <div className={styles.stickyContainer}>
-              <div className={styles.contactCard}>
-                <div className={styles.iconBox}>
-                  <i className="pi pi-calendar"></i>
-                </div>
-                <h3>Verificar Possibilidade</h3>
-                <p>
-                  Planeje seu futuro com quem entende. Analisamos seu tempo e
-                  suas contribuições para garantir o melhor benefício.
-                </p>
-                <a
-                  href={CONSTANTS.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.ctaButton}
-                >
-                  Falar no WhatsApp
-                </a>
-                <div className={styles.safeBadge}>
-                  <i className="pi pi-shield"></i>
-                  <span>Ambiente Seguro e Ético OAB/PE</span>
-                </div>
-              </div>
-            </div>
-          </aside>
+          <ServiceSidebar
+            icon="pi-calendar"
+            title="Verificar Possibilidade"
+            description="Planeje seu futuro com quem entende. Analisamos seu tempo e suas contribuições para garantir o melhor benefício."
+          />
         </div>
       </main>
       <AboutAuthor />

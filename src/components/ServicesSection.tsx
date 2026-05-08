@@ -4,34 +4,35 @@ import Link from "next/link";
 import styles from "@/assets/styles/ServicesSection.module.scss";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
+const services = [
+  {
+    title: "BPC / LOAS",
+    subtitle: "(Idosos e Deficientes)",
+    icon: "pi-users",
+    slug: "bpc-loas",
+  },
+  {
+    title: "Aposentadorias",
+    subtitle: "(Idade, Tempo e Especial)",
+    icon: "pi-calendar",
+    slug: "aposentadorias",
+  },
+  {
+    title: "INSS",
+    subtitle: "Auxílio-Doença e Pensão por Morte",
+    icon: "pi-shield",
+    slug: "auxilio-doenca-pensao",
+  },
+  {
+    title: "Planejamento",
+    subtitle: "Estratégico Previdenciário",
+    icon: "pi-chart-line",
+    slug: "planejamento-previdenciario",
+  },
+];
+
 const ServicesSection = () => {
   const { elementRef, isVisible } = useScrollAnimation<HTMLElement>(0.2);
-  const services = [
-    {
-      title: "BPC / LOAS",
-      subtitle: "(Idosos e Deficientes)",
-      icon: "pi-users",
-      slug: "bpc-loas",
-    },
-    {
-      title: "Aposentadorias",
-      subtitle: "(Idade, Tempo e Especial)",
-      icon: "pi-calendar",
-      slug: "aposentadorias",
-    },
-    {
-      title: "INSS",
-      subtitle: "Auxílio-Doença e Pensão por Morte",
-      icon: "pi-shield",
-      slug: "auxilio-doenca-pensao",
-    },
-    {
-      title: "Planejamento",
-      subtitle: "Estratégico Previdenciário",
-      icon: "pi-chart-line",
-      slug: "planejamento-previdenciario",
-    },
-  ];
 
   return (
     <section

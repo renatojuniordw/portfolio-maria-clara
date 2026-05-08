@@ -1,26 +1,27 @@
 import styles from "@/assets/styles/StatsSection.module.scss";
 
+const stats = [
+  {
+    value: "+2.000.000",
+    label: "Pessoas na fila do INSS",
+    description:
+      "Um erro na documentação pode te deixar anos esperando. Nós cuidamos do seu processo para garantir agilidade.",
+  },
+  {
+    value: "13.2%",
+    label: "Negativas Indevidas",
+    description:
+      "Segundo auditoria do TCU, o INSS nega milhares de benefícios por falhas de sistema. Nós auditamos sua negativa.",
+  },
+  {
+    value: "Especialista",
+    label: "Foco Previdenciário",
+    description:
+      "Atuação 100% dedicada a garantir que você receba o valor máximo e todos os seus retroativos.",
+  },
+];
+
 const StatsSection = () => {
-  const stats = [
-    {
-      value: "+2.000.000",
-      label: "Pessoas na fila do INSS",
-      description:
-        "Um erro na documentação pode te deixar anos esperando. Nós cuidamos do seu processo para garantir agilidade.",
-    },
-    {
-      value: "13.2%",
-      label: "Negativas Indevidas",
-      description:
-        "Segundo auditoria do TCU, o INSS nega milhares de benefícios por falhas de sistema. Nós auditamos sua negativa.",
-    },
-    {
-      value: "Especialista",
-      label: "Foco Previdenciário",
-      description:
-        "Atuação 100% dedicada a garantir que você receba o valor máximo e todos os seus retroativos.",
-    },
-  ];
 
   return (
     <section

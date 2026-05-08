@@ -29,7 +29,7 @@ const faqItems = [
   },
 ];
 
-const FAQCollapse = () => {
+const FAQSlider = () => {
   const { elementRef, isVisible } = useScrollAnimation<HTMLElement>(0.2);
   const [openItems, setOpenItems] = useState<number[]>([0]);
 
@@ -83,4 +83,4 @@ const FAQCollapse = () => {
   );
 };
 
-export default FAQCollapse;
+export default FAQSlider;

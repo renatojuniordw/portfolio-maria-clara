@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Maria Clara
 
-## Getting Started
+Site institucional da Dra. Maria Clara dos Santos, com foco em advocacia previdenciaria, captacao de contatos e paginas de servicos otimizadas para busca organica.
 
-First, run the development server:
+## Visao geral
+
+O projeto foi construido com Next.js App Router e reúne:
+
+- pagina inicial com secoes de apresentacao, servicos, prova social, FAQ e captura de contato;
+- paginas dedicadas para servicos previdenciarios;
+- SEO tecnico com metadados, Open Graph, JSON-LD e sitemap;
+- atalhos de contato por WhatsApp, telefone, e-mail, Instagram e LinkedIn.
+
+## Stack
+
+- Next.js 16
+- React 19
+- TypeScript
+- Sass
+- PrimeReact / PrimeIcons
+- `next-sitemap`
+
+## Rotas principais
+
+- `/` - pagina inicial
+- `/servicos/aposentadorias`
+- `/servicos/bpc-loas`
+- `/servicos/auxilio-doenca-pensao`
+- `/servicos/planejamento-previdenciario`
+
+## Estrutura resumida
+
+```text
+src/
+  app/
+    page.tsx
+    layout.tsx
+    sitemap.ts
+    servicos/
+  components/
+  assets/
+    styles/
+    images/
+  constants/
+  hooks/
+```
+
+## Como rodar localmente
+
+### Requisitos
+
+- Node.js 20+ recomendado
+- npm
+
+### Instalar dependencias
+
+```bash
+npm install
+```
+
+### Ambiente de desenvolvimento
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Abra [http://localhost:21000](http://localhost:21000) no seu navegador para ver o resultado.
+O projeto sobe em `http://localhost:21000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build de producao
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## Scripts disponiveis
 
-To learn more about Next.js, take a look at the following resources:
+- `npm run dev` - inicia o servidor Next.js na porta `21000`
+- `npm run build` - gera a build de producao
+- `npm run start` - sobe a aplicacao em modo producao na porta `21000`
+- `npm run lint` - executa o ESLint
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Pontos importantes do projeto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Metadados e schema foram configurados em [`src/app/layout.tsx`](src/app/layout.tsx) e nas paginas de servico.
+- O sitemap e gerado em [`src/app/sitemap.ts`](src/app/sitemap.ts).
+- Os links institucionais e de contato ficam centralizados em [`src/constants/constants.ts`](src/constants/constants.ts).
+- A homepage e composta por secoes reutilizaveis em `src/components`.
 
-## Deploy on Vercel
+## Conteudo e manutencao
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Para atualizar textos, CTAs e blocos da home:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- revise os componentes em `src/components`;
+- ajuste as paginas em `src/app/servicos/*`;
+- atualize imagens e estilos em `src/assets`.
+
+## Deploy
+
+O projeto e compativel com deploy em plataformas que suportam Next.js, como Vercel. Depois do build, o passo `postbuild` executa o `next-sitemap`.
