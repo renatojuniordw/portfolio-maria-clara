@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description:
     "Auxílio-doença cortado ou pensão por morte negada em Recife? Revertemos negativas do INSS e garantimos seus direitos. Fale agora.",
   keywords:
-    "auxilio doença recife, advogado auxilio doença recife, pensao por morte recife, inss benefícios incapacidade recife, advogado inss recife, auxilio doença pernambuco, pensão por morte pernambuco, advogado inss camaragibe",
+    "auxílio doença recife, advogado auxílio doença recife, pensao por morte recife, inss benefícios incapacidade recife, advogado inss recife, auxílio doença pernambuco, pensão por morte pernambuco, advogado inss camaragibe",
   alternates: {
     canonical: "https://www.mariaclarasantos.adv.br/servicos/auxilio-doenca-pensao",
   },

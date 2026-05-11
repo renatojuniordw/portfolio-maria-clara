@@ -13,7 +13,7 @@ import { CONSTANTS } from "@/constants/constants";
 const Footer = () => {
   return (
     <footer className={styles.footer} role="contentinfo">
-      <p className={styles.kicker}>Atuação previdenciária com presenca local</p>
+      <p className={styles.kicker}>Atuação previdenciária com presença local</p>
       <div className={styles.container}>
         <div className={styles.column}>
           <div className={styles.contact}>
@@ -67,7 +67,7 @@ const Footer = () => {
         <p className={styles.copyright}>
           © {new Date().getFullYear()} Maria Clara dos Santos. Todos os direitos
           reservados. <br />
-          OAB/PE 60.655 – Maria Clara dos Santos, Advogada Previdenciária.
+          OAB/PE 60.665 – Maria Clara dos Santos, Advogada Previdenciária.
         </p>
         <div className={styles.unificandoCredits}>
           <a

@@ -51,12 +51,12 @@ const AboutSection = () => {
               técnica, clareza e responsabilidade.
             </p>
             <p className={styles.description}>
-              Inscrita na OAB/PE 60.655, atuo com atendimento humanizado e
+              Inscrita na OAB/PE 60.665, atuo com atendimento humanizado e
               transparente para clientes de Recife, Olinda, Jaboatão dos
               Guararapes, Paulista e Região Metropolitana.
             </p>
             <div className={styles.credentials}>
-              <span>OAB/PE 60.655</span>
+              <span>OAB/PE 60.665</span>
               <span>Foco exclusivo em INSS</span>
               <span>Atendimento em Recife e Região Metropolitana</span>
             </div>

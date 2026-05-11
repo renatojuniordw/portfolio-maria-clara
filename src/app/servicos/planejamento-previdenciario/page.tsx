@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description:
     "Planejamento previdenciário em Recife. Saiba quando se aposentar, quanto contribuir e como receber o valor máximo do INSS.",
   keywords:
-    "planejamento previdenciário recife, quanto pagar de inss recife, calculo de aposentadoria recife, quando vou me aposentar recife, consultoria previdenciária recife, planejamento previdenciário pernambuco, consultoria previdenciária camaragibe, advogado servidor público pernambuco",
+    "planejamento previdenciário recife, quanto pagar de inss recife, cálculo de aposentadoria recife, quando vou me aposentar recife, consultoria previdenciária recife, planejamento previdenciário pernambuco, consultoria previdenciária camaragibe, advogado servidor público pernambuco",
   alternates: {
     canonical: "https://www.mariaclarasantos.adv.br/servicos/planejamento-previdenciario",
   },

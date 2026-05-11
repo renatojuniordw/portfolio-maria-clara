@@ -1,14 +1,14 @@
 # Portfolio Maria Clara
 
-Site institucional da Dra. Maria Clara dos Santos, com foco em advocacia previdenciaria, captacao de contatos e paginas de servicos otimizadas para busca organica.
+Site institucional da Dra. Maria Clara dos Santos, com foco em advocacia previdenciária, captação de contatos e páginas de serviços otimizadas para busca orgânica.
 
-## Visao geral
+## Visão geral
 
-O projeto foi construido com Next.js App Router e reúne:
+O projeto foi construído com Next.js App Router e reúne:
 
-- pagina inicial com secoes de apresentacao, servicos, prova social, FAQ e captura de contato;
-- paginas dedicadas para servicos previdenciarios;
-- SEO tecnico com metadados, Open Graph, JSON-LD e sitemap;
+- página inicial com seções de apresentação, serviços, prova social, FAQ e captura de contato;
+- páginas dedicadas para serviços previdenciários;
+- SEO técnico com metadados, Open Graph, JSON-LD e sitemap;
 - atalhos de contato por WhatsApp, telefone, e-mail, Instagram e LinkedIn.
 
 ## Stack
@@ -22,7 +22,7 @@ O projeto foi construido com Next.js App Router e reúne:
 
 ## Rotas principais
 
-- `/` - pagina inicial
+- `/` - página inicial
 - `/servicos/aposentadorias`
 - `/servicos/bpc-loas`
 - `/servicos/auxilio-doenca-pensao`
@@ -73,28 +73,28 @@ npm run build
 npm run start
 ```
 
-## Scripts disponiveis
+## Scripts disponíveis
 
 - `npm run dev` - inicia o servidor Next.js na porta `21000`
-- `npm run build` - gera a build de producao
-- `npm run start` - sobe a aplicacao em modo producao na porta `21000`
+- `npm run build` - gera a build de produção
+- `npm run start` - sobe a aplicação em modo produção na porta `21000`
 - `npm run lint` - executa o ESLint
 
 ## Pontos importantes do projeto
 
-- Metadados e schema foram configurados em [`src/app/layout.tsx`](src/app/layout.tsx) e nas paginas de servico.
-- O sitemap e gerado em [`src/app/sitemap.ts`](src/app/sitemap.ts).
+- Metadados e schema foram configurados em [`src/app/layout.tsx`](src/app/layout.tsx) e nas páginas de serviço.
+- O sitemap é gerado em [`src/app/sitemap.ts`](src/app/sitemap.ts).
 - Os links institucionais e de contato ficam centralizados em [`src/constants/constants.ts`](src/constants/constants.ts).
-- A homepage e composta por secoes reutilizaveis em `src/components`.
+- A homepage é composta por seções reutilizáveis em `src/components`.
 
-## Conteudo e manutencao
+## Conteúdo e manutenção
 
 Para atualizar textos, CTAs e blocos da home:
 
 - revise os componentes em `src/components`;
-- ajuste as paginas em `src/app/servicos/*`;
+- ajuste as páginas em `src/app/servicos/*`;
 - atualize imagens e estilos em `src/assets`.
 
 ## Deploy
 
-O projeto e compativel com deploy em plataformas que suportam Next.js, como Vercel. Depois do build, o passo `postbuild` executa o `next-sitemap`.
+O projeto é compatível com deploy em plataformas que suportam Next.js, como Vercel. Depois do build, o passo `postbuild` executa o `next-sitemap`.

@@ -67,13 +67,13 @@ const PhoneVerifier = () => {
       ref={elementRef}
     >
       <header className={styles.header}>
-        <p className={styles.eyebrow}>Camada de confianca</p>
+        <p className={styles.eyebrow}>Camada de confiança</p>
         <h2 id="phone-verifier-heading" className="section-title">
-          Antes de enviar documento ou dinheiro, confira o numero.
+          Antes de enviar documento ou dinheiro, confira o número.
         </h2>
         <p className={styles.sectionLead}>
-          A seguranca aqui não fica escondida no rodape. Ela entra como servico
-          visivel e util no meio da navegacao.
+          A segurança aqui não fica escondida no rodapé. Ela entra como serviço
+          visível e útil no meio da navegação.
         </p>
         <span className="section-divider" aria-hidden="true" />
       </header>
@@ -170,7 +170,7 @@ const PhoneVerifier = () => {
             </li>
           </ul>
           <p className={styles.alertNote}>
-            A seguranca das suas informacoes e prioridade no nosso escritorio.
+            A segurança das suas informações é prioridade no nosso escritório.
             <strong> Maria Clara Santos Advocacia</strong> atua com ética,
             transparência e atendimento humanizado.
           </p>

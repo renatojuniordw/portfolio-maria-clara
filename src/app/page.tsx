@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description:
     "Dra. Maria Clara dos Santos — advogada previdenciária em Recife. BPC/LOAS negado? Aposentadoria atrasada? Recupere seus direitos e retroativos com quem entende do INSS.",
   keywords:
-    "maria clara dos santos advogada, maria clara santos advocacia, reversão de benefício negado recife, advogada especialista em inss recife, bpc loas recife, auxilio doença negado recife, advogada previdenciária pernambuco",
+    "maria clara dos santos advogada, maria clara santos advocacia, reversão de benefício negado recife, advogada especialista em inss recife, bpc loas recife, auxílio doença negado recife, advogada previdenciária pernambuco",
   alternates: {
     canonical: "https://www.mariaclarasantos.adv.br",
   },
