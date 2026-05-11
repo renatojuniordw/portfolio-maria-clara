@@ -1,11 +1,8 @@
-import Link from "next/link";
-import styles from "@/assets/styles/ServicePage.module.scss";
 import { Metadata } from "next";
-import AboutAuthor from "@/components/AboutAuthor";
-import ServiceSidebar from "@/components/ServiceSidebar";
-import ServiceBackLink from "@/components/ServiceBackLink";
-import JsonLdScript from "@/components/JsonLdScript";
 import { buildServiceJsonLd } from "@/lib/jsonLd";
+import { buildFaqJsonLd, FAQ_APOSENTADORIAS } from "@/lib/faqs";
+import ServicePageLayout from "@/components/ServicePageLayout";
+import RelatedServices from "@/components/RelatedServices";
 
 export const metadata: Metadata = {
   title: "Aposentadoria em Recife | Dra. Maria Clara Santos",
@@ -17,8 +14,7 @@ export const metadata: Metadata = {
     canonical: "https://www.mariaclarasantos.adv.br/servicos/aposentadorias",
   },
   openGraph: {
-    title:
-      "Aposentadorias - Planeje seu Benefício e Garanta seu Futuro em Recife",
+    title: "Aposentadorias - Planeje seu Benefício e Garanta seu Futuro em Recife",
     description:
       "Saiba como se aposentar com o maior valor possível. Orientação técnica sobre regras de transição e direito adquirido.",
     url: "https://www.mariaclarasantos.adv.br/servicos/aposentadorias",
@@ -31,195 +27,113 @@ const serviceJsonLd = buildServiceJsonLd(
   "https://www.mariaclarasantos.adv.br/servicos/aposentadorias",
 );
 
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "Qual a idade mínima para se aposentar após a Reforma da Previdência?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Após a Reforma de 2019, a aposentadoria por idade exige 65 anos para homens e 62 anos para mulheres, com mínimo de 15 anos de contribuição. Porém, existem diversas regras de transição que podem ser mais vantajosas para quem já contribuía antes da reforma. Uma análise individual é fundamental.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Tempo trabalhado no campo (rural) conta para aposentadoria?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Sim. O trabalho rural, mesmo sem carteira assinada, pode ser comprovado e conta para aposentadoria. É necessário reunir provas como notas fiscais agrícolas, declarações de sindicato rural, fotos e testemunhos. Um advogado especialista orienta na melhor forma de comprovar esse período.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "O INSS pode calcular minha aposentadoria de forma errada?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Sim, e isso acontece com frequência. O INSS pode não reconhecer períodos de atividade especial, tempo rural, serviço militar ou trabalho no exterior. Esses erros reduzem o valor do benefício. Nossa assessoria audita todo o CNIS para garantir que você receba o valor correto.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "O que é aposentadoria especial e quem tem direito?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "A aposentadoria especial é destinada a quem trabalhou exposto a agentes nocivos à saúde (ruído acima de 85dB, calor excessivo, agentes químicos como benzeno, poeira mineral etc.). Permite aposentadoria com menos tempo de contribuição. Exige laudo técnico (LTCAT) e PPP (Perfil Profissiográfico Previdenciário).",
-      },
-    },
-  ],
-};
+const faqJsonLd = buildFaqJsonLd(FAQ_APOSENTADORIAS);
 
 export default function AposentadoriasPage() {
   return (
-    <>
-      <JsonLdScript data={serviceJsonLd} />
-      <JsonLdScript data={faqJsonLd} />
-      <div className={styles.servicePage}>
-      <header className={styles.hero}>
-        <div className={styles.container}>
-          <ServiceBackLink />
-          <h1 className={styles.title}>Aposentadoria pelo INSS em Recife</h1>
-          <p className={styles.subtitle}>
-            A certeza de que sua vida de trabalho será recompensada com o{" "}
-            <strong>benefício máximo</strong> que você merece. Analisamos cada
-            detalhe do seu histórico.
-          </p>
-        </div>
-      </header>
+    <ServicePageLayout
+      title="Aposentadoria pelo INSS em Recife"
+      subtitle={
+        <>
+          A certeza de que sua vida de trabalho será recompensada com o{" "}
+          <strong>benefício máximo</strong> que você merece. Analisamos cada
+          detalhe do seu histórico.
+        </>
+      }
+      serviceJsonLd={serviceJsonLd}
+      faqJsonLd={faqJsonLd}
+      sidebarIcon="pi-calendar"
+      sidebarTitle="Verificar Possibilidade"
+      sidebarDescription="Planeje seu futuro com quem entende. Analisamos seu tempo e suas contribuições para garantir o melhor benefício."
+    >
+      <section>
+        <h2>Tipos de Aposentadoria</h2>
+        <p>
+          Após a Reforma da Previdência (EC 103/2019), as regras de aposentadoria
+          no Brasil mudaram drasticamente. Com diversas regras de transição
+          vigentes, é fundamental uma análise individual para identificar qual o
+          melhor caminho para cada segurado.
+        </p>
+        <ul>
+          <li>
+            <strong>Por Idade:</strong> Uma das mais comuns, para quem não possui
+            longo período de contribuição.
+          </li>
+          <li>
+            <strong>Por Tempo de Contribuição:</strong> Foco em quem começou a
+            trabalhar cedo e possui longo período de recolhimento.
+          </li>
+          <li>
+            <strong>Aposentadoria Especial:</strong> Para quem trabalhou em
+            condições prejudiciais à saúde (ruído, calor, agentes químicos).
+          </li>
+          <li>
+            <strong>Pessoas com Deficiência (PCD):</strong> Regras diferenciadas
+            e vantajosas para quem possui impedimentos físicos ou intelectuais.
+          </li>
+        </ul>
+      </section>
 
-      <main className={styles.contentWrapper}>
-        <div className={styles.grid}>
-          <article className={styles.mainContent}>
-            <section>
-              <h2>Tipos de Aposentadoria</h2>
-              <p>
-                Após a Reforma da Previdência (EC 103/2019), as regras de
-                aposentadoria no Brasil mudaram drasticamente. Com diversas
-                regras de transição vigentes, é fundamental uma análise
-                individual para identificar qual o melhor caminho para cada
-                segurado.
-              </p>
-              <ul>
-                <li>
-                  <strong>Por Idade:</strong> Uma das mais comuns, para quem não
-                  possui longo período de contribuição.
-                </li>
-                <li>
-                  <strong>Por Tempo de Contribuição:</strong> Foco em quem
-                  começou a trabalhar cedo e possui longo período de
-                  recolhimento.
-                </li>
-                <li>
-                  <strong>Aposentadoria Especial:</strong> Para quem trabalhou
-                  em condições prejudiciais à saúde (ruído, calor, agentes
-                  químicos).
-                </li>
-                <li>
-                  <strong>Pessoas com Deficiência (PCD):</strong> Regras
-                  diferenciadas e vantajosas para quem possui impedimentos
-                  físicos ou intelectuais.
-                </li>
-              </ul>
-            </section>
+      <section>
+        <h2>O Perigo do Erro no INSS</h2>
+        <p>
+          O INSS frequentemente falha em reconhecer períodos de atividade
+          especial, tempos de serviço militar, tempo rural ou períodos trabalhados
+          em outro país. Esses erros resultam em benefícios muito menores do que o
+          segurado teria direito.
+        </p>
+        <p>
+          Meu trabalho envolve auditar todo o CNIS (Cadastro Nacional de
+          Informações Sociais) e documentos complementares para garantir que nem
+          um centavo seja perdido.
+        </p>
+      </section>
 
-            <section>
-              <h2>O Perigo do Erro no INSS</h2>
-              <p>
-                O INSS frequentemente falha em reconhecer períodos de atividade
-                especial, tempos de serviço militar, tempo rural ou períodos
-                trabalhados em outro país. Esses erros resultam em benefícios
-                muito menores do que o segurado teria direito.
-              </p>
-              <p>
-                Meu trabalho envolve auditar todo o CNIS (Cadastro Nacional de
-                Informações Sociais) e documentos complementares para garantir
-                que nem um centavo seja perdido.
-              </p>
-            </section>
+      <section>
+        <h2>Como funciona a assessoria para aposentadoria?</h2>
+        <ol>
+          <li>
+            <strong>Análise do histórico contributivo:</strong> auditamos todo o
+            CNIS para identificar períodos não reconhecidos pelo INSS.
+          </li>
+          <li>
+            <strong>Simulação de cenários:</strong> calculamos todas as regras de
+            transição vigentes e identificamos a mais vantajosa para o seu perfil.
+          </li>
+          <li>
+            <strong>Correção do CNIS:</strong> regularizamos pendências e períodos
+            divergentes antes de protocolar o requerimento.
+          </li>
+          <li>
+            <strong>Protocolo do requerimento:</strong> entramos com o pedido no
+            INSS garantindo que todos os documentos estejam corretos.
+          </li>
+          <li>
+            <strong>Acompanhamento até a concessão:</strong> monitoramos o
+            processo e recorremos em caso de negativa ou cálculo incorreto.
+          </li>
+        </ol>
+      </section>
 
-            <section>
-              <h2>Como funciona a assessoria para aposentadoria?</h2>
-              <ol>
-                <li>
-                  <strong>Análise do histórico contributivo:</strong> auditamos
-                  todo o CNIS para identificar períodos não reconhecidos pelo
-                  INSS.
-                </li>
-                <li>
-                  <strong>Simulação de cenários:</strong> calculamos todas as
-                  regras de transição vigentes e identificamos a mais vantajosa
-                  para o seu perfil.
-                </li>
-                <li>
-                  <strong>Correção do CNIS:</strong> regularizamos pendências e
-                  períodos divergentes antes de protocolar o requerimento.
-                </li>
-                <li>
-                  <strong>Protocolo do requerimento:</strong> entramos com o
-                  pedido no INSS garantindo que todos os documentos estejam
-                  corretos.
-                </li>
-                <li>
-                  <strong>Acompanhamento até a concessão:</strong> monitoramos
-                  o processo e recorremos em caso de negativa ou cálculo
-                  incorreto.
-                </li>
-              </ol>
-            </section>
+      <section>
+        <h2>Vantagens da Assessoria Jurídica</h2>
+        <ul>
+          <li>
+            <strong>Agilidade Extrema:</strong> Evite o vai-e-vem de documentos e
+            exigências do INSS que travam o processo;
+          </li>
+          <li>
+            <strong>Valor Máximo Garantido:</strong> Garantia de que a regra de
+            cálculo aplicada seja a mais vantajosa para você;
+          </li>
+          <li>
+            <strong>Segurança Técnica:</strong> Antes de aceitar sua aposentadoria,
+            verificamos se todos os períodos foram considerados corretamente.
+          </li>
+        </ul>
+      </section>
 
-            <section>
-              <h2>Vantagens da Assessoria Jurídica</h2>
-              <ul>
-                <li>
-                  <strong>Agilidade Extrema:</strong> Evite o vai-e-vem de
-                  documentos e exigências do INSS que travam o processo;
-                </li>
-                <li>
-                  <strong>Valor Máximo Garantido:</strong> Garantia de que a
-                  regra de cálculo aplicada seja a mais vantajosa para você;
-                </li>
-                <li>
-                  <strong>Segurança Técnica:</strong> Antes de aceitar sua
-                  aposentadoria, verificamos se todos os períodos foram
-                  considerados corretamente.
-                </li>
-              </ul>
-            </section>
-            <section>
-              <h2>Veja também</h2>
-              <ul>
-                <li>
-                  <Link href="/servicos/bpc-loas">
-                    BPC/LOAS — benefício para idosos e pessoas com deficiência
-                    sem contribuição ao INSS
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/servicos/auxilio-doenca-pensao">
-                    Auxílio-Doença e Pensão por Morte — suporte em casos de
-                    incapacidade e amparo familiar
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/servicos/planejamento-previdenciario">
-                    Planejamento Previdenciário — estratégia para aposentar
-                    com o maior valor
-                  </Link>
-                </li>
-              </ul>
-            </section>
-          </article>
-
-          <ServiceSidebar
-            icon="pi-calendar"
-            title="Verificar Possibilidade"
-            description="Planeje seu futuro com quem entende. Analisamos seu tempo e suas contribuições para garantir o melhor benefício."
-          />
-        </div>
-      </main>
-      <AboutAuthor />
-    </div>
-    </>
+      <RelatedServices slugAtual="aposentadorias" />
+    </ServicePageLayout>
   );
 }

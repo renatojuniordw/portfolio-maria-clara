@@ -203,7 +203,7 @@
   letter-spacing: 0.14em;
 }
 
-@media (max-width: 900px) {
+@media (max-width: $bp-tablet) {
   .grid {
     grid-template-columns: 1fr;
   }
@@ -213,7 +213,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: $bp-mobile) {
   .hero {
     padding: 4rem 1.25rem 3rem;
   }

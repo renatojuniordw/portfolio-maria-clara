@@ -1,4 +1,5 @@
 @use "./variables" as *;
+@use "./mixins" as *;
 
 .about {
   padding: 6rem 2rem;
@@ -14,12 +15,7 @@
 }
 
 .eyebrow {
-  margin: 0 0 0.8rem;
-  color: $signal-dark;
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+  @include eyebrow;
 }
 
 .content {
@@ -87,7 +83,7 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: $bp-tablet) {
   .content {
     grid-template-columns: 1fr;
   }
@@ -97,7 +93,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: $bp-mobile) {
   .about {
     padding: 4rem 1.25rem;
   }
