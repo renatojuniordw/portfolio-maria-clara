@@ -1,25 +1,52 @@
 import { Metadata } from "next";
-import { buildServiceJsonLd } from "@/lib/jsonLd";
+import { buildServiceJsonLd, buildBreadcrumbJsonLd } from "@/lib/jsonLd";
 import { buildFaqJsonLd, FAQ_APOSENTADORIAS } from "@/lib/faqs";
 import ServicePageLayout from "@/components/ServicePageLayout";
 import RelatedServices from "@/components/RelatedServices";
+
+const PAGE_URL = "https://www.mariaclarasantos.adv.br/servicos/aposentadorias";
+const PAGE_TITLE = "Aposentadoria pelo INSS em Recife";
+const OG_IMAGE = {
+  url: "https://www.mariaclarasantos.adv.br/Maria_Clara-adv-03.png",
+  width: 1200,
+  height: 630,
+  alt: "Dra. Maria Clara Santos - Advogada Previdenciária em Recife",
+};
 
 export const metadata: Metadata = {
   title: "Aposentadoria em Recife | Dra. Maria Clara Santos",
   description:
     "Especialista em Aposentadoria por Idade, Tempo e Especial em Recife. Garanta o maior valor de benefício e receba todos os atrasados.",
-  keywords:
-    "aposentadoria recife, advogado aposentadoria recife, inss aposentadoria recife, tempo de contribuição inss recife, aposentadoria especial recife, advogado aposentadoria pernambuco, advogado aposentadoria camaragibe, aposentadoria especial pernambuco",
+  keywords: [
+    "aposentadoria recife",
+    "advogado aposentadoria recife",
+    "inss aposentadoria recife",
+    "tempo de contribuição inss recife",
+    "aposentadoria especial recife",
+    "advogado aposentadoria pernambuco",
+    "advogado aposentadoria camaragibe",
+    "aposentadoria especial pernambuco",
+  ],
   alternates: {
-    canonical: "https://www.mariaclarasantos.adv.br/servicos/aposentadorias",
+    canonical: PAGE_URL,
   },
   openGraph: {
     title: "Aposentadorias - Planeje seu Benefício e Garanta seu Futuro em Recife",
     description:
       "Saiba como se aposentar com o maior valor possível. Orientação técnica sobre regras de transição e direito adquirido.",
-    url: "https://www.mariaclarasantos.adv.br/servicos/aposentadorias",
+    url: PAGE_URL,
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aposentadoria em Recife | Dra. Maria Clara Santos",
+    description:
+      "Saiba como se aposentar com o maior valor possível. Orientação técnica sobre regras de transição e direito adquirido.",
+    images: [OG_IMAGE.url],
   },
 };
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd(PAGE_TITLE, PAGE_URL);
 
 const serviceJsonLd = buildServiceJsonLd(
   "Assessoria em Aposentadorias pelo INSS",
@@ -32,7 +59,8 @@ const faqJsonLd = buildFaqJsonLd(FAQ_APOSENTADORIAS);
 export default function AposentadoriasPage() {
   return (
     <ServicePageLayout
-      title="Aposentadoria pelo INSS em Recife"
+      breadcrumbJsonLd={breadcrumbJsonLd}
+      title={PAGE_TITLE}
       subtitle={
         <>
           A certeza de que sua vida de trabalho será recompensada com o{" "}

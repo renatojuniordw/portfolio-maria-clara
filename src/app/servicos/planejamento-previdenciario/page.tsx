@@ -1,30 +1,57 @@
 import { Metadata } from "next";
-import { buildServiceJsonLd } from "@/lib/jsonLd";
+import { buildServiceJsonLd, buildBreadcrumbJsonLd } from "@/lib/jsonLd";
 import { buildFaqJsonLd, FAQ_PLANEJAMENTO } from "@/lib/faqs";
 import ServicePageLayout from "@/components/ServicePageLayout";
 import RelatedServices from "@/components/RelatedServices";
+
+const PAGE_URL = "https://www.mariaclarasantos.adv.br/servicos/planejamento-previdenciario";
+const PAGE_TITLE = "Planejamento Previdenciário em Recife";
+const OG_IMAGE = {
+  url: "https://www.mariaclarasantos.adv.br/Maria_Clara-adv-03.png",
+  width: 1200,
+  height: 630,
+  alt: "Dra. Maria Clara Santos - Advogada Previdenciária em Recife",
+};
 
 export const metadata: Metadata = {
   title: "Planejamento Previdenciário em Recife | Dra. Maria Clara Santos",
   description:
     "Planejamento previdenciário em Recife. Saiba quando se aposentar, quanto contribuir e como receber o valor máximo do INSS.",
-  keywords:
-    "planejamento previdenciário recife, quanto pagar de inss recife, cálculo de aposentadoria recife, quando vou me aposentar recife, consultoria previdenciária recife, planejamento previdenciário pernambuco, consultoria previdenciária camaragibe, advogado servidor público pernambuco",
+  keywords: [
+    "planejamento previdenciário recife",
+    "quanto pagar de inss recife",
+    "cálculo de aposentadoria recife",
+    "quando vou me aposentar recife",
+    "consultoria previdenciária recife",
+    "planejamento previdenciário pernambuco",
+    "consultoria previdenciária camaragibe",
+    "advogado servidor público pernambuco",
+  ],
   alternates: {
-    canonical: "https://www.mariaclarasantos.adv.br/servicos/planejamento-previdenciario",
+    canonical: PAGE_URL,
   },
   openGraph: {
     title: "Planejamento Previdenciário - Invista no seu Amanhã de Força Estratégica",
     description:
       "Evite surpresas negativas. Planejamos seu benefício para que você tenha a melhor aposentadoria possível, com segurança jurídica e economia.",
-    url: "https://www.mariaclarasantos.adv.br/servicos/planejamento-previdenciario",
+    url: PAGE_URL,
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Planejamento Previdenciário em Recife | Dra. Maria Clara Santos",
+    description:
+      "Evite surpresas negativas. Planejamos seu benefício para que você tenha a melhor aposentadoria possível, com segurança jurídica e economia.",
+    images: [OG_IMAGE.url],
   },
 };
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd(PAGE_TITLE, PAGE_URL);
 
 const serviceJsonLd = buildServiceJsonLd(
   "Planejamento Previdenciário Estratégico",
   "Consultoria técnica para planejamento de aposentadoria com máxima eficiência contributiva e segurança jurídica em Recife e Pernambuco.",
-  "https://www.mariaclarasantos.adv.br/servicos/planejamento-previdenciario",
+  PAGE_URL,
 );
 
 const faqJsonLd = buildFaqJsonLd(FAQ_PLANEJAMENTO);
@@ -32,7 +59,8 @@ const faqJsonLd = buildFaqJsonLd(FAQ_PLANEJAMENTO);
 export default function PlanejamentoPage() {
   return (
     <ServicePageLayout
-      title="Planejamento Previdenciário em Recife"
+      breadcrumbJsonLd={breadcrumbJsonLd}
+      title={PAGE_TITLE}
       subtitle={
         <>
           A inteligência aplicada ao seu benefício. Planejar hoje para garantir o{" "}

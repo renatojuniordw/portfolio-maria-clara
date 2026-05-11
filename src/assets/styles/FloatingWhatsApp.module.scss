@@ -58,6 +58,12 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .floatingButton {
+    animation: none;
+  }
+}
+
 @media (max-width: 768px) {
   .floatingButton {
     width: 56px;

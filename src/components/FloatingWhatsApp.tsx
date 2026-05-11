@@ -1,3 +1,4 @@
+import { FaWhatsapp } from "react-icons/fa";
 import styles from "@/assets/styles/FloatingWhatsApp.module.scss";
 import { CONSTANTS } from "@/constants/constants";
 
@@ -10,7 +11,7 @@ const FloatingWhatsApp = () => {
       rel="noopener noreferrer"
       aria-label="Falar com Dra. Maria Clara no WhatsApp"
     >
-      <i className="pi pi-whatsapp"></i>
+      <FaWhatsapp aria-hidden="true" />
       <span className={styles.tooltip}>Falar com a Dra.</span>
     </a>
   );

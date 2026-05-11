@@ -1,46 +1,46 @@
-"use client";
-
 import Link from "next/link";
+import {
+  FaUsers,
+  FaCalendarAlt,
+  FaShieldAlt,
+  FaChartLine,
+  FaArrowRight,
+} from "react-icons/fa";
 import styles from "@/assets/styles/ServicesSection.module.scss";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const services = [
   {
     title: "BPC / LOAS",
     subtitle: "(Idosos e Deficientes)",
-    icon: "pi-users",
+    Icon: FaUsers,
     slug: "bpc-loas",
   },
   {
     title: "Aposentadorias",
     subtitle: "(Idade, Tempo e Especial)",
-    icon: "pi-calendar",
+    Icon: FaCalendarAlt,
     slug: "aposentadorias",
   },
   {
     title: "INSS",
     subtitle: "Auxílio-Doença e Pensão por Morte",
-    icon: "pi-shield",
+    Icon: FaShieldAlt,
     slug: "auxilio-doenca-pensao",
   },
   {
     title: "Planejamento",
     subtitle: "Estratégico Previdenciário",
-    icon: "pi-chart-line",
+    Icon: FaChartLine,
     slug: "planejamento-previdenciario",
   },
 ];
 
 const ServicesSection = () => {
-  const { elementRef, isVisible } = useScrollAnimation<HTMLElement>(0.2);
-
   return (
     <section
-      className={`${styles.services} ${isVisible ? "revealVisible" : "reveal"}`}
+      className={`${styles.services} reveal`}
       id="servicos"
       aria-labelledby="services-heading"
-      role="region"
-      ref={elementRef}
     >
       <header className={styles.header}>
         <p className={styles.eyebrow}>Onde a atuação aperta o sistema</p>
@@ -77,13 +77,13 @@ const ServicesSection = () => {
             >
               <span className={styles.cardIndex}>{service.slug.slice(0, 3)}</span>
               <div className={styles.iconWrapper}>
-                <i className={`pi ${service.icon}`} aria-hidden="true" />
+                <service.Icon aria-hidden="true" />
               </div>
               <div className={styles.cardContent}>
                 <h3 className={styles.cardTitle}>{service.title}</h3>
                 <p className={styles.cardSubtitle}>{service.subtitle}</p>
                 <div className={styles.verMais}>
-                  Ver detalhes <i className="pi pi-arrow-right" />
+                  Ver detalhes <FaArrowRight aria-hidden="true" />
                 </div>
               </div>
             </Link>

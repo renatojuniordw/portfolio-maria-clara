@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Manrope } from "next/font/google";
 import Script from "next/script";
+import { buildFaqJsonLd, FAQ_PRINCIPAL } from "@/lib/faqs";
 
-import "primeicons/primeicons.css";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -60,6 +60,13 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dra. Maria Clara dos Santos | Advogada Previdenciária em Recife",
+    description:
+      "Especialista em BPC/LOAS, Aposentadorias e Revisional de Benefícios. Atendimento humanizado com foco em garantir o seu direito junto ao INSS.",
+    images: ["https://www.mariaclarasantos.adv.br/Maria_Clara-adv-03.png"],
+  },
 };
 
 const jsonLd = {
@@ -111,48 +118,12 @@ const jsonLd = {
   ],
 };
 
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "Nunca contribuí para o INSS, posso receber algum benefício?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "SIM. O BPC/LOAS garante um salário mínimo mensal para idosos acima de 65 anos ou pessoas com deficiência em situação de vulnerabilidade, mesmo que nunca tenham pago o INSS.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Tive meu benefício negado pelo INSS. O que devo fazer agora?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Não desista. Negativas são frequentes, mas muitas vezes injustas. Com auxílio jurídico especializado, podemos entrar com recursos ou ações judiciais para reverter a decisão.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Como ter certeza de que vou receber o valor máximo na minha aposentadoria?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Erros de cálculo do INSS são extremamente comuns. Com o Planejamento Previdenciário Estratégico, analisamos todo o seu histórico contributivo para garantir que você se aposente com o maior benefício possível, no menor tempo e sem perder dinheiro.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Quanto tempo leva para conseguir um auxílio ou pensão?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "O tempo varia conforme o caso, mas a atuação de um advogado especialista acelera o processo e evita erros na documentação que causam atrasos de meses. Nossa missão é destravar o sistema e garantir que o seu benefício chegue o quanto antes.",
-      },
-    },
-  ],
-};
+const faqJsonLd = buildFaqJsonLd(FAQ_PRINCIPAL);
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function RootLayout({
   children,
@@ -183,6 +154,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
+        <ScrollReveal />
         <a href="#main-content" className="skip-link">
           Pular para o conteúdo principal
         </a>

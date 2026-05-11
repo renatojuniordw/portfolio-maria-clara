@@ -6,7 +6,6 @@ const HeroSection = () => {
     <section
       className={styles.hero}
       id="inicio"
-      role="region"
       aria-labelledby="hero-title"
     >
       <p className={styles.kicker}>Advocacia previdenciária em Recife</p>

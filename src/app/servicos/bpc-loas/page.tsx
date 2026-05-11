@@ -1,30 +1,57 @@
 import { Metadata } from "next";
-import { buildServiceJsonLd } from "@/lib/jsonLd";
+import { buildServiceJsonLd, buildBreadcrumbJsonLd } from "@/lib/jsonLd";
 import { buildFaqJsonLd, FAQ_BPC_LOAS } from "@/lib/faqs";
 import ServicePageLayout from "@/components/ServicePageLayout";
 import RelatedServices from "@/components/RelatedServices";
+
+const PAGE_URL = "https://www.mariaclarasantos.adv.br/servicos/bpc-loas";
+const PAGE_TITLE = "BPC/LOAS em Recife e Pernambuco";
+const OG_IMAGE = {
+  url: "https://www.mariaclarasantos.adv.br/Maria_Clara-adv-03.png",
+  width: 1200,
+  height: 630,
+  alt: "Dra. Maria Clara Santos - Advogada Previdenciária em Recife",
+};
 
 export const metadata: Metadata = {
   title: "BPC/LOAS em Recife | Dra. Maria Clara Santos",
   description:
     "BPC/LOAS negado em Recife? Especialista em garantir o benefício para idosos e pessoas com deficiência em vulnerabilidade financeira.",
-  keywords:
-    "bpc loas recife, advogado bpc loas recife, benefício inss idoso recife, benefício inss deficientes recife, como conseguir bpc loas recife, bpc loas pernambuco, advogado bpc loas camaragibe, bpc loas negado pernambuco",
+  keywords: [
+    "bpc loas recife",
+    "advogado bpc loas recife",
+    "benefício inss idoso recife",
+    "benefício inss deficientes recife",
+    "como conseguir bpc loas recife",
+    "bpc loas pernambuco",
+    "advogado bpc loas camaragibe",
+    "bpc loas negado pernambuco",
+  ],
   alternates: {
-    canonical: "https://www.mariaclarasantos.adv.br/servicos/bpc-loas",
+    canonical: PAGE_URL,
   },
   openGraph: {
     title: "BPC / LOAS - Garanta seu Benefício do INSS com Especialista em Recife",
     description:
       "Nunca pagou o INSS? Saiba como ter direito a um salário mínimo mensal se você for idoso ou pessoa com deficiência em situação de vulnerabilidade financeira.",
-    url: "https://www.mariaclarasantos.adv.br/servicos/bpc-loas",
+    url: PAGE_URL,
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BPC/LOAS em Recife | Dra. Maria Clara Santos",
+    description:
+      "Nunca pagou o INSS? Saiba como ter direito a um salário mínimo mensal se você for idoso ou pessoa com deficiência em situação de vulnerabilidade financeira.",
+    images: [OG_IMAGE.url],
   },
 };
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd(PAGE_TITLE, PAGE_URL);
 
 const serviceJsonLd = buildServiceJsonLd(
   "BPC/LOAS - Benefício de Prestação Continuada",
   "Assessoria jurídica especializada para obtenção e revisão do BPC/LOAS para idosos e pessoas com deficiência em Recife.",
-  "https://www.mariaclarasantos.adv.br/servicos/bpc-loas",
+  PAGE_URL,
 );
 
 const faqJsonLd = buildFaqJsonLd(FAQ_BPC_LOAS);
@@ -32,7 +59,8 @@ const faqJsonLd = buildFaqJsonLd(FAQ_BPC_LOAS);
 export default function BPCPage() {
   return (
     <ServicePageLayout
-      title="BPC/LOAS em Recife e Pernambuco"
+      breadcrumbJsonLd={breadcrumbJsonLd}
+      title={PAGE_TITLE}
       subtitle={
         <>
           Apoio jurídico especializado para garantir{" "}

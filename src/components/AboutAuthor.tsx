@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FaArrowRight } from "react-icons/fa";
 import styles from "@/assets/styles/AboutAuthor.module.scss";
 import profileImg from "@/assets/images/profile.png";
 
@@ -26,10 +27,7 @@ const AboutAuthor = () => {
           </p>
           <Link href="/#sobre" className={styles.link}>
             CONHECER MINHA HISTÓRIA COMPLETA{" "}
-            <i
-              className="pi pi-arrow-right"
-              style={{ fontSize: "0.8rem", marginLeft: "5px" }}
-            ></i>
+            <FaArrowRight aria-hidden="true" style={{ fontSize: "0.8rem", marginLeft: "5px" }} />
           </Link>
         </div>
       </div>

@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, memo } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { FaBars } from "react-icons/fa";
 
 import styles from "@/assets/styles/Header.module.scss";
 import logo from "@/assets/images/Maria_Clara-adv-03.png";
@@ -29,11 +30,48 @@ const navItems = [
   { label: "Dúvidas", url: "#faq" },
 ];
 
+interface NavListProps {
+  currentHash: string;
+  pathname: string;
+  onClose: () => void;
+  isOpen: boolean;
+}
+
+const NavList = memo(function NavList({ currentHash, pathname, onClose, isOpen }: NavListProps) {
+  return (
+    <ul
+      id="primary-navigation"
+      className={`${styles.menuItems} ${isOpen ? styles.menuOpen : ""}`}
+      onClick={onClose}
+    >
+      {navItems.map((item) => (
+        <li key={item.label}>
+          <Link
+            href={pathname === "/" ? item.url : `/${item.url}`}
+            aria-current={currentHash === item.url ? "page" : undefined}
+          >
+            {item.label}
+          </Link>
+        </li>
+      ))}
+      <li className={styles.mobileOnly}>
+        <WhatsAppButton />
+      </li>
+    </ul>
+  );
+});
+
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentHash, setCurrentHash] = useState("");
   const pathname = usePathname();
-  const menuId = "primary-navigation";
+
+  const toggleMenu = useCallback(
+    () => setIsMobileMenuOpen((prev) => !prev),
+    []
+  );
+
+  const closeMenu = useCallback(() => setIsMobileMenuOpen(false), []);
 
   useEffect(() => {
     setCurrentHash(window.location.hash);
@@ -67,33 +105,19 @@ const Header = () => {
         <div className={styles.navRight}>
           <button
             className={styles.hamburger}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={toggleMenu}
             aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
             aria-expanded={isMobileMenuOpen}
-            aria-controls={menuId}
+            aria-controls="primary-navigation"
           >
-            <span className="pi pi-bars" />
+            <FaBars aria-hidden="true" />
           </button>
-          <ul
-            id={menuId}
-            className={`${styles.menuItems} ${isMobileMenuOpen ? styles.menuOpen : ""}`}
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            {navItems.map((item) => (
-              <li key={item.label}>
-                <Link
-                  href={pathname === "/" ? item.url : `/${item.url}`}
-                  aria-current={currentHash === item.url ? "page" : undefined}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-            <li className={styles.mobileOnly}>
-              <WhatsAppButton />
-            </li>
-          </ul>
-
+          <NavList
+            currentHash={currentHash}
+            pathname={pathname}
+            onClose={closeMenu}
+            isOpen={isMobileMenuOpen}
+          />
           <WhatsAppButton className={styles.desktopOnly} />
         </div>
       </nav>

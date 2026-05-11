@@ -1,30 +1,57 @@
 import { Metadata } from "next";
-import { buildServiceJsonLd } from "@/lib/jsonLd";
+import { buildServiceJsonLd, buildBreadcrumbJsonLd } from "@/lib/jsonLd";
 import { buildFaqJsonLd, FAQ_AUXILIO_DOENCA } from "@/lib/faqs";
 import ServicePageLayout from "@/components/ServicePageLayout";
 import RelatedServices from "@/components/RelatedServices";
+
+const PAGE_URL = "https://www.mariaclarasantos.adv.br/servicos/auxilio-doenca-pensao";
+const PAGE_TITLE = "Auxílio-Doença e Pensão por Morte em Recife";
+const OG_IMAGE = {
+  url: "https://www.mariaclarasantos.adv.br/Maria_Clara-adv-03.png",
+  width: 1200,
+  height: 630,
+  alt: "Dra. Maria Clara Santos - Advogada Previdenciária em Recife",
+};
 
 export const metadata: Metadata = {
   title: "Auxílio-Doença e Pensão por Morte Recife | INSS",
   description:
     "Auxílio-doença cortado ou pensão por morte negada em Recife? Revertemos negativas do INSS e garantimos seus direitos. Fale agora.",
-  keywords:
-    "auxílio doença recife, advogado auxílio doença recife, pensao por morte recife, inss benefícios incapacidade recife, advogado inss recife, auxílio doença pernambuco, pensão por morte pernambuco, advogado inss camaragibe",
+  keywords: [
+    "auxílio doença recife",
+    "advogado auxílio doença recife",
+    "pensao por morte recife",
+    "inss benefícios incapacidade recife",
+    "advogado inss recife",
+    "auxílio doença pernambuco",
+    "pensão por morte pernambuco",
+    "advogado inss camaragibe",
+  ],
   alternates: {
-    canonical: "https://www.mariaclarasantos.adv.br/servicos/auxilio-doenca-pensao",
+    canonical: PAGE_URL,
   },
   openGraph: {
     title: "INSS - Auxílio-Doença, Pensão por Morte e Amparo Familiar em Recife",
     description:
       "Reversão de benefício negado por perícia médica. Pensão por morte para união estável e filhos em Recife.",
-    url: "https://www.mariaclarasantos.adv.br/servicos/auxilio-doenca-pensao",
+    url: PAGE_URL,
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Auxílio-Doença e Pensão por Morte Recife | INSS",
+    description:
+      "Reversão de benefício negado por perícia médica. Pensão por morte para união estável e filhos em Recife.",
+    images: [OG_IMAGE.url],
   },
 };
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd(PAGE_TITLE, PAGE_URL);
 
 const serviceJsonLd = buildServiceJsonLd(
   "Auxílio-Doença e Pensão por Morte pelo INSS",
   "Assessoria jurídica para reversão de auxílio-doença negado por perícia e pensão por morte em Recife.",
-  "https://www.mariaclarasantos.adv.br/servicos/auxilio-doenca-pensao",
+  PAGE_URL,
 );
 
 const faqJsonLd = buildFaqJsonLd(FAQ_AUXILIO_DOENCA);
@@ -32,7 +59,8 @@ const faqJsonLd = buildFaqJsonLd(FAQ_AUXILIO_DOENCA);
 export default function INSSPage() {
   return (
     <ServicePageLayout
-      title="Auxílio-Doença e Pensão por Morte em Recife"
+      breadcrumbJsonLd={breadcrumbJsonLd}
+      title={PAGE_TITLE}
       subtitle={
         <>
           Suporte técnico e acolhimento nos momentos mais difíceis. Atuação em

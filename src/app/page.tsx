@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://www.mariaclarasantos.adv.br/Maria_Clara-adv-03.png",
-        width: 1125,
-        height: 995,
+        width: 1200,
+        height: 630,
         alt: "Dra. Maria Clara dos Santos - Advogada Previdenciária em Recife",
       },
     ],

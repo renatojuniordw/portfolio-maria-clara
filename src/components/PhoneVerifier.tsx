@@ -1,45 +1,45 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import styles from "@/assets/styles/PhoneVerifier.module.scss";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 import { normalizeBRPhone, formatBRPhone, stripDDD } from "@/lib/phoneUtils";
 
 const OFFICIAL_NUMBERS = ["81985240415", "985240415"];
+const OFFICIAL_WITH_DDD = new Set(OFFICIAL_NUMBERS.map(normalizeBRPhone));
+const OFFICIAL_WITHOUT_DDD = new Set(Array.from(OFFICIAL_WITH_DDD).map(stripDDD));
 
 const PhoneVerifier = () => {
-  const { elementRef, isVisible } = useScrollAnimation<HTMLElement>(0.2);
   const [raw, setRaw] = useState("");
   const [checked, setChecked] = useState(false);
 
   const normalized = normalizeBRPhone(raw);
   const normalizedNoDDD = stripDDD(normalized);
-  const withDDD = new Set(OFFICIAL_NUMBERS.map(normalizeBRPhone));
-  const withoutDDD = new Set(Array.from(withDDD).map(stripDDD));
   const isValidLength = normalized.length >= 8 && normalized.length <= 11;
   const isOfficial =
     isValidLength &&
-    (withDDD.has(normalized) || withoutDDD.has(normalizedNoDDD));
+    (OFFICIAL_WITH_DDD.has(normalized) || OFFICIAL_WITHOUT_DDD.has(normalizedNoDDD));
   const resultId = "phone-verifier-result";
 
-  function handleCheck(e: React.FormEvent) {
+  const handleCheck = useCallback((e: React.FormEvent) => {
     e.preventDefault();
     setChecked(true);
-  }
+  }, []);
 
-  function handleClear() {
+  const handleClear = useCallback(() => {
     setRaw("");
     setChecked(false);
-  }
+  }, []);
+
+  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setRaw(e.target.value);
+  }, []);
 
   return (
     <section
-      className={`${styles.verifierSection} ${isVisible ? "revealVisible" : "reveal"}`}
+      className={`${styles.verifierSection} reveal`}
       id="verificador"
       aria-labelledby="phone-verifier-heading"
-      role="region"
-      ref={elementRef}
     >
       <header className={styles.header}>
         <p className={styles.eyebrow}>Camada de confiança</p>
@@ -72,14 +72,19 @@ const PhoneVerifier = () => {
                 inputMode="tel"
                 placeholder="Ex: (81) 98765-4321"
                 value={raw}
-                onChange={(e) => setRaw(e.target.value)}
+                onChange={handleChange}
                 className={styles.input}
                 aria-invalid={checked && !isOfficial}
                 aria-describedby={checked ? resultId : undefined}
               />
 
               <div className={styles.buttonGroup}>
-                <button type="submit" className={styles.primaryButton}>
+                <button
+                  type="submit"
+                  className={styles.primaryButton}
+                  aria-disabled={normalized.length < 8}
+                  onClick={(e) => { if (normalized.length < 8) e.preventDefault(); }}
+                >
                   Validar
                 </button>
                 <button

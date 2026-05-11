@@ -9,6 +9,7 @@ interface ServicePageLayoutProps {
   subtitle: React.ReactNode;
   serviceJsonLd: object;
   faqJsonLd: object;
+  breadcrumbJsonLd: object;
   sidebarIcon: string;
   sidebarTitle: string;
   sidebarDescription: string;
@@ -20,6 +21,7 @@ export default function ServicePageLayout({
   subtitle,
   serviceJsonLd,
   faqJsonLd,
+  breadcrumbJsonLd,
   sidebarIcon,
   sidebarTitle,
   sidebarDescription,
@@ -29,16 +31,17 @@ export default function ServicePageLayout({
     <>
       <JsonLdScript data={serviceJsonLd} />
       <JsonLdScript data={faqJsonLd} />
+      <JsonLdScript data={breadcrumbJsonLd} />
       <div className={styles.servicePage}>
         <header className={styles.hero}>
           <div className={styles.container}>
-            <ServiceBackLink />
+            <ServiceBackLink pageTitle={title} />
             <h1 className={styles.title}>{title}</h1>
             <p className={styles.subtitle}>{subtitle}</p>
           </div>
         </header>
 
-        <main className={styles.contentWrapper}>
+        <div className={styles.contentWrapper}>
           <div className={styles.grid}>
             <article className={styles.mainContent}>{children}</article>
             <ServiceSidebar
@@ -47,7 +50,7 @@ export default function ServicePageLayout({
               description={sidebarDescription}
             />
           </div>
-        </main>
+        </div>
 
         <AboutAuthor />
       </div>

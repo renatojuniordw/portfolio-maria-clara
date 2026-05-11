@@ -45,6 +45,11 @@
   font-weight: 800;
   line-height: 1.45;
   cursor: pointer;
+
+  &:focus-visible {
+    outline: 3px solid $signal;
+    outline-offset: 2px;
+  }
 }
 
 .symbol {

@@ -41,7 +41,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               aria-label="LinkedIn"
             >
-              <FaLinkedinIn size={22} />
+              <FaLinkedinIn size={22} aria-hidden="true" />
             </a>
             <a
               href={CONSTANTS.instagram}
@@ -49,7 +49,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               aria-label="Instagram"
             >
-              <FaInstagram size={22} />
+              <FaInstagram size={22} aria-hidden="true" />
             </a>
           </div>
         </div>

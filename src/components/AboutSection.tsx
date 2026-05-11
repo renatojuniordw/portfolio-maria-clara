@@ -1,20 +1,13 @@
-"use client";
-
 import Image from "next/image";
 import profileImg from "@/assets/images/profile.png";
 import styles from "@/assets/styles/AboutSection.module.scss";
 
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
 const AboutSection = () => {
-  const { elementRef, isVisible } = useScrollAnimation<HTMLElement>(0.2);
-
   return (
     <section
-      className={`${styles.about} ${isVisible ? "revealVisible" : "reveal"}`}
+      className={`${styles.about} reveal`}
       id="sobre"
       aria-labelledby="about-heading"
-      ref={elementRef}
     >
       <div className={styles.container}>
         <header className={styles.titleWrapper}>
