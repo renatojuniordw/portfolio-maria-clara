@@ -69,13 +69,13 @@ const Footer = () => {
           reservados. <br />
           OAB/PE 60.665 – Maria Clara dos Santos, Advogada Previdenciária.
         </p>
-        <div className={styles.unificandoCredits}>
+        <div className={styles.creatorCredits}>
           <a
-            href="https://unificando.com.br/"
+            href="https://renatobezerra.com.br/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Design e Performance por <strong>Unificando</strong>
+            Design e Performance por <strong>Renato Bezerra</strong>
           </a>
         </div>
       </div>
